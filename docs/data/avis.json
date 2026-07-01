@@ -1,12 +1,15 @@
 {
-  "_commentaire": "Preuve sociale : note globale + citations clients réelles (issues des avis publics, citées sans lien ni logo TheFork — le restaurant ne veut pas y renvoyer de trafic). Le texte des citations reste dans sa langue d'origine (authenticité). Mettre 'actif': false pour masquer la section.",
+  "_commentaire": "Preuve sociale : macaron note globale + avis clients RÉELS et vérifiés (fiche officielle Av. Desiderio Rodríguez 37). Cités sans lien ni logo TheFork/Google. Le texte reste dans sa langue d'origine (authenticité). 'note' = étoiles (1-5) ou texte (ex. '10/10'). Ajouter un avis = copier un bloc. Ne pas inventer d'avis.",
   "actif": true,
   "note_globale": "9/10",
   "nombre_avis": { "fr": "226 avis", "nl": "226 beoordelingen", "es": "226 opiniones", "en": "226 reviews" },
   "source": { "fr": "D'après les avis de nos clients", "nl": "Op basis van de beoordelingen van onze gasten", "es": "Según las opiniones de nuestros clientes", "en": "Based on our guests' reviews" },
   "avis": [
-    { "note": 5, "texte": "Qualité de la viande, viande sur pierre, poisson frais. Bord de mer, ambiance très agréable." },
-    { "note": 5, "texte": "Todo perfecto para pasar un rato y disfrutar." },
-    { "note": 5, "texte": "Vue sur la mer, service très aimable, une belle découverte." }
+    { "note": 5, "auteur": "Jany B.", "texte": "Calidad de menú, carne sobre piedra, pescado fresco. Borde de mar, ambiente muy agradable." },
+    { "note": 5, "auteur": "Eva J.", "texte": "Ha sido todo un descubrimiento. La comida muy buena, así como la presentación. El servicio muy amable. Vistas al mar." },
+    { "note": 5, "auteur": "Carmen E.", "texte": "Las vistas al mar impresionante, el servicio bueno, la atención al cliente impresionante. Un 10 a la experiencia." },
+    { "note": 5, "auteur": "Inma O.", "texte": "Buen ambiente y una comida buenísima. Para repetir." },
+    { "note": 5, "auteur": "Anita D.", "texte": "Lugar ideal para una cena acogedora juntos." },
+    { "note": 5, "texte": "The best restaurant in the area. My partner had three meats cooked on a stone and the steak was the best we have had in Spain. Service is friendly and relaxed. A cut above the rest!" }
   ]
 }
