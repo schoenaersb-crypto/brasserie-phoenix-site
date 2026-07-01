@@ -1,0 +1,14 @@
+{
+  "_commentaire": "Menu de la semaine. Pour le changer : modifier 'semaine_du' et la liste 'plats'. Mettre 'actif': false pour masquer complètement la section quand il n'y a pas de menu spécial.",
+  "actif": true,
+  "semaine_du": "2026-06-29",
+  "titre": { "fr": "Menu de la semaine", "nl": "Menu van de week", "es": "Menú de la semana", "en": "Menu of the week" },
+  "sous_titre": { "fr": "Suggestions du chef, servies midi et soir", "nl": "Suggesties van de chef, geserveerd 's middags en 's avonds", "es": "Sugerencias del chef, servidas al mediodía y por la noche", "en": "Chef's suggestions, served at lunch and dinner" },
+  "plats": [
+    {
+      "prix": "18,90 €",
+      "nom": { "fr": "Suggestion du marché", "nl": "Suggestie van de markt", "es": "Sugerencia del mercado", "en": "Market suggestion" },
+      "desc": { "fr": "Plat de saison composé le matin selon les arrivages — demandez à votre serveur", "nl": "Seizoensgerecht, 's ochtends samengesteld op basis van de aanvoer — vraag het uw ober", "es": "Plato de temporada elaborado por la mañana según el mercado — pregunte a su camarero", "en": "Seasonal dish prepared in the morning based on fresh deliveries — ask your server" }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brasserie Phoenix · Torrevieja</title>
+  <meta name="description" content="Brasserie Phoenix — grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée. Torrevieja, Espagne." />
+
+  <!-- Favicon (le logo phénix) -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <!-- Polices de la charte : Cormorant Garamond (titres) + Jost (texte) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- ===== Bandeau annonces (rempli depuis data/annonces.json, masqué si inactif) ===== -->
+  <div id="annonces" class="annonces" hidden></div>
+
+  <!-- ===== En-tête / navigation ===== -->
+  <header class="site-header" id="site-header">
+    <a href="#accueil" class="brand" aria-label="Brasserie Phoenix — accueil">
+      <img src="assets/img/phoenix-logo.png" alt="" class="brand-logo" />
+      <span class="brand-name">Brasserie Phoenix</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navigation principale">
+      <a href="#accueil" data-nav="accueil">Accueil</a>
+      <a href="#carte" data-nav="carte">La carte</a>
+      <a href="#semaine" data-nav="semaine">Menu semaine</a>
+      <a href="#reserver" data-nav="reserver">Réserver</a>
+      <a href="#infos" data-nav="infos">Infos</a>
+    </nav>
+
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Choix de la langue">
+      <!-- boutons de langue injectés par i18n.js -->
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section id="accueil" class="hero">
+      <div class="hero-embers" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <img src="assets/img/phoenix-logo.png" alt="Logo phénix de la Brasserie Phoenix" class="hero-logo" />
+        <h1 class="hero-title">Brasserie Phoenix</h1>
+        <p class="hero-slogan" data-ui="hero.slogan"></p>
+        <p class="hero-accroche" data-ui="hero.accroche"></p>
+        <p class="hero-lieu" data-ui="hero.lieu"></p>
+        <div class="hero-cta">
+          <a href="#carte" class="btn btn-primary" data-ui="hero.cta_carte"></a>
+          <a href="#reserver" class="btn btn-ghost" data-ui="hero.cta_reserver"></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== La carte ===== -->
+    <section id="carte" class="section">
+      <div class="section-head">
+        <h2 data-ui="sections.carte_titre"></h2>
+        <p class="section-intro" data-ui="sections.carte_intro"></p>
+      </div>
+      <div id="carte-contenu" class="carte"></div>
+    </section>
+
+    <!-- ===== Menu de la semaine ===== -->
+    <section id="semaine" class="section section-alt" hidden>
+      <div class="section-head">
+        <h2 id="semaine-titre"></h2>
+        <p class="section-intro" id="semaine-soustitre"></p>
+      </div>
+      <div id="semaine-contenu" class="semaine"></div>
+    </section>
+
+    <!-- ===== Réservation ===== -->
+    <section id="reserver" class="section">
+      <div class="section-head">
+        <h2 data-ui="sections.reserver_titre"></h2>
+        <p class="section-intro" data-ui="sections.reserver_intro"></p>
+      </div>
+
+      <form id="reservation-form" class="reservation" novalidate>
+        <div class="field">
+          <label for="r-date" data-ui="form.date"></label>
+          <input type="date" id="r-date" name="date" required />
+        </div>
+        <div class="field">
+          <label for="r-heure" data-ui="form.heure"></label>
+          <input type="time" id="r-heure" name="heure" required />
+        </div>
+        <div class="field">
+          <label for="r-personnes" data-ui="form.personnes"></label>
+          <input type="number" id="r-personnes" name="personnes" min="1" max="30" value="2" required />
+        </div>
+        <div class="field">
+          <label for="r-nom" data-ui="form.nom"></label>
+          <input type="text" id="r-nom" name="nom" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="r-tel" data-ui="form.telephone"></label>
+          <input type="tel" id="r-tel" name="telephone" autocomplete="tel" />
+        </div>
+
+        <p id="form-erreur" class="form-erreur" role="alert" hidden></p>
+
+        <div class="reservation-actions">
+          <button type="button" id="btn-wa" class="btn btn-primary" data-ui="form.envoyer_wa"></button>
+          <button type="button" id="btn-email" class="btn btn-ghost" data-ui="form.envoyer_email"></button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Infos pratiques ===== -->
+    <section id="infos" class="section section-alt">
+      <div class="section-head">
+        <h2 data-ui="sections.infos_titre"></h2>
+      </div>
+      <div id="infos-contenu" class="infos"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <img src="assets/img/phoenix-logo.png" alt="" class="footer-logo" />
+    <p class="footer-name">Brasserie Phoenix · Torrevieja</p>
+    <div class="footer-social" id="footer-social"></div>
+    <p class="footer-legal">© <span id="year"></span> Brasserie Phoenix S.L. — <span data-ui="footer.droits"></span></p>
+  </footer>
+
+  <!-- Scripts : chargés en fin de page, sans dépendance externe -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/reservation.js"></script>
+</body>
+</html>

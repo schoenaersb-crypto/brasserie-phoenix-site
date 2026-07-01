@@ -1,0 +1,49 @@
+{
+  "_commentaire": "Tous les textes d'interface du site (menus, boutons, titres, formulaire). 4 langues. Pour changer un libellé, modifier ici.",
+  "langues": [
+    { "code": "fr", "label": "FR", "nom": "Français" },
+    { "code": "nl", "label": "NL", "nom": "Nederlands" },
+    { "code": "es", "label": "ES", "nom": "Español" },
+    { "code": "en", "label": "EN", "nom": "English" }
+  ],
+  "nav": {
+    "accueil": { "fr": "Accueil", "nl": "Home", "es": "Inicio", "en": "Home" },
+    "carte": { "fr": "La carte", "nl": "Menukaart", "es": "La carta", "en": "Menu" },
+    "semaine": { "fr": "Menu semaine", "nl": "Weekmenu", "es": "Menú semana", "en": "Weekly menu" },
+    "reserver": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book" },
+    "infos": { "fr": "Infos", "nl": "Info", "es": "Info", "en": "Info" }
+  },
+  "hero": {
+    "slogan": { "fr": "La générosité du Sud, l'élégance d'une Brasserie.", "nl": "De gastvrijheid van het Zuiden, de elegantie van een brasserie.", "es": "La generosidad del Sur, la elegancia de una brasserie.", "en": "The generosity of the South, the elegance of a Brasserie." },
+    "accroche": { "fr": "Grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée.", "nl": "Vlees gegrild op lavasteen of aan het spit, verse pasta en zeevruchten, met uitzicht op de Middellandse Zee.", "es": "Carnes a la parrilla sobre piedra de lava o al espetón, pasta fresca y mariscos, frente al Mediterráneo.", "en": "Grilled meats on lava stone or over an open-fire spit, fresh pasta and seafood, facing the Mediterranean." },
+    "lieu": { "fr": "Torrevieja · Bord de mer", "nl": "Torrevieja · Aan zee", "es": "Torrevieja · Frente al mar", "en": "Torrevieja · Seafront" },
+    "cta_carte": { "fr": "Voir la carte", "nl": "Bekijk de kaart", "es": "Ver la carta", "en": "See the menu" },
+    "cta_reserver": { "fr": "Réserver une table", "nl": "Een tafel reserveren", "es": "Reservar una mesa", "en": "Book a table" }
+  },
+  "sections": {
+    "carte_titre": { "fr": "La Carte", "nl": "De Menukaart", "es": "La Carta", "en": "The Menu" },
+    "carte_intro": { "fr": "Prix TTC. Nos suggestions « Coup de Cœur » sont signalées.", "nl": "Prijzen incl. btw. Onze « favorieten van de chef » zijn aangeduid.", "es": "Precios con IVA. Nuestras sugerencias « favoritas » están señaladas.", "en": "Prices incl. VAT. Our « Chef's Favourite » suggestions are marked." },
+    "reserver_titre": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book a table" },
+    "reserver_intro": { "fr": "Remplissez le formulaire : votre demande part par WhatsApp ou email, pré-remplie. Nous confirmons rapidement.", "nl": "Vul het formulier in: uw aanvraag vertrekt vooraf ingevuld via WhatsApp of e-mail. Wij bevestigen snel.", "es": "Rellene el formulario: su solicitud se envía ya redactada por WhatsApp o email. Confirmamos rápidamente.", "en": "Fill in the form: your request is sent pre-filled via WhatsApp or email. We confirm quickly." },
+    "infos_titre": { "fr": "Infos pratiques", "nl": "Praktische info", "es": "Información práctica", "en": "Practical info" }
+  },
+  "labels": {
+    "coup_de_coeur": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
+    "origine": { "fr": "Origine", "nl": "Herkomst", "es": "Origen", "en": "Origin" }
+  },
+  "form": {
+    "date": { "fr": "Date", "nl": "Datum", "es": "Fecha", "en": "Date" },
+    "heure": { "fr": "Heure", "nl": "Uur", "es": "Hora", "en": "Time" },
+    "personnes": { "fr": "Nombre de personnes", "nl": "Aantal personen", "es": "Número de personas", "en": "Number of guests" },
+    "nom": { "fr": "Nom", "nl": "Naam", "es": "Nombre", "en": "Name" },
+    "telephone": { "fr": "Téléphone", "nl": "Telefoon", "es": "Teléfono", "en": "Phone" },
+    "envoyer_wa": { "fr": "Réserver par WhatsApp", "nl": "Reserveren via WhatsApp", "es": "Reservar por WhatsApp", "en": "Book via WhatsApp" },
+    "envoyer_email": { "fr": "Réserver par email", "nl": "Reserveren via e-mail", "es": "Reservar por email", "en": "Book by email" },
+    "requis": { "fr": "Merci de remplir au moins la date, l'heure, le nombre de personnes et votre nom.", "nl": "Vul minstens de datum, het uur, het aantal personen en uw naam in.", "es": "Complete al menos la fecha, la hora, el número de personas y su nombre.", "en": "Please fill in at least the date, time, number of guests and your name." },
+    "message_modele": { "fr": "Bonjour, je souhaite réserver une table pour {personnes} personne(s) le {date} à {heure}. Nom : {nom}. Téléphone : {telephone}. Merci !", "nl": "Hallo, ik wil graag een tafel reserveren voor {personnes} persoon/personen op {date} om {heure}. Naam: {nom}. Telefoon: {telephone}. Bedankt!", "es": "Hola, deseo reservar una mesa para {personnes} persona(s) el {date} a las {heure}. Nombre: {nom}. Teléfono: {telephone}. ¡Gracias!", "en": "Hello, I would like to book a table for {personnes} guest(s) on {date} at {heure}. Name: {nom}. Phone: {telephone}. Thank you!" }
+  },
+  "footer": {
+    "droits": { "fr": "Tous droits réservés.", "nl": "Alle rechten voorbehouden.", "es": "Todos los derechos reservados.", "en": "All rights reserved." },
+    "suivez": { "fr": "Suivez-nous", "nl": "Volg ons", "es": "Síguenos", "en": "Follow us" }
+  }
+}

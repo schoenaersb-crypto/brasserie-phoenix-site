@@ -1,0 +1,20 @@
+{
+  "_commentaire": "Infos pratiques du restaurant. Modifier ici adresse, téléphone, horaires, liens réseaux.",
+  "nom": "Brasserie Phoenix",
+  "adresse": "Av. Desiderio Rodríguez, 37, 03185 Torrevieja, Alicante, Espagne",
+  "telephone_affiche": "+34 744 62 29 75",
+  "telephone_wa": "34744622975",
+  "email": "brasseriephoenixrestaurant@gmail.com",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Brasserie+Phoenix+Av.+Desiderio+Rodr%C3%ADguez+37+Torrevieja",
+  "reseaux": {
+    "instagram": "https://www.instagram.com/brasseriephoenix",
+    "facebook": "https://www.facebook.com/197488840124875",
+    "tiktok": "https://www.tiktok.com/@restaurantphoenix"
+  },
+  "horaires": {
+    "note": { "fr": "Ouvert 7j/7, midi et soir", "nl": "7/7 geopend, 's middags en 's avonds", "es": "Abierto todos los días, mediodía y noche", "en": "Open 7 days a week, lunch and dinner" },
+    "lignes": [
+      { "jours": { "fr": "Lundi – Dimanche", "nl": "Maandag – Zondag", "es": "Lunes – Domingo", "en": "Monday – Sunday" }, "heures": "12:00 – 16:00 · 19:00 – 23:00" }
+    ]
+  }
+}

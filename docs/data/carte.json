@@ -1,0 +1,350 @@
+{
+  "_commentaire": "Carte complète Brasserie Phoenix. Chaque plat porte ses 4 langues (fr/nl/es/en). Pour modifier un plat/prix : changer la valeur ici, c'est tout. 'coup_de_coeur': true met le plat en avant. 'verifier_prix': true = prix à confirmer par Bastien (extrait d'un PDF).",
+  "categories": [
+    {
+      "id": "entrees",
+      "nom": { "fr": "Nos Entrées", "nl": "Onze Voorgerechten", "es": "Nuestras Entradas", "en": "Our Starters" },
+      "items": [
+        {
+          "id": "saint-jacques-karmeliet", "prix": "18,90 €", "coup_de_coeur": true, "verifier_prix": true,
+          "nom": { "fr": "Saint-Jacques snackées Triple Karmeliet", "nl": "Gebakken sint-jakobsschelpen met drievoudige Karmeliet", "es": "Vieiras selladas con Triple Karmeliet", "en": "Seared scallops with Triple Karmeliet" },
+          "desc": { "fr": "Saint-Jacques fraîches, sauce Triple Karmeliet, accompagnement du jour", "nl": "Verse sint-jakobsschelpen, drievoudige karmelietsaus, bijgerecht van de dag", "es": "Vieiras frescas, salsa Triple Karmeliet, guarnición del día", "en": "Fresh scallops, Triple Karmeliet sauce, side dish of the day" }
+        },
+        {
+          "id": "carpaccio-boeuf-italienne", "prix": "21,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Carpaccio de bœuf à l'italienne", "nl": "Italiaanse carpaccio van rundvlees", "es": "Carpaccio de ternera al estilo italiano", "en": "Italian-style beef carpaccio" },
+          "desc": { "fr": "Bœuf argentin, pesto pistache, tomates séchées, billes de mozzarella, roquette, vinaigre balsamique", "nl": "Argentijns rundvlees, pistachepesto, zongedroogde tomaten, mozzarellabolletjes, rucola, balsamicoazijn", "es": "Carne de res argentina, pesto de pistacho, tomates secos, bolitas de mozzarella, rúcula, vinagre balsámico", "en": "Argentinian beef, pistachio pesto, sun-dried tomatoes, mozzarella balls, arugula, balsamic vinegar" }
+        },
+        {
+          "id": "oeuf-parfait-carbonara", "prix": "13,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Œuf Parfait 64° façon carbonara", "nl": "Perfect gegaard ei op 64° carbonarawijze", "es": "Huevo perfecto estilo carbonara a 64°", "en": "Perfect Egg 64° Carbonara Style" },
+          "desc": { "fr": "Crème légère, lardons croustillants, parmesan, pecorino", "nl": "Lichte room, krokant spek, Parmezaanse kaas, Pecorino", "es": "Crema ligera, tocino crujiente, parmesano, pecorino", "en": "Light cream, crispy bacon, parmesan, pecorino" }
+        },
+        {
+          "id": "camembert-roti", "prix": "14,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Camembert rôti & charcuterie", "nl": "Geroosterde camembert en charcuterie", "es": "Camembert asado y embutidos", "en": "Roasted Camembert & charcuterie" },
+          "desc": { "fr": "Camembert, thym, miel, charcuterie", "nl": "Camembert, tijm, honing, gedroogd vlees", "es": "Camembert, tomillo, miel, embutidos", "en": "Camembert, thyme, honey, cured meats" }
+        },
+        {
+          "id": "chips-crevettes", "prix": "19,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Chips de crevettes (Quisquillas)", "nl": "Gefrituurde Quisquillas", "es": "Quisquillas fritas", "en": "Fried Quisquillas" },
+          "desc": { "fr": "Servies avec une sauce aïoli maison", "nl": "Geserveerd met zelfgemaakte aiolisaus", "es": "Servido con salsa alioli casera", "en": "Served with homemade aioli sauce" }
+        },
+        {
+          "id": "carpaccio-gambas", "prix": "18,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Carpaccio de Gambas", "nl": "Garnalencarpaccio", "es": "Carpaccio de camarones", "en": "Shrimp Carpaccio" },
+          "desc": { "fr": "Huile d'olive, zeste de citron et orange, sel noir, poivre", "nl": "Olijfolie, citroen- en sinaasappelschil, zwart zout, peper", "es": "Aceite de oliva, ralladura de limón y naranja, sal negra, pimienta", "en": "Olive oil, lemon and orange zest, black salt, pepper" }
+        },
+        {
+          "id": "tomate-burrata", "prix": "12,10 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Tomate burrata & pesto de pistache", "nl": "Tomatenburrata & pistachepesto", "es": "Burrata de tomate y pesto de pistacho", "en": "Tomato burrata & pistachio pesto" },
+          "desc": { "fr": "Tomates, burrata, pesto de pistache, roquette, vinaigre balsamique", "nl": "Tomaten, burrata, pistachepesto, rucola, balsamicoazijn", "es": "Tomates, burrata, pesto de pistacho, rúcula, vinagre balsámico", "en": "Tomatoes, burrata, pistachio pesto, arugula, balsamic vinegar" }
+        },
+        {
+          "id": "supions-chorizo", "prix": "12,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Poêlée de supions au chorizo", "nl": "Gebakken babyinktvisjes met chorizo", "es": "Chipirones salteados con chorizo", "en": "Pan-fried baby squid with chorizo" },
+          "desc": { "fr": "Supions poêlés, chorizo", "nl": "Gebakken babyinktvisjes, chorizo", "es": "Calamares pequeños fritos en sartén, chorizo", "en": "Pan-fried baby squid, chorizo" }
+        },
+        {
+          "id": "melon-jambon-porto", "prix": "10,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Melon, jambon cru et porto", "nl": "Meloen, gerookte ham en port", "es": "Melón, jamón curado y oporto", "en": "Melon, cured ham and port" },
+          "desc": { "fr": "Melon de saison, jambon serrano et porto", "nl": "Seizoensmeloen, Serranoham en portwijn", "es": "Melón de temporada, jamón serrano y vino de Oporto", "en": "Seasonal melon, Serrano ham and port wine" }
+        },
+        {
+          "id": "huitres", "prix": "12,00 €", "coup_de_coeur": true,
+          "nom": { "fr": "Huîtres", "nl": "Oesters", "es": "Ostras", "en": "Oysters" },
+          "desc": { "fr": "4 huîtres, vinaigre aux échalotes, yuzu — coupe de cava +3€", "nl": "4 oesters, sjalotvinaigrette, yuzu — glas cava +€3", "es": "4 ostras, vinagreta de chalota, yuzu — copa de cava +3€", "en": "4 oysters, shallot vinaigrette, yuzu — glass of cava +€3" }
+        }
+      ]
+    },
+    {
+      "id": "salades",
+      "nom": { "fr": "Nos Salades", "nl": "Onze Salades", "es": "Nuestras Ensaladas", "en": "Our Salads" },
+      "items": [
+        {
+          "id": "salade-levante", "prix": "16,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Salade Levante", "nl": "Levantijnse salade", "es": "Ensalada levantina", "en": "Levantine Salad" },
+          "desc": { "fr": "Tataki de thon rouge, orange sanguine, fenouil croquant, olives Taggiasche, tomate, oignon", "nl": "Tataki van rode tonijn, bloedsinaasappel, venkel, Taggiasca olijven, tomaat, ui", "es": "Tataki de atún rojo, naranja sanguina, hinojo, aceitunas Taggiasca, tomate, cebolla", "en": "Red tuna tataki, blood orange, fennel, Taggiasca olives, tomato, onion" }
+        },
+        {
+          "id": "salade-mer", "prix": "17,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Salade de la mer", "nl": "Zeevruchtensalade", "es": "Ensalada de mariscos", "en": "Seafood salad" },
+          "desc": { "fr": "Gambas, avocat, mangue, coriandre fraîche, vinaigrette yuzu", "nl": "Garnalen, avocado, mango, koriander, yuzu-vinaigrette", "es": "Gambas, aguacate, mango, cilantro, vinagreta de yuzu", "en": "Prawns, avocado, mango, coriander, yuzu vinaigrette" }
+        },
+        {
+          "id": "salade-cesar", "prix": "14,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Salade César façon Phoenix", "nl": "Caesar salade in Phoenix-stijl", "es": "Ensalada César al estilo Phoenix", "en": "Phoenix-style Caesar salad" },
+          "desc": { "fr": "Poulet rôti, anchois, parmesan, croûtons, sauce césar", "nl": "Gebraden kip, ansjovis, Parmezaanse kaas, croutons, Caesar dressing", "es": "Pollo asado, anchoas, queso parmesano, picatostes, aderezo César", "en": "Roast chicken, anchovies, parmesan cheese, croutons, Caesar dressing" }
+        },
+        {
+          "id": "salade-grecque", "prix": "11,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Salade grecque", "nl": "Griekse salade", "es": "Ensalada griega", "en": "Greek salad" },
+          "desc": { "fr": "Salade, tomate, oignon, concombre, feta", "nl": "Salade, tomaat, ui, komkommer, feta", "es": "Ensalada, tomate, cebolla, pepino, queso feta", "en": "Salad, tomato, onion, cucumber, feta" }
+        },
+        {
+          "id": "salade-chevre-miel", "prix": "12,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Salade chèvre-miel (toast chaud)", "nl": "Salade met geitenkaas en honing (op warme toast)", "es": "Ensalada de queso de cabra y miel (tostado caliente)", "en": "Goat cheese and honey salad (warm toast)" },
+          "desc": { "fr": "Rondelle de chèvre chaud, miel, salade croquante", "nl": "Warme plak geitenkaas, honing, knapperige salade", "es": "Rebanada de queso de cabra tibio, miel, ensalada crujiente", "en": "Warm goat's cheese, honey, crunchy salad" }
+        }
+      ]
+    },
+    {
+      "id": "plats",
+      "nom": { "fr": "Nos Plats", "nl": "Onze Gerechten", "es": "Nuestros Platos", "en": "Our Dishes" },
+      "items": [
+        {
+          "id": "tartare-boeuf", "prix": "18,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Tartare de bœuf préparé minute", "nl": "Rundertartaar, vers bereid op bestelling", "es": "Tartar de ternera preparado al momento", "en": "Beef tartare prepared to order" },
+          "desc": { "fr": "Bœuf coupé au couteau, frites, salade", "nl": "Rundvlees, met een mes gesneden, friet, salade", "es": "Carne de res cortada con cuchillo, patatas fritas, ensalada", "en": "Beef cut with a knife, fries, salad" }
+        },
+        {
+          "id": "seiche-plancha", "prix": "22,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Seiche à la plancha, légumes & frites", "nl": "Gegrilde inktvis, groenten en friet", "es": "Calamar a la parrilla, verduras y patatas fritas", "en": "Grilled cuttlefish, vegetables & fries" },
+          "desc": { "fr": "Seiche, poêlée de légumes, frites", "nl": "Inktvis, roergebakken groenten, friet", "es": "Calamar, salteado de verduras, patatas fritas", "en": "Cuttlefish, vegetable stir-fry, fries" }
+        },
+        {
+          "id": "espadon-thon-grille", "prix": "26,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Espadon ou Thon grillé, chimichurri", "nl": "Gegrilde zwaardvis of tonijn met chimichurri", "es": "Pez espada o atún a la parrilla, chimichurri", "en": "Grilled swordfish or tuna, chimichurri" },
+          "desc": { "fr": "Sauce chimichurri, accompagnement du jour — Thon +4€", "nl": "Chimichurrisaus, bijgerecht van de dag — Tonijn +€4", "es": "Salsa chimichurri, guarnición del día — Atún +4€", "en": "Chimichurri sauce, side dish of the day — Tuna +€4" }
+        },
+        {
+          "id": "burger-italien", "prix": "21,20 €", "coup_de_coeur": false,
+          "nom": { "fr": "Burger italien", "nl": "Italiaanse hamburger", "es": "Hamburguesa italiana", "en": "Italian burger" },
+          "desc": { "fr": "Bœuf, mozzarella, tomates séchées, pesto de pistache, roquette, pain brioché", "nl": "Rundvlees, mozzarella, zongedroogde tomaten, pistachepesto, rucola, briochebroodje", "es": "Ternera, mozzarella, tomates secos, pesto de pistacho, rúcula, pan brioche", "en": "Beef, mozzarella, sun-dried tomatoes, pistachio pesto, arugula, brioche bun" }
+        },
+        {
+          "id": "brochettes-scampis", "prix": "22,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Brochettes de scampis sauce Phoenix", "nl": "Scampispiesjes met Phoenixsaus", "es": "Brochetas de langostinos con salsa Phoenix", "en": "Scampi skewers with Phoenix sauce" },
+          "desc": { "fr": "Brochette de scampis, accompagnement du jour", "nl": "Scampispiesjes, bijgerecht van de dag", "es": "Brochetas de langostinos, guarnición del día", "en": "Scampi skewers, side dish of the day" }
+        },
+        {
+          "id": "supreme-volaille-truffe", "prix": "24,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Suprême de volaille à la truffe", "nl": "Kipsupreme met truffel", "es": "Suprema de pollo con trufa", "en": "Chicken supreme with truffle" },
+          "desc": { "fr": "Filet de volaille, écrasé de pomme de terre, sauce crémeuse à la truffe", "nl": "Kipfilet, aardappelpuree, romige truffelsaus", "es": "Filete de pollo, puré de patatas, salsa cremosa de trufa", "en": "Chicken fillet, mashed potatoes, creamy truffle sauce" }
+        }
+      ]
+    },
+    {
+      "id": "viandes",
+      "nom": { "fr": "Nos Viandes sur Pierre", "nl": "Ons Vlees op Steen", "es": "Nuestras Carnes a la Piedra", "en": "Our Meats on Stone" },
+      "note": { "fr": "Servies avec salade, une sauce maison et un accompagnement.", "nl": "Geserveerd met salade, een huisgemaakte saus en een bijgerecht.", "es": "Se sirve con ensalada, salsa casera y una guarnición.", "en": "Served with salad, homemade sauce and a side dish." },
+      "items": [
+        {
+          "id": "entrecote-galicien", "prix": "35,90 €", "coup_de_coeur": false,
+          "origine": { "fr": "Espagne", "nl": "Spanje", "es": "España", "en": "Spain" },
+          "nom": { "fr": "Entrecôte de bœuf Galicien", "nl": "Galicische ribeye van rundvlees", "es": "Chuletón de ternera gallega", "en": "Galician Beef Ribeye" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "filet-galicien", "prix": "40,90 €", "coup_de_coeur": false,
+          "origine": { "fr": "Espagne", "nl": "Spanje", "es": "España", "en": "Spain" },
+          "nom": { "fr": "Filet de bœuf Galicien", "nl": "Galicische runderfilet", "es": "Filete de ternera gallega", "en": "Galician beef fillet" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "plateau-mixte", "prix": "28,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Plateau mixte", "nl": "Gemengd plateau", "es": "Meseta mixta", "en": "Mixed Plateau" },
+          "desc": { "fr": "Filet pur de bœuf, filet pur de porc, filet de poulet", "nl": "Runderhaas, varkenshaas, kippenhaas", "es": "Solomillo de ternera, solomillo de cerdo, solomillo de pollo", "en": "Beef tenderloin, pork tenderloin, chicken tenderloin" }
+        },
+        {
+          "id": "selection-suggestion", "prix": "21,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Sélection de viande en suggestion", "nl": "Vleeskeuze zoals voorgesteld", "es": "Selección de carne según lo sugerido", "en": "Meat selection as suggested" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "filet-porc-duroc", "prix": "20,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "origine": { "fr": "Espagne", "nl": "Spanje", "es": "España", "en": "Spain" },
+          "nom": { "fr": "Filet pur de porc Duroc", "nl": "Duroc puur varkensfilet", "es": "Filete de cerdo Duroc puro", "en": "Duroc pork fillet" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "filet-volaille-jaune", "prix": "20,90 €", "coup_de_coeur": false,
+          "origine": { "fr": "Espagne", "nl": "Spanje", "es": "España", "en": "Spain" },
+          "nom": { "fr": "Filet de volaille jaune", "nl": "Gele kipfilet", "es": "Filete de pollo amarillo", "en": "Yellow chicken fillet" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "entrecote-argentin", "prix": "38,90 €", "coup_de_coeur": false,
+          "origine": { "fr": "Argentine", "nl": "Argentinië", "es": "Argentina", "en": "Argentina" },
+          "nom": { "fr": "Entrecôte de bœuf Argentin", "nl": "Argentijnse ribeye van rundvlees", "es": "Chuletón de res argentino", "en": "Argentinian Beef Ribeye" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "filet-boeuf-belge", "prix": "39,90 €", "coup_de_coeur": true,
+          "origine": { "fr": "Belgique", "nl": "België", "es": "Bélgica", "en": "Belgium" },
+          "nom": { "fr": "Filet de bœuf Belge", "nl": "Belgische runderfilet", "es": "Filete de ternera belga", "en": "Belgian beef fillet" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "black-angus", "prix": "", "prix_special": true, "coup_de_coeur": false,
+          "origine": { "fr": "Irlande", "nl": "Ierland", "es": "Irlanda", "en": "Ireland" },
+          "nom": { "fr": "Bœuf Black Angus", "nl": "Black Angus rundvlees", "es": "Ternera Black Angus", "en": "Black Angus Beef" },
+          "prix_texte": { "fr": "Prix du jour", "nl": "Prijs van de dag", "es": "Precio del día", "en": "Price of the day" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "potence-gambas", "prix": "33,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Potence Gambas flambée au Ricard", "nl": "Garnalen aan het spit, geflambeerd met Ricard", "es": "Langostinos al espetón flambeados con Ricard", "en": "Prawns on the spit, flambéed with Ricard" },
+          "desc": { "fr": "2 pers. minimum — prix par personne", "nl": "Minimum 2 personen — prijs per persoon", "es": "Mínimo 2 personas — precio por persona", "en": "Minimum 2 people — price per person" }
+        },
+        {
+          "id": "potence-viande", "prix": "", "prix_special": true, "coup_de_coeur": true,
+          "nom": { "fr": "Potence Viande flambée au rhum", "nl": "Vlees aan het spit, geflambeerd met rum", "es": "Carne al espetón flambeada con ron", "en": "Meat on the spit, flambéed with rum" },
+          "prix_texte": { "fr": "Prix du jour", "nl": "Prijs van de dag", "es": "Precio del día", "en": "Price of the day" },
+          "desc": { "fr": "2 pers. minimum — prix par personne. Choix entre porc Duroc, volaille jaune, bœuf Belge, bœuf Galicien", "nl": "Minimum 2 personen — prijs per persoon. Keuze uit Duroc varkensvlees, geel gevogelte, Belgisch rundvlees, Galicisch rundvlees", "es": "Mínimo 2 personas — precio por persona. A elegir entre cerdo Duroc, ave amarilla, ternera belga o ternera gallega", "en": "Minimum 2 people — price per person. Choice between Duroc pork, yellow poultry, Belgian beef, Galician beef" }
+        }
+      ],
+      "sauces": {
+        "titre": { "fr": "Sauces", "nl": "Sauzen", "es": "Salsas", "en": "Sauces" },
+        "liste": [
+          { "fr": "Poivre vert", "nl": "Groene peper", "es": "Pimienta verde", "en": "Green pepper" },
+          { "fr": "Provençale", "nl": "Provençaals", "es": "Provenzal", "en": "Provençal" },
+          { "fr": "Roquefort", "nl": "Roquefort", "es": "Roquefort", "en": "Roquefort" },
+          { "fr": "Béarnaise", "nl": "Béarnaise", "es": "Bearnesa", "en": "Béarnaise" },
+          { "fr": "Choron", "nl": "Choron", "es": "Choron", "en": "Choron" },
+          { "fr": "Champignon", "nl": "Champignon", "es": "Champiñón", "en": "Mushroom" }
+        ]
+      },
+      "accompagnements": {
+        "titre": { "fr": "Accompagnements", "nl": "Bijgerechten", "es": "Guarniciones", "en": "Side dishes" },
+        "liste": [
+          { "fr": "Frites Phoenix", "nl": "Phoenix frieten", "es": "Patatas fritas Phoenix", "en": "Phoenix fries" },
+          { "fr": "Croquettes", "nl": "Kroketten", "es": "Croquetas", "en": "Croquettes" },
+          { "fr": "Pomme de terre au four", "nl": "Gepofte aardappel", "es": "Patata al horno", "en": "Baked potato" },
+          { "fr": "Gratin Dauphinois (+2,50 €)", "nl": "Aardappelgratin (+2,50 €)", "es": "Patatas gratinadas (+2,50 €)", "en": "Dauphinoise potatoes (+2.50 €)" },
+          { "fr": "Potatoes", "nl": "Potatoes", "es": "Patatas", "en": "Potatoes" },
+          { "fr": "Pâtes", "nl": "Pasta", "es": "Pasta", "en": "Pasta" }
+        ]
+      }
+    },
+    {
+      "id": "pates",
+      "nom": { "fr": "Nos Pâtes", "nl": "Onze Pasta", "es": "Nuestra Pasta", "en": "Our Pasta" },
+      "items": [
+        {
+          "id": "carbonara", "prix": "12,90 €", "coup_de_coeur": true, "verifier_prix": true,
+          "nom": { "fr": "Carbonara", "nl": "Carbonara", "es": "Carbonara", "en": "Carbonara" },
+          "desc": { "fr": "Pecorino, parmesan, Guanciale", "nl": "Pecorino, Parmezaanse kaas, Guanciale", "es": "Pecorino, parmesano, Guanciale", "en": "Pecorino, parmesan, Guanciale" }
+        },
+        {
+          "id": "saumon-aneth", "prix": "14,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Saumon & aneth", "nl": "Zalm & dille", "es": "Salmón y eneldo", "en": "Salmon & dill" },
+          "desc": { "fr": "Saumon, sauce crème aneth", "nl": "Zalm met dilleroomsaus", "es": "Salmón con salsa de crema de eneldo", "en": "Salmon, dill cream sauce" }
+        },
+        {
+          "id": "polpette", "prix": "13,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Polpette", "nl": "Gehaktballen", "es": "Albóndigas", "en": "Meatballs" },
+          "desc": { "fr": "Sauce tomate, olives, boulettes de viande, parmesan", "nl": "Tomatensaus, olijven, gehaktballetjes, Parmezaanse kaas", "es": "Salsa de tomate, aceitunas, albóndigas, parmesano", "en": "Tomato sauce, olives, meatballs, parmesan" }
+        },
+        {
+          "id": "chorizo-sobrasada", "prix": "13,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Chorizo, sobrasada & chips jambon cru", "nl": "Chorizo, sobrasada & chips rauwe ham", "es": "Chorizo, sobrasada y chips de jamón curado", "en": "Chorizo, sobrasada & cured ham chips" },
+          "desc": { "fr": "Identité ibérique affirmée", "nl": "Uitgesproken Iberische identiteit", "es": "Identidad ibérica afirmada", "en": "Asserted Iberian identity" }
+        },
+        {
+          "id": "pesto-pistache-pates", "prix": "12,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Pesto de pistache", "nl": "Pistachepesto", "es": "Pesto de pistacho", "en": "Pistachio pesto" },
+          "desc": { "fr": "Pesto maison pistache, burrata +2,50 €", "nl": "Huisgemaakte pistachepesto, burrata +2,50 €", "es": "Pesto casero de pistacho, burrata +2,50 €", "en": "Homemade pistachio pesto, burrata +2.50 €" }
+        },
+        {
+          "id": "scampis-pates", "prix": "17,90 €", "coup_de_coeur": false, "verifier_prix": true,
+          "nom": { "fr": "Scampis", "nl": "Scampi's", "es": "Langostinos", "en": "Scampi" },
+          "desc": { "fr": "Sauce au choix : Phoenix, poivre vert, champignon, roquefort, curry rouge coco, chimichurri. Sauce crème truffe +2€", "nl": "Sausopties: Phoenix, groene peper, champignon, Roquefort, rode kokoscurry, chimichurri. Truffelroomsaus +€2", "es": "Salsa a elegir: Phoenix, pimienta verde, champiñón, Roquefort, curry rojo de coco, chimichurri. Salsa de crema de trufa +2€", "en": "Sauce of your choice: Phoenix, green pepper, mushroom, Roquefort, red coconut curry, chimichurri. Truffle cream sauce +€2" }
+        }
+      ]
+    },
+    {
+      "id": "enfants",
+      "nom": { "fr": "Nos Plats enfants", "nl": "Onze Kindermaaltijden", "es": "Nuestras Comidas Infantiles", "en": "Our Children's Meals" },
+      "items": [
+        {
+          "id": "burger-enfant", "prix": "12,00 €", "coup_de_coeur": false,
+          "nom": { "fr": "Burger enfant & frites", "nl": "Kinderburger met friet", "es": "Hamburguesa y patatas fritas para niños", "en": "Kids' burger & fries" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "nuggets", "prix": "12,00 €", "coup_de_coeur": false,
+          "nom": { "fr": "Nuggets frites", "nl": "Nuggets met friet", "es": "Nuggets con patatas fritas", "en": "Nuggets & fries" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "pates-jambon-fromage", "prix": "12,00 €", "coup_de_coeur": false,
+          "nom": { "fr": "Pâtes jambon fromage", "nl": "Pasta met ham en kaas", "es": "Pasta con jamón y queso", "en": "Pasta with ham and cheese" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        },
+        {
+          "id": "pates-bolognaise", "prix": "12,00 €", "coup_de_coeur": false,
+          "nom": { "fr": "Pâtes bolognaise enfant", "nl": "Kinder Bolognese pasta", "es": "Pasta boloñesa para niños", "en": "Children's Bolognese pasta" },
+          "desc": { "fr": "", "nl": "", "es": "", "en": "" }
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "nom": { "fr": "Nos Desserts", "nl": "Onze Desserts", "es": "Nuestros Postres", "en": "Our Desserts" },
+      "items": [
+        {
+          "id": "creme-brulee", "prix": "9,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Crème brûlée au Grand Marnier", "nl": "Crème brûlée met Grand Marnier", "es": "Crème brûlée al Grand Marnier", "en": "Grand Marnier crème brûlée" },
+          "desc": { "fr": "Crème brûlée maison flambée au Grand Marnier", "nl": "Huisgemaakte crème brûlée geflambeerd met Grand Marnier", "es": "Crème brûlée casera flambeada con Grand Marnier", "en": "Homemade crème brûlée flambéed with Grand Marnier" }
+        },
+        {
+          "id": "dame-blanche", "prix": "9,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Dame blanche", "nl": "Witte Dame", "es": "Dama Blanca", "en": "White Lady" },
+          "desc": { "fr": "Boules de glace vanille, chocolat Callebaut et chantilly", "nl": "Bolletjes vanille-ijs, Callebaut-chocolade en slagroom", "es": "Bolas de helado de vainilla, chocolate Callebaut y nata montada", "en": "Vanilla ice cream, Callebaut chocolate and whipped cream" }
+        },
+        {
+          "id": "poire-vin", "prix": "8,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Poire au vin", "nl": "Peer in wijn", "es": "Pera en vino", "en": "Pear in wine" },
+          "desc": { "fr": "Poire, boule de glace, chantilly", "nl": "Peer, bolletje ijs, slagroom", "es": "Pera, bola de helado, nata montada", "en": "Pear, scoop of ice cream, whipped cream" }
+        },
+        {
+          "id": "cafe-gourmand", "prix": "8,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Café gourmand", "nl": "Gourmetkoffie", "es": "Café gourmet", "en": "Gourmet coffee" },
+          "desc": { "fr": "Café au choix et assortiment de pâtisseries", "nl": "Koffie naar keuze en een assortiment gebak", "es": "Café a su elección y una variedad de pasteles", "en": "Coffee of your choice and an assortment of pastries" }
+        },
+        {
+          "id": "tarte-fruits", "prix": "9,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Tarte aux fruits & glace vanille", "nl": "Fruittaart met vanille-ijs", "es": "Tarta de frutas y helado de vainilla", "en": "Fruit tart & vanilla ice cream" },
+          "desc": { "fr": "Tarte aux fruits maison, glace vanille, chantilly", "nl": "Zelfgemaakte fruittaart, vanille-ijs, slagroom", "es": "Tarta de frutas casera, helado de vainilla, nata montada", "en": "Homemade fruit tart, vanilla ice cream, whipped cream" }
+        },
+        {
+          "id": "colonel", "prix": "7,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Colonel", "nl": "Kolonel", "es": "Coronel", "en": "Colonel" },
+          "desc": { "fr": "Sorbet citron, vodka", "nl": "Citroensorbet, wodka", "es": "Sorbete de limón, vodka", "en": "Lemon sorbet, vodka" }
+        },
+        {
+          "id": "bresilienne", "prix": "9,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Brésilienne", "nl": "Braziliaans", "es": "Helado brasileño", "en": "Brazilian" },
+          "desc": { "fr": "Glace vanille et moka, caramel, noisettes caramélisées, chantilly", "nl": "Vanille- en mokka-ijs, karamel, gekarameliseerde hazelnoten, slagroom", "es": "Helado de vainilla y moca, caramelo, avellanas caramelizadas, nata montada", "en": "Vanilla and mocha ice cream, caramel, caramelized hazelnuts, whipped cream" }
+        },
+        {
+          "id": "tiramisu", "prix": "9,90 €", "coup_de_coeur": true,
+          "nom": { "fr": "Tiramisu du jour", "nl": "Tiramisu van de dag", "es": "Tiramisú del día", "en": "Tiramisu of the day" },
+          "desc": { "fr": "Notre tiramisu change au fil des saisons", "nl": "Onze tiramisu verandert met de seizoenen", "es": "Nuestro tiramisú cambia con las estaciones", "en": "Our tiramisu changes with the seasons" }
+        },
+        {
+          "id": "cava-gourmand", "prix": "11,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Cava gourmand", "nl": "Cava gourmand", "es": "Cava gourmet", "en": "Cava gourmand" },
+          "desc": { "fr": "Cava au choix et assortiment de pâtisseries", "nl": "Keuze uit cava en een assortiment gebak", "es": "Selección de cava y variedad de pasteles", "en": "Choice of cava and assortment of pastries" }
+        },
+        {
+          "id": "plateau-fromages", "prix": "", "prix_special": true, "coup_de_coeur": false,
+          "nom": { "fr": "Plateau de fromages", "nl": "Kaasplank", "es": "Tabla de quesos", "en": "Cheese platter" },
+          "prix_texte": { "fr": "Prix du jour", "nl": "Prijs van de dag", "es": "Precio del día", "en": "Price of the day" },
+          "desc": { "fr": "Servi avec du pain et une confiture", "nl": "Geserveerd met brood en jam", "es": "Se sirve con pan y mermelada", "en": "Served with bread and jam" }
+        },
+        {
+          "id": "digestif-gourmand", "prix": "8,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Digestif gourmand", "nl": "Gourmet digestief", "es": "Digestivo gourmet", "en": "Gourmet digestive" },
+          "desc": { "fr": "Café au choix et assortiment de pâtisseries", "nl": "Koffie naar keuze en een assortiment gebak", "es": "Café a su elección y una variedad de pasteles", "en": "Coffee of your choice and an assortment of pastries" }
+        },
+        {
+          "id": "tartelette-pommes", "prix": "12,90 €", "coup_de_coeur": false,
+          "nom": { "fr": "Tartelette aux pommes", "nl": "Appeltaartje", "es": "Tartaleta de manzana", "en": "Apple tartlet" },
+          "desc": { "fr": "Tarte aux pommes, boule de glace, chantilly", "nl": "Appeltaart, bolletje ijs, slagroom", "es": "Tarta de manzana, bola de helado, nata montada", "en": "Apple tart, scoop of ice cream, whipped cream" }
+        }
+      ]
+    }
+  ]
+}

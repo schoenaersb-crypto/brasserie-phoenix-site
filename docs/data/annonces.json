@@ -1,0 +1,10 @@
+{
+  "_commentaire": "Annonces ponctuelles (événement, fermeture, promo). Mettre 'actif': false pour masquer le bandeau. Chaque annonce a un 'ton' : info (cuivre), fete (feu), alerte (marine).",
+  "actif": false,
+  "annonces": [
+    {
+      "ton": "fete",
+      "texte": { "fr": "Terrasse chiringuito ouverte tout l'été, face à la mer 🌅", "nl": "Chiringuito-terras de hele zomer open, met zicht op zee 🌅", "es": "Terraza chiringuito abierta todo el verano, frente al mar 🌅", "en": "Chiringuito terrace open all summer, facing the sea 🌅" }
+    }
+  ]
+}
