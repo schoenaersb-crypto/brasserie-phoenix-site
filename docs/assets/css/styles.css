@@ -176,6 +176,33 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .semaine-plat .plat-tete { justify-content: space-between; }
 .semaine-plat .plat-desc { margin-top: 6px; }
 
+/* ---- Menu lunch structuré (entrée / plat au choix / dessert) ---- */
+.semaine-prix { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 6px; }
+.semaine-prix-montant {
+  font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--marine);
+  font-size: 2.2rem; line-height: 1;
+  border: 2px solid var(--cuivre); border-radius: 999px; padding: 8px 26px; background: var(--blanc);
+}
+.semaine-prix-note { font-size: 0.82rem; color: var(--texte-doux); text-transform: uppercase; letter-spacing: 0.12em; }
+
+.semaine-course { background: var(--blanc); border-left: 4px solid var(--cuivre); border-radius: var(--rayon); padding: 16px 22px; box-shadow: var(--ombre); }
+.course-label { font-family: 'Jost', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--cuivre); margin-bottom: 10px; }
+.course-item .plat-tete { align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.course-item .plat-desc { margin-top: 4px; }
+
+/* « Plat au choix » : deux options séparées par « ou » */
+.course-choix { display: grid; gap: 12px; }
+.course-choix .course-item { padding: 12px 14px; background: var(--creme); border-radius: 8px; }
+.choix-ou {
+  justify-self: center; align-self: center;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--cuivre);
+  font-size: 1rem; text-transform: lowercase; position: relative; padding: 2px 0;
+}
+.plat-tag {
+  font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--marine); background: var(--cuivre-clair); padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+}
+
 /* ============================ Réservation ============================ */
 .reservation { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 640px; margin: 0 auto; background: var(--blanc); padding: 28px; border-radius: var(--rayon); box-shadow: var(--ombre); }
 .field { display: flex; flex-direction: column; gap: 6px; }

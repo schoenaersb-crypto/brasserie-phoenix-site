@@ -1,14 +1,45 @@
 {
-  "_commentaire": "Menu de la semaine. Pour le changer : modifier 'semaine_du' et la liste 'plats'. Mettre 'actif': false pour masquer complètement la section quand il n'y a pas de menu spécial.",
+  "_commentaire": "Menu du midi (lunch). 'prix' = prix du menu complet. 'courses' = les services ; un service avec 'choix': true propose plusieurs options (chacune avec un 'tag' Poisson/Viande). Mettre 'actif': false pour masquer la section. L'ancien format 'plats' reste supporté.",
   "actif": true,
-  "semaine_du": "2026-06-29",
-  "titre": { "fr": "Menu de la semaine", "nl": "Menu van de week", "es": "Menú de la semana", "en": "Menu of the week" },
-  "sous_titre": { "fr": "Suggestions du chef, servies midi et soir", "nl": "Suggesties van de chef, geserveerd 's middags en 's avonds", "es": "Sugerencias del chef, servidas al mediodía y por la noche", "en": "Chef's suggestions, served at lunch and dinner" },
-  "plats": [
+  "semaine_du": "2026-07-01",
+  "titre": { "fr": "Menu Lunch", "nl": "Lunchmenu", "es": "Menú Lunch", "en": "Lunch Menu" },
+  "sous_titre": { "fr": "Entrée · Plat au choix · Dessert", "nl": "Voorgerecht · Hoofdgerecht naar keuze · Dessert", "es": "Entrante · Plato a elegir · Postre", "en": "Starter · Main of your choice · Dessert" },
+  "prix": "17,90 €",
+  "prix_note": { "fr": "3 services, servi le midi", "nl": "3 gangen, 's middags geserveerd", "es": "3 platos, servido al mediodía", "en": "3 courses, served at lunch" },
+  "choix_ou": { "fr": "ou", "nl": "of", "es": "o", "en": "or" },
+  "courses": [
     {
-      "prix": "18,90 €",
-      "nom": { "fr": "Suggestion du marché", "nl": "Suggestie van de markt", "es": "Sugerencia del mercado", "en": "Market suggestion" },
-      "desc": { "fr": "Plat de saison composé le matin selon les arrivages — demandez à votre serveur", "nl": "Seizoensgerecht, 's ochtends samengesteld op basis van de aanvoer — vraag het uw ober", "es": "Plato de temporada elaborado por la mañana según el mercado — pregunte a su camarero", "en": "Seasonal dish prepared in the morning based on fresh deliveries — ask your server" }
+      "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
+      "items": [
+        {
+          "nom": { "fr": "Soupe de pastèque au basilic", "nl": "Watermeloensoep met basilicum", "es": "Sopa de sandía con albahaca", "en": "Watermelon & basil soup" },
+          "desc": { "fr": "Billes de mozzarella et croûtons aillés", "nl": "Mozzarellabolletjes en knoflookcroutons", "es": "Bolitas de mozzarella y picatostes al ajo", "en": "Mozzarella pearls and garlic croutons" }
+        }
+      ]
+    },
+    {
+      "label": { "fr": "Plat au choix", "nl": "Hoofdgerecht naar keuze", "es": "Plato a elegir", "en": "Main of your choice" },
+      "choix": true,
+      "items": [
+        {
+          "tag": { "fr": "Poisson", "nl": "Vis", "es": "Pescado", "en": "Fish" },
+          "nom": { "fr": "Bar entier, sauce vierge", "nl": "Hele zeebaars, sauce vierge", "es": "Lubina entera, salsa vierge", "en": "Whole sea bass, sauce vierge" },
+          "desc": { "fr": "Ratatouille et riz", "nl": "Ratatouille en rijst", "es": "Ratatouille y arroz", "en": "Ratatouille and rice" }
+        },
+        {
+          "tag": { "fr": "Viande", "nl": "Vlees", "es": "Carne", "en": "Meat" },
+          "nom": { "fr": "Steak haché façon italienne, 200 g", "nl": "Italiaanse gehakte steak, 200 g", "es": "Filete de carne picada a la italiana, 200 g", "en": "Italian-style beef patty, 200 g" },
+          "desc": { "fr": "Tomate séchée, mozzarella, parmesan · ratatouille et riz", "nl": "Zongedroogde tomaat, mozzarella, parmezaan · ratatouille en rijst", "es": "Tomate seco, mozzarella, parmesano · ratatouille y arroz", "en": "Sun-dried tomato, mozzarella, parmesan · ratatouille and rice" }
+        }
+      ]
+    },
+    {
+      "label": { "fr": "Dessert", "nl": "Dessert", "es": "Postre", "en": "Dessert" },
+      "items": [
+        {
+          "nom": { "fr": "Île flottante façon Phoenix", "nl": "Île flottante op zijn Phoenix", "es": "Isla flotante estilo Phoenix", "en": "Floating island, Phoenix style" }
+        }
+      ]
     }
   ]
 }

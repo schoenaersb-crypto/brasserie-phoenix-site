@@ -99,16 +99,49 @@
     if (sous) sous.textContent = tr(s.sous_titre);
 
     cont.innerHTML = "";
-    (s.plats || []).forEach(function (p) {
-      var c = el("div", "semaine-plat");
-      var tete = el("div", "plat-tete");
-      tete.appendChild(el("span", "plat-nom", tr(p.nom)));
-      if (p.prix) tete.appendChild(el("span", "plat-prix", p.prix));
-      c.appendChild(tete);
-      var d = tr(p.desc);
-      if (d) c.appendChild(el("p", "plat-desc", d));
-      cont.appendChild(c);
-    });
+
+    // Prix du menu (badge) — ex. « 17,90 € »
+    if (s.prix) {
+      var badge = el("div", "semaine-prix");
+      badge.appendChild(el("span", "semaine-prix-montant", s.prix));
+      if (tr(s.prix_note)) badge.appendChild(el("span", "semaine-prix-note", tr(s.prix_note)));
+      cont.appendChild(badge);
+    }
+
+    if (s.courses) {
+      // Menu structuré : Entrée / Plat au choix / Dessert
+      s.courses.forEach(function (course) {
+        var bloc = el("div", "semaine-course");
+        bloc.appendChild(el("h4", "course-label", tr(course.label)));
+
+        var liste = el("div", "course-items" + (course.choix ? " course-choix" : ""));
+        (course.items || []).forEach(function (it, idx) {
+          if (course.choix && idx > 0) liste.appendChild(el("span", "choix-ou", tr(s.choix_ou) || "ou"));
+          var item = el("div", "course-item");
+          var tete = el("div", "plat-tete");
+          if (it.tag && tr(it.tag)) tete.appendChild(el("span", "plat-tag", tr(it.tag)));
+          tete.appendChild(el("span", "plat-nom", tr(it.nom)));
+          item.appendChild(tete);
+          var d = tr(it.desc);
+          if (d) item.appendChild(el("p", "plat-desc", d));
+          liste.appendChild(item);
+        });
+        bloc.appendChild(liste);
+        cont.appendChild(bloc);
+      });
+    } else {
+      // Ancien format : liste simple de plats
+      (s.plats || []).forEach(function (p) {
+        var c = el("div", "semaine-plat");
+        var tete = el("div", "plat-tete");
+        tete.appendChild(el("span", "plat-nom", tr(p.nom)));
+        if (p.prix) tete.appendChild(el("span", "plat-prix", p.prix));
+        c.appendChild(tete);
+        var d = tr(p.desc);
+        if (d) c.appendChild(el("p", "plat-desc", d));
+        cont.appendChild(c);
+      });
+    }
   }
 
   /* ---------- Bandeau annonces ---------- */
