@@ -1,0 +1,39 @@
+{
+ "items": [
+  {
+   "id": "salade-levante",
+   "prix": "16,90 €",
+   "coup_de_coeur": true,
+   "nom": "Levantine Salad",
+   "desc": "Red tuna tataki, blood orange, fennel, Taggiasca olives, tomato, onion"
+  },
+  {
+   "id": "salade-mer",
+   "prix": "17,90 €",
+   "coup_de_coeur": true,
+   "nom": "Seafood salad",
+   "desc": "Prawns, avocado, mango, coriander, yuzu vinaigrette"
+  },
+  {
+   "id": "salade-cesar",
+   "prix": "14,90 €",
+   "coup_de_coeur": true,
+   "nom": "Phoenix-style Caesar salad",
+   "desc": "Roast chicken, anchovies, parmesan cheese, croutons, Caesar dressing"
+  },
+  {
+   "id": "salade-grecque",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Greek salad",
+   "desc": "Salad, tomato, onion, cucumber, feta"
+  },
+  {
+   "id": "salade-chevre-miel",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Goat cheese and honey salad (warm toast)",
+   "desc": "Warm goat's cheese, honey, crunchy salad"
+  }
+ ]
+}

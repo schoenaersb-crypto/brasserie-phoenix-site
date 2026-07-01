@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "id": "carbonara",
+   "prix": "12,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Carbonara",
+   "desc": "Pecorino, parmesan, Guanciale"
+  },
+  {
+   "id": "saumon-aneth",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Salmon & dill",
+   "desc": "Salmon, dill cream sauce"
+  },
+  {
+   "id": "polpette",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Meatballs",
+   "desc": "Tomato sauce, olives, meatballs, parmesan"
+  },
+  {
+   "id": "chorizo-sobrasada",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chorizo, sobrasada & cured ham chips",
+   "desc": "Asserted Iberian identity"
+  },
+  {
+   "id": "pesto-pistache-pates",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Pistachio pesto",
+   "desc": "Homemade pistachio pesto, burrata +2.50 €"
+  },
+  {
+   "id": "scampis-pates",
+   "prix": "17,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Scampi",
+   "desc": "Sauce of your choice: Phoenix, green pepper, mushroom, Roquefort, red coconut curry, chimichurri. Truffle cream sauce +€2"
+  }
+ ]
+}

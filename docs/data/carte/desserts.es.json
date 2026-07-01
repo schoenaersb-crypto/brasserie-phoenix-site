@@ -1,0 +1,90 @@
+{
+ "items": [
+  {
+   "id": "creme-brulee",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Crème brûlée al Grand Marnier",
+   "desc": "Crème brûlée casera flambeada con Grand Marnier"
+  },
+  {
+   "id": "dame-blanche",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Dama Blanca",
+   "desc": "Bolas de helado de vainilla, chocolate Callebaut y nata montada"
+  },
+  {
+   "id": "poire-vin",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Pera en vino",
+   "desc": "Pera, bola de helado, nata montada"
+  },
+  {
+   "id": "cafe-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Café gourmet",
+   "desc": "Café a su elección y una variedad de pasteles"
+  },
+  {
+   "id": "tarte-fruits",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tarta de frutas y helado de vainilla",
+   "desc": "Tarta de frutas casera, helado de vainilla, nata montada"
+  },
+  {
+   "id": "colonel",
+   "prix": "7,90 €",
+   "coup_de_coeur": false,
+   "nom": "Coronel",
+   "desc": "Sorbete de limón, vodka"
+  },
+  {
+   "id": "bresilienne",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Helado brasileño",
+   "desc": "Helado de vainilla y moca, caramelo, avellanas caramelizadas, nata montada"
+  },
+  {
+   "id": "tiramisu",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Tiramisú del día",
+   "desc": "Nuestro tiramisú cambia con las estaciones"
+  },
+  {
+   "id": "cava-gourmand",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Cava gourmet",
+   "desc": "Selección de cava y variedad de pasteles"
+  },
+  {
+   "id": "plateau-fromages",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "nom": "Tabla de quesos",
+   "prix_texte": "Precio del día",
+   "desc": "Se sirve con pan y mermelada"
+  },
+  {
+   "id": "digestif-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Digestivo gourmet",
+   "desc": "Café a su elección y una variedad de pasteles"
+  },
+  {
+   "id": "tartelette-pommes",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tartaleta de manzana",
+   "desc": "Tarta de manzana, bola de helado, nata montada"
+  }
+ ]
+}

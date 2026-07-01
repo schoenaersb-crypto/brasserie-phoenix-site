@@ -1,0 +1,46 @@
+{
+ "items": [
+  {
+   "id": "tartare-boeuf",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Beef tartare prepared to order",
+   "desc": "Beef cut with a knife, fries, salad"
+  },
+  {
+   "id": "seiche-plancha",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Grilled cuttlefish, vegetables & fries",
+   "desc": "Cuttlefish, vegetable stir-fry, fries"
+  },
+  {
+   "id": "espadon-thon-grille",
+   "prix": "26,90 €",
+   "coup_de_coeur": false,
+   "nom": "Grilled swordfish or tuna, chimichurri",
+   "desc": "Chimichurri sauce, side dish of the day — Tuna +€4"
+  },
+  {
+   "id": "burger-italien",
+   "prix": "21,20 €",
+   "coup_de_coeur": false,
+   "nom": "Italian burger",
+   "desc": "Beef, mozzarella, sun-dried tomatoes, pistachio pesto, arugula, brioche bun"
+  },
+  {
+   "id": "brochettes-scampis",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Scampi skewers with Phoenix sauce",
+   "desc": "Scampi skewers, side dish of the day"
+  },
+  {
+   "id": "supreme-volaille-truffe",
+   "prix": "24,90 €",
+   "coup_de_coeur": true,
+   "nom": "Chicken supreme with truffle",
+   "desc": "Chicken fillet, mashed potatoes, creamy truffle sauce"
+  }
+ ]
+}

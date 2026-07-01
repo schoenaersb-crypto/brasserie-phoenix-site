@@ -1,0 +1,78 @@
+{
+ "items": [
+  {
+   "id": "saint-jacques-karmeliet",
+   "prix": "18,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Vieiras selladas con Triple Karmeliet",
+   "desc": "Vieiras frescas, salsa Triple Karmeliet, guarnición del día"
+  },
+  {
+   "id": "carpaccio-boeuf-italienne",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Carpaccio de ternera al estilo italiano",
+   "desc": "Carne de res argentina, pesto de pistacho, tomates secos, bolitas de mozzarella, rúcula, vinagre balsámico"
+  },
+  {
+   "id": "oeuf-parfait-carbonara",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "nom": "Huevo perfecto estilo carbonara a 64°",
+   "desc": "Crema ligera, tocino crujiente, parmesano, pecorino"
+  },
+  {
+   "id": "camembert-roti",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "nom": "Camembert asado y embutidos",
+   "desc": "Camembert, tomillo, miel, embutidos"
+  },
+  {
+   "id": "chips-crevettes",
+   "prix": "19,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Quisquillas fritas",
+   "desc": "Servido con salsa alioli casera"
+  },
+  {
+   "id": "carpaccio-gambas",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Carpaccio de camarones",
+   "desc": "Aceite de oliva, ralladura de limón y naranja, sal negra, pimienta"
+  },
+  {
+   "id": "tomate-burrata",
+   "prix": "12,10 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Burrata de tomate y pesto de pistacho",
+   "desc": "Tomates, burrata, pesto de pistacho, rúcula, vinagre balsámico"
+  },
+  {
+   "id": "supions-chorizo",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chipirones salteados con chorizo",
+   "desc": "Calamares pequeños fritos en sartén, chorizo"
+  },
+  {
+   "id": "melon-jambon-porto",
+   "prix": "10,90 €",
+   "coup_de_coeur": false,
+   "nom": "Melón, jamón curado y oporto",
+   "desc": "Melón de temporada, jamón serrano y vino de Oporto"
+  },
+  {
+   "id": "huitres",
+   "prix": "12,00 €",
+   "coup_de_coeur": true,
+   "nom": "Ostras",
+   "desc": "4 ostras, vinagreta de chalota, yuzu — copa de cava +3€"
+  }
+ ]
+}

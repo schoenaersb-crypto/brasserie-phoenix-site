@@ -1,0 +1,78 @@
+{
+ "items": [
+  {
+   "id": "saint-jacques-karmeliet",
+   "prix": "18,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Saint-Jacques snackées Triple Karmeliet",
+   "desc": "Saint-Jacques fraîches, sauce Triple Karmeliet, accompagnement du jour"
+  },
+  {
+   "id": "carpaccio-boeuf-italienne",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Carpaccio de bœuf à l'italienne",
+   "desc": "Bœuf argentin, pesto pistache, tomates séchées, billes de mozzarella, roquette, vinaigre balsamique"
+  },
+  {
+   "id": "oeuf-parfait-carbonara",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "nom": "Œuf Parfait 64° façon carbonara",
+   "desc": "Crème légère, lardons croustillants, parmesan, pecorino"
+  },
+  {
+   "id": "camembert-roti",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "nom": "Camembert rôti & charcuterie",
+   "desc": "Camembert, thym, miel, charcuterie"
+  },
+  {
+   "id": "chips-crevettes",
+   "prix": "19,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chips de crevettes (Quisquillas)",
+   "desc": "Servies avec une sauce aïoli maison"
+  },
+  {
+   "id": "carpaccio-gambas",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Carpaccio de Gambas",
+   "desc": "Huile d'olive, zeste de citron et orange, sel noir, poivre"
+  },
+  {
+   "id": "tomate-burrata",
+   "prix": "12,10 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Tomate burrata & pesto de pistache",
+   "desc": "Tomates, burrata, pesto de pistache, roquette, vinaigre balsamique"
+  },
+  {
+   "id": "supions-chorizo",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Poêlée de supions au chorizo",
+   "desc": "Supions poêlés, chorizo"
+  },
+  {
+   "id": "melon-jambon-porto",
+   "prix": "10,90 €",
+   "coup_de_coeur": false,
+   "nom": "Melon, jambon cru et porto",
+   "desc": "Melon de saison, jambon serrano et porto"
+  },
+  {
+   "id": "huitres",
+   "prix": "12,00 €",
+   "coup_de_coeur": true,
+   "nom": "Huîtres",
+   "desc": "4 huîtres, vinaigre aux échalotes, yuzu — coupe de cava +3€"
+  }
+ ]
+}

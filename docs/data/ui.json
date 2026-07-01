@@ -47,6 +47,9 @@
     "infos_titre": { "fr": "Infos pratiques", "nl": "Praktische info", "es": "Información práctica", "en": "Practical info" },
     "horaires_titre": { "fr": "Horaires", "nl": "Openingsuren", "es": "Horario", "en": "Opening hours" }
   },
+  "carte": {
+    "erreur": { "fr": "Chargement momentanément indisponible — réessayez plus tard.", "nl": "Tijdelijk niet beschikbaar — probeer het later opnieuw.", "es": "Carga temporalmente no disponible — inténtelo más tarde.", "en": "Temporarily unavailable — please try again later." }
+  },
   "labels": {
     "coup_de_coeur": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
     "origine": { "fr": "Origine", "nl": "Herkomst", "es": "Origen", "en": "Origin" }

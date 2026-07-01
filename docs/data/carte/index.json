@@ -1,0 +1,74 @@
+{
+ "_commentaire": "Généré depuis carte.json (source). Ordre + en-têtes des catégories. Le détail de chaque catégorie est dans carte/<id>.<langue>.json, chargé à la demande.",
+ "categories": [
+  {
+   "id": "entrees",
+   "nom": {
+    "fr": "Nos Entrées",
+    "nl": "Onze Voorgerechten",
+    "es": "Nuestras Entradas",
+    "en": "Our Starters"
+   }
+  },
+  {
+   "id": "salades",
+   "nom": {
+    "fr": "Nos Salades",
+    "nl": "Onze Salades",
+    "es": "Nuestras Ensaladas",
+    "en": "Our Salads"
+   }
+  },
+  {
+   "id": "plats",
+   "nom": {
+    "fr": "Nos Plats",
+    "nl": "Onze Gerechten",
+    "es": "Nuestros Platos",
+    "en": "Our Dishes"
+   }
+  },
+  {
+   "id": "viandes",
+   "nom": {
+    "fr": "Nos Viandes sur Pierre",
+    "nl": "Ons Vlees op Steen",
+    "es": "Nuestras Carnes a la Piedra",
+    "en": "Our Meats on Stone"
+   },
+   "note": {
+    "fr": "Servies avec salade, une sauce maison et un accompagnement.",
+    "nl": "Geserveerd met salade, een huisgemaakte saus en een bijgerecht.",
+    "es": "Se sirve con ensalada, salsa casera y una guarnición.",
+    "en": "Served with salad, homemade sauce and a side dish."
+   }
+  },
+  {
+   "id": "pates",
+   "nom": {
+    "fr": "Nos Pâtes",
+    "nl": "Onze Pasta",
+    "es": "Nuestra Pasta",
+    "en": "Our Pasta"
+   }
+  },
+  {
+   "id": "enfants",
+   "nom": {
+    "fr": "Nos Plats enfants",
+    "nl": "Onze Kindermaaltijden",
+    "es": "Nuestras Comidas Infantiles",
+    "en": "Our Children's Meals"
+   }
+  },
+  {
+   "id": "desserts",
+   "nom": {
+    "fr": "Nos Desserts",
+    "nl": "Onze Desserts",
+    "es": "Nuestros Postres",
+    "en": "Our Desserts"
+   }
+  }
+ ]
+}

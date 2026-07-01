@@ -139,6 +139,17 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .cat-titre::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cuivre); flex: none; }
 .cat-note { color: var(--texte-doux); font-style: italic; font-size: 0.92rem; margin-bottom: 18px; }
 
+/* squelette de catégorie (pendant le chargement à la demande) */
+.cat-skeleton { display: grid; gap: 14px; padding: 6px 0; }
+.sk-ligne { height: 40px; border-radius: 8px; background: var(--creme-2);
+  background-image: linear-gradient(90deg, var(--creme-2) 0%, #efe6d5 20%, #f6efe0 40%, var(--creme-2) 60%);
+  background-size: 200% 100%; animation: sk-shimmer 1.3s ease-in-out infinite; }
+.sk-ligne:nth-child(2) { width: 92%; }
+.sk-ligne:nth-child(3) { width: 84%; }
+@keyframes sk-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.cat-erreur { color: var(--texte-doux); font-style: italic; padding: 10px 0; }
+@media (prefers-reduced-motion: reduce) { .sk-ligne { animation: none; } }
+
 .plats { display: grid; gap: 2px; }
 .plat {
   display: grid; grid-template-columns: 1fr auto; gap: 6px 16px;

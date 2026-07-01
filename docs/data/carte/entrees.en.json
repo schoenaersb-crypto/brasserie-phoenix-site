@@ -1,0 +1,78 @@
+{
+ "items": [
+  {
+   "id": "saint-jacques-karmeliet",
+   "prix": "18,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Seared scallops with Triple Karmeliet",
+   "desc": "Fresh scallops, Triple Karmeliet sauce, side dish of the day"
+  },
+  {
+   "id": "carpaccio-boeuf-italienne",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Italian-style beef carpaccio",
+   "desc": "Argentinian beef, pistachio pesto, sun-dried tomatoes, mozzarella balls, arugula, balsamic vinegar"
+  },
+  {
+   "id": "oeuf-parfait-carbonara",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "nom": "Perfect Egg 64° Carbonara Style",
+   "desc": "Light cream, crispy bacon, parmesan, pecorino"
+  },
+  {
+   "id": "camembert-roti",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "nom": "Roasted Camembert & charcuterie",
+   "desc": "Camembert, thyme, honey, cured meats"
+  },
+  {
+   "id": "chips-crevettes",
+   "prix": "19,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Fried Quisquillas",
+   "desc": "Served with homemade aioli sauce"
+  },
+  {
+   "id": "carpaccio-gambas",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Shrimp Carpaccio",
+   "desc": "Olive oil, lemon and orange zest, black salt, pepper"
+  },
+  {
+   "id": "tomate-burrata",
+   "prix": "12,10 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Tomato burrata & pistachio pesto",
+   "desc": "Tomatoes, burrata, pistachio pesto, arugula, balsamic vinegar"
+  },
+  {
+   "id": "supions-chorizo",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Pan-fried baby squid with chorizo",
+   "desc": "Pan-fried baby squid, chorizo"
+  },
+  {
+   "id": "melon-jambon-porto",
+   "prix": "10,90 €",
+   "coup_de_coeur": false,
+   "nom": "Melon, cured ham and port",
+   "desc": "Seasonal melon, Serrano ham and port wine"
+  },
+  {
+   "id": "huitres",
+   "prix": "12,00 €",
+   "coup_de_coeur": true,
+   "nom": "Oysters",
+   "desc": "4 oysters, shallot vinaigrette, yuzu — glass of cava +€3"
+  }
+ ]
+}

@@ -1,0 +1,90 @@
+{
+ "items": [
+  {
+   "id": "creme-brulee",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Grand Marnier crème brûlée",
+   "desc": "Homemade crème brûlée flambéed with Grand Marnier"
+  },
+  {
+   "id": "dame-blanche",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "White Lady",
+   "desc": "Vanilla ice cream, Callebaut chocolate and whipped cream"
+  },
+  {
+   "id": "poire-vin",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Pear in wine",
+   "desc": "Pear, scoop of ice cream, whipped cream"
+  },
+  {
+   "id": "cafe-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gourmet coffee",
+   "desc": "Coffee of your choice and an assortment of pastries"
+  },
+  {
+   "id": "tarte-fruits",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Fruit tart & vanilla ice cream",
+   "desc": "Homemade fruit tart, vanilla ice cream, whipped cream"
+  },
+  {
+   "id": "colonel",
+   "prix": "7,90 €",
+   "coup_de_coeur": false,
+   "nom": "Colonel",
+   "desc": "Lemon sorbet, vodka"
+  },
+  {
+   "id": "bresilienne",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Brazilian",
+   "desc": "Vanilla and mocha ice cream, caramel, caramelized hazelnuts, whipped cream"
+  },
+  {
+   "id": "tiramisu",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Tiramisu of the day",
+   "desc": "Our tiramisu changes with the seasons"
+  },
+  {
+   "id": "cava-gourmand",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Cava gourmand",
+   "desc": "Choice of cava and assortment of pastries"
+  },
+  {
+   "id": "plateau-fromages",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "nom": "Cheese platter",
+   "prix_texte": "Price of the day",
+   "desc": "Served with bread and jam"
+  },
+  {
+   "id": "digestif-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gourmet digestive",
+   "desc": "Coffee of your choice and an assortment of pastries"
+  },
+  {
+   "id": "tartelette-pommes",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Apple tartlet",
+   "desc": "Apple tart, scoop of ice cream, whipped cream"
+  }
+ ]
+}

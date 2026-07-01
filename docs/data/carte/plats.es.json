@@ -1,0 +1,46 @@
+{
+ "items": [
+  {
+   "id": "tartare-boeuf",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tartar de ternera preparado al momento",
+   "desc": "Carne de res cortada con cuchillo, patatas fritas, ensalada"
+  },
+  {
+   "id": "seiche-plancha",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Calamar a la parrilla, verduras y patatas fritas",
+   "desc": "Calamar, salteado de verduras, patatas fritas"
+  },
+  {
+   "id": "espadon-thon-grille",
+   "prix": "26,90 €",
+   "coup_de_coeur": false,
+   "nom": "Pez espada o atún a la parrilla, chimichurri",
+   "desc": "Salsa chimichurri, guarnición del día — Atún +4€"
+  },
+  {
+   "id": "burger-italien",
+   "prix": "21,20 €",
+   "coup_de_coeur": false,
+   "nom": "Hamburguesa italiana",
+   "desc": "Ternera, mozzarella, tomates secos, pesto de pistacho, rúcula, pan brioche"
+  },
+  {
+   "id": "brochettes-scampis",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Brochetas de langostinos con salsa Phoenix",
+   "desc": "Brochetas de langostinos, guarnición del día"
+  },
+  {
+   "id": "supreme-volaille-truffe",
+   "prix": "24,90 €",
+   "coup_de_coeur": true,
+   "nom": "Suprema de pollo con trufa",
+   "desc": "Filete de pollo, puré de patatas, salsa cremosa de trufa"
+  }
+ ]
+}

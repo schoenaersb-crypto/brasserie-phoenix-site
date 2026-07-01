@@ -1,0 +1,115 @@
+{
+ "items": [
+  {
+   "id": "entrecote-galicien",
+   "prix": "35,90 €",
+   "coup_de_coeur": false,
+   "origine": "Espagne",
+   "nom": "Entrecôte de bœuf Galicien",
+   "desc": ""
+  },
+  {
+   "id": "filet-galicien",
+   "prix": "40,90 €",
+   "coup_de_coeur": false,
+   "origine": "Espagne",
+   "nom": "Filet de bœuf Galicien",
+   "desc": ""
+  },
+  {
+   "id": "plateau-mixte",
+   "prix": "28,90 €",
+   "coup_de_coeur": false,
+   "nom": "Plateau mixte",
+   "desc": "Filet pur de bœuf, filet pur de porc, filet de poulet"
+  },
+  {
+   "id": "selection-suggestion",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Sélection de viande en suggestion",
+   "desc": ""
+  },
+  {
+   "id": "filet-porc-duroc",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "origine": "Espagne",
+   "nom": "Filet pur de porc Duroc",
+   "desc": ""
+  },
+  {
+   "id": "filet-volaille-jaune",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "origine": "Espagne",
+   "nom": "Filet de volaille jaune",
+   "desc": ""
+  },
+  {
+   "id": "entrecote-argentin",
+   "prix": "38,90 €",
+   "coup_de_coeur": false,
+   "origine": "Argentine",
+   "nom": "Entrecôte de bœuf Argentin",
+   "desc": ""
+  },
+  {
+   "id": "filet-boeuf-belge",
+   "prix": "39,90 €",
+   "coup_de_coeur": true,
+   "origine": "Belgique",
+   "nom": "Filet de bœuf Belge",
+   "desc": ""
+  },
+  {
+   "id": "black-angus",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "origine": "Irlande",
+   "nom": "Bœuf Black Angus",
+   "prix_texte": "Prix du jour",
+   "desc": ""
+  },
+  {
+   "id": "potence-gambas",
+   "prix": "33,90 €",
+   "coup_de_coeur": false,
+   "nom": "Potence Gambas flambée au Ricard",
+   "desc": "2 pers. minimum — prix par personne"
+  },
+  {
+   "id": "potence-viande",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": true,
+   "nom": "Potence Viande flambée au rhum",
+   "prix_texte": "Prix du jour",
+   "desc": "2 pers. minimum — prix par personne. Choix entre porc Duroc, volaille jaune, bœuf Belge, bœuf Galicien"
+  }
+ ],
+ "sauces": {
+  "titre": "Sauces",
+  "liste": [
+   "Poivre vert",
+   "Provençale",
+   "Roquefort",
+   "Béarnaise",
+   "Choron",
+   "Champignon"
+  ]
+ },
+ "accompagnements": {
+  "titre": "Accompagnements",
+  "liste": [
+   "Frites Phoenix",
+   "Croquettes",
+   "Pomme de terre au four",
+   "Gratin Dauphinois (+2,50 €)",
+   "Potatoes",
+   "Pâtes"
+  ]
+ }
+}

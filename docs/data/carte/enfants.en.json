@@ -1,0 +1,32 @@
+{
+ "items": [
+  {
+   "id": "burger-enfant",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Kids' burger & fries",
+   "desc": ""
+  },
+  {
+   "id": "nuggets",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Nuggets & fries",
+   "desc": ""
+  },
+  {
+   "id": "pates-jambon-fromage",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Pasta with ham and cheese",
+   "desc": ""
+  },
+  {
+   "id": "pates-bolognaise",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Children's Bolognese pasta",
+   "desc": ""
+  }
+ ]
+}

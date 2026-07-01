@@ -1,0 +1,32 @@
+{
+ "items": [
+  {
+   "id": "burger-enfant",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Hamburguesa y patatas fritas para niños",
+   "desc": ""
+  },
+  {
+   "id": "nuggets",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Nuggets con patatas fritas",
+   "desc": ""
+  },
+  {
+   "id": "pates-jambon-fromage",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Pasta con jamón y queso",
+   "desc": ""
+  },
+  {
+   "id": "pates-bolognaise",
+   "prix": "12,00 €",
+   "coup_de_coeur": false,
+   "nom": "Pasta boloñesa para niños",
+   "desc": ""
+  }
+ ]
+}

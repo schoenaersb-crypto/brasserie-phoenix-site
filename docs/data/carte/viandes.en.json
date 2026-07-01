@@ -1,0 +1,115 @@
+{
+ "items": [
+  {
+   "id": "entrecote-galicien",
+   "prix": "35,90 €",
+   "coup_de_coeur": false,
+   "origine": "Spain",
+   "nom": "Galician Beef Ribeye",
+   "desc": ""
+  },
+  {
+   "id": "filet-galicien",
+   "prix": "40,90 €",
+   "coup_de_coeur": false,
+   "origine": "Spain",
+   "nom": "Galician beef fillet",
+   "desc": ""
+  },
+  {
+   "id": "plateau-mixte",
+   "prix": "28,90 €",
+   "coup_de_coeur": false,
+   "nom": "Mixed Plateau",
+   "desc": "Beef tenderloin, pork tenderloin, chicken tenderloin"
+  },
+  {
+   "id": "selection-suggestion",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Meat selection as suggested",
+   "desc": ""
+  },
+  {
+   "id": "filet-porc-duroc",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "origine": "Spain",
+   "nom": "Duroc pork fillet",
+   "desc": ""
+  },
+  {
+   "id": "filet-volaille-jaune",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "origine": "Spain",
+   "nom": "Yellow chicken fillet",
+   "desc": ""
+  },
+  {
+   "id": "entrecote-argentin",
+   "prix": "38,90 €",
+   "coup_de_coeur": false,
+   "origine": "Argentina",
+   "nom": "Argentinian Beef Ribeye",
+   "desc": ""
+  },
+  {
+   "id": "filet-boeuf-belge",
+   "prix": "39,90 €",
+   "coup_de_coeur": true,
+   "origine": "Belgium",
+   "nom": "Belgian beef fillet",
+   "desc": ""
+  },
+  {
+   "id": "black-angus",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "origine": "Ireland",
+   "nom": "Black Angus Beef",
+   "prix_texte": "Price of the day",
+   "desc": ""
+  },
+  {
+   "id": "potence-gambas",
+   "prix": "33,90 €",
+   "coup_de_coeur": false,
+   "nom": "Prawns on the spit, flambéed with Ricard",
+   "desc": "Minimum 2 people — price per person"
+  },
+  {
+   "id": "potence-viande",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": true,
+   "nom": "Meat on the spit, flambéed with rum",
+   "prix_texte": "Price of the day",
+   "desc": "Minimum 2 people — price per person. Choice between Duroc pork, yellow poultry, Belgian beef, Galician beef"
+  }
+ ],
+ "sauces": {
+  "titre": "Sauces",
+  "liste": [
+   "Green pepper",
+   "Provençal",
+   "Roquefort",
+   "Béarnaise",
+   "Choron",
+   "Mushroom"
+  ]
+ },
+ "accompagnements": {
+  "titre": "Side dishes",
+  "liste": [
+   "Phoenix fries",
+   "Croquettes",
+   "Baked potato",
+   "Dauphinoise potatoes (+2.50 €)",
+   "Potatoes",
+   "Pasta"
+  ]
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "items": [
+  {
+   "id": "entrecote-galicien",
+   "prix": "35,90 €",
+   "coup_de_coeur": false,
+   "origine": "España",
+   "nom": "Chuletón de ternera gallega",
+   "desc": ""
+  },
+  {
+   "id": "filet-galicien",
+   "prix": "40,90 €",
+   "coup_de_coeur": false,
+   "origine": "España",
+   "nom": "Filete de ternera gallega",
+   "desc": ""
+  },
+  {
+   "id": "plateau-mixte",
+   "prix": "28,90 €",
+   "coup_de_coeur": false,
+   "nom": "Meseta mixta",
+   "desc": "Solomillo de ternera, solomillo de cerdo, solomillo de pollo"
+  },
+  {
+   "id": "selection-suggestion",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Selección de carne según lo sugerido",
+   "desc": ""
+  },
+  {
+   "id": "filet-porc-duroc",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "origine": "España",
+   "nom": "Filete de cerdo Duroc puro",
+   "desc": ""
+  },
+  {
+   "id": "filet-volaille-jaune",
+   "prix": "20,90 €",
+   "coup_de_coeur": false,
+   "origine": "España",
+   "nom": "Filete de pollo amarillo",
+   "desc": ""
+  },
+  {
+   "id": "entrecote-argentin",
+   "prix": "38,90 €",
+   "coup_de_coeur": false,
+   "origine": "Argentina",
+   "nom": "Chuletón de res argentino",
+   "desc": ""
+  },
+  {
+   "id": "filet-boeuf-belge",
+   "prix": "39,90 €",
+   "coup_de_coeur": true,
+   "origine": "Bélgica",
+   "nom": "Filete de ternera belga",
+   "desc": ""
+  },
+  {
+   "id": "black-angus",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "origine": "Irlanda",
+   "nom": "Ternera Black Angus",
+   "prix_texte": "Precio del día",
+   "desc": ""
+  },
+  {
+   "id": "potence-gambas",
+   "prix": "33,90 €",
+   "coup_de_coeur": false,
+   "nom": "Langostinos al espetón flambeados con Ricard",
+   "desc": "Mínimo 2 personas — precio por persona"
+  },
+  {
+   "id": "potence-viande",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": true,
+   "nom": "Carne al espetón flambeada con ron",
+   "prix_texte": "Precio del día",
+   "desc": "Mínimo 2 personas — precio por persona. A elegir entre cerdo Duroc, ave amarilla, ternera belga o ternera gallega"
+  }
+ ],
+ "sauces": {
+  "titre": "Salsas",
+  "liste": [
+   "Pimienta verde",
+   "Provenzal",
+   "Roquefort",
+   "Bearnesa",
+   "Choron",
+   "Champiñón"
+  ]
+ },
+ "accompagnements": {
+  "titre": "Guarniciones",
+  "liste": [
+   "Patatas fritas Phoenix",
+   "Croquetas",
+   "Patata al horno",
+   "Patatas gratinadas (+2,50 €)",
+   "Patatas",
+   "Pasta"
+  ]
+ }
+}

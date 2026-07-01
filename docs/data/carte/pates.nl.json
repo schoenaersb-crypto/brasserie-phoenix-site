@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "id": "carbonara",
+   "prix": "12,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Carbonara",
+   "desc": "Pecorino, Parmezaanse kaas, Guanciale"
+  },
+  {
+   "id": "saumon-aneth",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Zalm & dille",
+   "desc": "Zalm met dilleroomsaus"
+  },
+  {
+   "id": "polpette",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Gehaktballen",
+   "desc": "Tomatensaus, olijven, gehaktballetjes, Parmezaanse kaas"
+  },
+  {
+   "id": "chorizo-sobrasada",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chorizo, sobrasada & chips rauwe ham",
+   "desc": "Uitgesproken Iberische identiteit"
+  },
+  {
+   "id": "pesto-pistache-pates",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Pistachepesto",
+   "desc": "Huisgemaakte pistachepesto, burrata +2,50 €"
+  },
+  {
+   "id": "scampis-pates",
+   "prix": "17,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Scampi's",
+   "desc": "Sausopties: Phoenix, groene peper, champignon, Roquefort, rode kokoscurry, chimichurri. Truffelroomsaus +€2"
+  }
+ ]
+}

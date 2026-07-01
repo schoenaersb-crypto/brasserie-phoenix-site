@@ -1,0 +1,39 @@
+{
+ "items": [
+  {
+   "id": "salade-levante",
+   "prix": "16,90 €",
+   "coup_de_coeur": true,
+   "nom": "Salade Levante",
+   "desc": "Tataki de thon rouge, orange sanguine, fenouil croquant, olives Taggiasche, tomate, oignon"
+  },
+  {
+   "id": "salade-mer",
+   "prix": "17,90 €",
+   "coup_de_coeur": true,
+   "nom": "Salade de la mer",
+   "desc": "Gambas, avocat, mangue, coriandre fraîche, vinaigrette yuzu"
+  },
+  {
+   "id": "salade-cesar",
+   "prix": "14,90 €",
+   "coup_de_coeur": true,
+   "nom": "Salade César façon Phoenix",
+   "desc": "Poulet rôti, anchois, parmesan, croûtons, sauce césar"
+  },
+  {
+   "id": "salade-grecque",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Salade grecque",
+   "desc": "Salade, tomate, oignon, concombre, feta"
+  },
+  {
+   "id": "salade-chevre-miel",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Salade chèvre-miel (toast chaud)",
+   "desc": "Rondelle de chèvre chaud, miel, salade croquante"
+  }
+ ]
+}

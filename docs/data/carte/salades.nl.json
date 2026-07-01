@@ -1,0 +1,39 @@
+{
+ "items": [
+  {
+   "id": "salade-levante",
+   "prix": "16,90 €",
+   "coup_de_coeur": true,
+   "nom": "Levantijnse salade",
+   "desc": "Tataki van rode tonijn, bloedsinaasappel, venkel, Taggiasca olijven, tomaat, ui"
+  },
+  {
+   "id": "salade-mer",
+   "prix": "17,90 €",
+   "coup_de_coeur": true,
+   "nom": "Zeevruchtensalade",
+   "desc": "Garnalen, avocado, mango, koriander, yuzu-vinaigrette"
+  },
+  {
+   "id": "salade-cesar",
+   "prix": "14,90 €",
+   "coup_de_coeur": true,
+   "nom": "Caesar salade in Phoenix-stijl",
+   "desc": "Gebraden kip, ansjovis, Parmezaanse kaas, croutons, Caesar dressing"
+  },
+  {
+   "id": "salade-grecque",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Griekse salade",
+   "desc": "Salade, tomaat, ui, komkommer, feta"
+  },
+  {
+   "id": "salade-chevre-miel",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Salade met geitenkaas en honing (op warme toast)",
+   "desc": "Warme plak geitenkaas, honing, knapperige salade"
+  }
+ ]
+}

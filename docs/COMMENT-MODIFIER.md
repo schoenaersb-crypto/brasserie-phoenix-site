@@ -33,6 +33,19 @@ Chaque plat ressemble à ça :
 > ⚠️ Les plats marqués `"verifier_prix": true` sont des prix que j'ai lus dans le PDF
 > et qui restent **à confirmer** par toi. Voir la liste dans le message de livraison.
 
+### ⚙️ Important — la carte est découpée pour charger vite
+`docs/data/carte.json` est le **fichier source** (là où on édite, 4 langues au même endroit).
+Le site, lui, lit des fichiers **générés**, un par catégorie et par langue, dans
+**`docs/data/carte/`** (`index.json` + `entrees.fr.json`, `viandes.en.json`, …). Chaque
+catégorie se charge **à la demande** (quand on approche la section), et **seule la langue
+active** est téléchargée → la carte s'affiche vite, bloc par bloc.
+
+**Après avoir modifié `carte.json`, il faut régénérer ces fichiers** :
+```bash
+python3 scripts/split_carte.py
+```
+(Le plus simple : demande-moi la modif en français, je m'occupe de `carte.json` **et** de la régénération.)
+
 ## 2. Changer le menu de la semaine
 Fichier : **`docs/data/menu-semaine.json`**
 ```json

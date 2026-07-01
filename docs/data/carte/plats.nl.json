@@ -1,0 +1,46 @@
+{
+ "items": [
+  {
+   "id": "tartare-boeuf",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Rundertartaar, vers bereid op bestelling",
+   "desc": "Rundvlees, met een mes gesneden, friet, salade"
+  },
+  {
+   "id": "seiche-plancha",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gegrilde inktvis, groenten en friet",
+   "desc": "Inktvis, roergebakken groenten, friet"
+  },
+  {
+   "id": "espadon-thon-grille",
+   "prix": "26,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gegrilde zwaardvis of tonijn met chimichurri",
+   "desc": "Chimichurrisaus, bijgerecht van de dag — Tonijn +€4"
+  },
+  {
+   "id": "burger-italien",
+   "prix": "21,20 €",
+   "coup_de_coeur": false,
+   "nom": "Italiaanse hamburger",
+   "desc": "Rundvlees, mozzarella, zongedroogde tomaten, pistachepesto, rucola, briochebroodje"
+  },
+  {
+   "id": "brochettes-scampis",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Scampispiesjes met Phoenixsaus",
+   "desc": "Scampispiesjes, bijgerecht van de dag"
+  },
+  {
+   "id": "supreme-volaille-truffe",
+   "prix": "24,90 €",
+   "coup_de_coeur": true,
+   "nom": "Kipsupreme met truffel",
+   "desc": "Kipfilet, aardappelpuree, romige truffelsaus"
+  }
+ ]
+}

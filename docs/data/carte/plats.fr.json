@@ -1,0 +1,46 @@
+{
+ "items": [
+  {
+   "id": "tartare-boeuf",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tartare de bœuf préparé minute",
+   "desc": "Bœuf coupé au couteau, frites, salade"
+  },
+  {
+   "id": "seiche-plancha",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Seiche à la plancha, légumes & frites",
+   "desc": "Seiche, poêlée de légumes, frites"
+  },
+  {
+   "id": "espadon-thon-grille",
+   "prix": "26,90 €",
+   "coup_de_coeur": false,
+   "nom": "Espadon ou Thon grillé, chimichurri",
+   "desc": "Sauce chimichurri, accompagnement du jour — Thon +4€"
+  },
+  {
+   "id": "burger-italien",
+   "prix": "21,20 €",
+   "coup_de_coeur": false,
+   "nom": "Burger italien",
+   "desc": "Bœuf, mozzarella, tomates séchées, pesto de pistache, roquette, pain brioché"
+  },
+  {
+   "id": "brochettes-scampis",
+   "prix": "22,90 €",
+   "coup_de_coeur": false,
+   "nom": "Brochettes de scampis sauce Phoenix",
+   "desc": "Brochette de scampis, accompagnement du jour"
+  },
+  {
+   "id": "supreme-volaille-truffe",
+   "prix": "24,90 €",
+   "coup_de_coeur": true,
+   "nom": "Suprême de volaille à la truffe",
+   "desc": "Filet de volaille, écrasé de pomme de terre, sauce crémeuse à la truffe"
+  }
+ ]
+}

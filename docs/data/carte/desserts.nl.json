@@ -1,0 +1,90 @@
+{
+ "items": [
+  {
+   "id": "creme-brulee",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Crème brûlée met Grand Marnier",
+   "desc": "Huisgemaakte crème brûlée geflambeerd met Grand Marnier"
+  },
+  {
+   "id": "dame-blanche",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Witte Dame",
+   "desc": "Bolletjes vanille-ijs, Callebaut-chocolade en slagroom"
+  },
+  {
+   "id": "poire-vin",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Peer in wijn",
+   "desc": "Peer, bolletje ijs, slagroom"
+  },
+  {
+   "id": "cafe-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gourmetkoffie",
+   "desc": "Koffie naar keuze en een assortiment gebak"
+  },
+  {
+   "id": "tarte-fruits",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Fruittaart met vanille-ijs",
+   "desc": "Zelfgemaakte fruittaart, vanille-ijs, slagroom"
+  },
+  {
+   "id": "colonel",
+   "prix": "7,90 €",
+   "coup_de_coeur": false,
+   "nom": "Kolonel",
+   "desc": "Citroensorbet, wodka"
+  },
+  {
+   "id": "bresilienne",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Braziliaans",
+   "desc": "Vanille- en mokka-ijs, karamel, gekarameliseerde hazelnoten, slagroom"
+  },
+  {
+   "id": "tiramisu",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Tiramisu van de dag",
+   "desc": "Onze tiramisu verandert met de seizoenen"
+  },
+  {
+   "id": "cava-gourmand",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Cava gourmand",
+   "desc": "Keuze uit cava en een assortiment gebak"
+  },
+  {
+   "id": "plateau-fromages",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "nom": "Kaasplank",
+   "prix_texte": "Prijs van de dag",
+   "desc": "Geserveerd met brood en jam"
+  },
+  {
+   "id": "digestif-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Gourmet digestief",
+   "desc": "Koffie naar keuze en een assortiment gebak"
+  },
+  {
+   "id": "tartelette-pommes",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Appeltaartje",
+   "desc": "Appeltaart, bolletje ijs, slagroom"
+  }
+ ]
+}

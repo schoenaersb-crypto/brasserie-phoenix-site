@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "id": "carbonara",
+   "prix": "12,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Carbonara",
+   "desc": "Pecorino, parmesan, Guanciale"
+  },
+  {
+   "id": "saumon-aneth",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Saumon & aneth",
+   "desc": "Saumon, sauce crème aneth"
+  },
+  {
+   "id": "polpette",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Polpette",
+   "desc": "Sauce tomate, olives, boulettes de viande, parmesan"
+  },
+  {
+   "id": "chorizo-sobrasada",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chorizo, sobrasada & chips jambon cru",
+   "desc": "Identité ibérique affirmée"
+  },
+  {
+   "id": "pesto-pistache-pates",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Pesto de pistache",
+   "desc": "Pesto maison pistache, burrata +2,50 €"
+  },
+  {
+   "id": "scampis-pates",
+   "prix": "17,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Scampis",
+   "desc": "Sauce au choix : Phoenix, poivre vert, champignon, roquefort, curry rouge coco, chimichurri. Sauce crème truffe +2€"
+  }
+ ]
+}

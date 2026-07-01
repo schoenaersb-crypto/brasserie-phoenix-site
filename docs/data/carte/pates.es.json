@@ -1,0 +1,52 @@
+{
+ "items": [
+  {
+   "id": "carbonara",
+   "prix": "12,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Carbonara",
+   "desc": "Pecorino, parmesano, Guanciale"
+  },
+  {
+   "id": "saumon-aneth",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Salmón y eneldo",
+   "desc": "Salmón con salsa de crema de eneldo"
+  },
+  {
+   "id": "polpette",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Albóndigas",
+   "desc": "Salsa de tomate, aceitunas, albóndigas, parmesano"
+  },
+  {
+   "id": "chorizo-sobrasada",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Chorizo, sobrasada y chips de jamón curado",
+   "desc": "Identidad ibérica afirmada"
+  },
+  {
+   "id": "pesto-pistache-pates",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Pesto de pistacho",
+   "desc": "Pesto casero de pistacho, burrata +2,50 €"
+  },
+  {
+   "id": "scampis-pates",
+   "prix": "17,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Langostinos",
+   "desc": "Salsa a elegir: Phoenix, pimienta verde, champiñón, Roquefort, curry rojo de coco, chimichurri. Salsa de crema de trufa +2€"
+  }
+ ]
+}

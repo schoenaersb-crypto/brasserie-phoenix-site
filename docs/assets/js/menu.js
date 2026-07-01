@@ -57,30 +57,90 @@
     return b;
   }
 
-  /* ---------- La carte complète ---------- */
+  /* ---------- La carte : chargée PAR CATÉGORIE, à la demande ----------
+     - data/carte/index.json : ordre + en-têtes (léger, chargé une fois).
+     - data/carte/<id>.<langue>.json : le détail d'une catégorie, dans la
+       langue ACTIVE uniquement, chargé quand on approche la section
+       (IntersectionObserver, rootMargin 400px). Squelette crème pendant
+       le chargement. Erreur gérée par bloc (les autres s'affichent). */
+  var carteObs = null;
+
+  function langueCourante() {
+    return (window.Phoenix && window.Phoenix.lang) || "fr";
+  }
+
+  function rendreCategorie(bloc, data) {
+    var corps = bloc.querySelector(".cat-corps");
+    corps.innerHTML = "";
+    var plats = el("div", "plats");
+    (data.items || []).forEach(function (it) { plats.appendChild(rendrePlat(it)); });
+    corps.appendChild(plats);
+    if (data.sauces || data.accompagnements) {
+      var sous = el("div", "sous-listes");
+      if (data.sauces) sous.appendChild(rendreSousListe(data.sauces));
+      if (data.accompagnements) sous.appendChild(rendreSousListe(data.accompagnements));
+      corps.appendChild(sous);
+    }
+    bloc.classList.remove("cat-loading");
+    bloc.classList.add("cat-loaded");
+  }
+
+  function chargerCategorie(bloc) {
+    if (bloc.getAttribute("data-loaded") === "1") return;
+    bloc.setAttribute("data-loaded", "1");
+    var id = bloc.getAttribute("data-cat");
+    fetch("data/carte/" + id + "." + langueCourante() + ".json")
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) { rendreCategorie(bloc, data); })
+      .catch(function (e) {
+        console.error("Catégorie " + id + " indisponible", e);
+        var corps = bloc.querySelector(".cat-corps");
+        corps.innerHTML = "";
+        corps.appendChild(el("p", "cat-erreur", t("carte.erreur") || "Chargement momentanément indisponible."));
+        bloc.classList.remove("cat-loading");
+      });
+  }
+
   function rendreCarte() {
     var cont = document.getElementById("carte-contenu");
-    if (!cont || !DATA.carte) return;
-    cont.innerHTML = "";
+    var idx = DATA.carteIndex;
+    if (!cont || !idx) return;
 
-    DATA.carte.categories.forEach(function (cat) {
-      var bloc = el("div", "cat-bloc");
+    cont.innerHTML = "";
+    if (carteObs) { carteObs.disconnect(); carteObs = null; }
+
+    var blocs = [];
+    (idx.categories || []).forEach(function (cat) {
+      var bloc = el("div", "cat-bloc cat-loading");
+      bloc.setAttribute("data-cat", cat.id);
       bloc.appendChild(el("h3", "cat-titre", tr(cat.nom)));
       if (cat.note) bloc.appendChild(el("p", "cat-note", tr(cat.note)));
-
-      var plats = el("div", "plats");
-      cat.items.forEach(function (it) { plats.appendChild(rendrePlat(it)); });
-      bloc.appendChild(plats);
-
-      // viandes : sauces + accompagnements
-      if (cat.sauces || cat.accompagnements) {
-        var sous = el("div", "sous-listes");
-        if (cat.sauces) sous.appendChild(rendreSousListe(cat.sauces));
-        if (cat.accompagnements) sous.appendChild(rendreSousListe(cat.accompagnements));
-        bloc.appendChild(sous);
-      }
+      var corps = el("div", "cat-corps");
+      var sk = el("div", "cat-skeleton");
+      for (var i = 0; i < 3; i++) sk.appendChild(el("div", "sk-ligne"));
+      corps.appendChild(sk);
+      bloc.appendChild(corps);
       cont.appendChild(bloc);
+      blocs.push(bloc);
     });
+
+    if ("IntersectionObserver" in window) {
+      carteObs = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (e) {
+          if (e.isIntersecting) { chargerCategorie(e.target); carteObs.unobserve(e.target); }
+        });
+      }, { rootMargin: "400px 0px 400px 0px", threshold: 0 });
+      blocs.forEach(function (b) { carteObs.observe(b); });
+    } else {
+      blocs.forEach(chargerCategorie); // repli : tout charger
+    }
+  }
+
+  function chargerCarteIndex() {
+    fetch("data/carte/index.json")
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (idx) { DATA.carteIndex = idx; rendreCarte(); })
+      .catch(function (e) { console.error("Index de la carte indisponible", e); });
   }
 
   /* ---------- Menu de la semaine ---------- */
@@ -249,7 +309,7 @@
 
   function charger() {
     rendreNav();
-    chargerUn("carte", "data/carte.json", rendreCarte);
+    chargerCarteIndex();
     chargerUn("semaine", "data/menu-semaine.json", rendreSemaine);
     chargerUn("annonces", "data/annonces.json", rendreAnnonces);
     chargerUn("infos", "data/infos.json", function () { rendreInfos(); rendreSocial(); });

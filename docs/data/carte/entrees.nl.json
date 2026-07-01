@@ -1,0 +1,78 @@
+{
+ "items": [
+  {
+   "id": "saint-jacques-karmeliet",
+   "prix": "18,90 €",
+   "coup_de_coeur": true,
+   "verifier_prix": true,
+   "nom": "Gebakken sint-jakobsschelpen met drievoudige Karmeliet",
+   "desc": "Verse sint-jakobsschelpen, drievoudige karmelietsaus, bijgerecht van de dag"
+  },
+  {
+   "id": "carpaccio-boeuf-italienne",
+   "prix": "21,90 €",
+   "coup_de_coeur": false,
+   "nom": "Italiaanse carpaccio van rundvlees",
+   "desc": "Argentijns rundvlees, pistachepesto, zongedroogde tomaten, mozzarellabolletjes, rucola, balsamicoazijn"
+  },
+  {
+   "id": "oeuf-parfait-carbonara",
+   "prix": "13,90 €",
+   "coup_de_coeur": false,
+   "nom": "Perfect gegaard ei op 64° carbonarawijze",
+   "desc": "Lichte room, krokant spek, Parmezaanse kaas, Pecorino"
+  },
+  {
+   "id": "camembert-roti",
+   "prix": "14,90 €",
+   "coup_de_coeur": false,
+   "nom": "Geroosterde camembert en charcuterie",
+   "desc": "Camembert, tijm, honing, gedroogd vlees"
+  },
+  {
+   "id": "chips-crevettes",
+   "prix": "19,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Gefrituurde Quisquillas",
+   "desc": "Geserveerd met zelfgemaakte aiolisaus"
+  },
+  {
+   "id": "carpaccio-gambas",
+   "prix": "18,90 €",
+   "coup_de_coeur": false,
+   "nom": "Garnalencarpaccio",
+   "desc": "Olijfolie, citroen- en sinaasappelschil, zwart zout, peper"
+  },
+  {
+   "id": "tomate-burrata",
+   "prix": "12,10 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Tomatenburrata & pistachepesto",
+   "desc": "Tomaten, burrata, pistachepesto, rucola, balsamicoazijn"
+  },
+  {
+   "id": "supions-chorizo",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "verifier_prix": true,
+   "nom": "Gebakken babyinktvisjes met chorizo",
+   "desc": "Gebakken babyinktvisjes, chorizo"
+  },
+  {
+   "id": "melon-jambon-porto",
+   "prix": "10,90 €",
+   "coup_de_coeur": false,
+   "nom": "Meloen, gerookte ham en port",
+   "desc": "Seizoensmeloen, Serranoham en portwijn"
+  },
+  {
+   "id": "huitres",
+   "prix": "12,00 €",
+   "coup_de_coeur": true,
+   "nom": "Oesters",
+   "desc": "4 oesters, sjalotvinaigrette, yuzu — glas cava +€3"
+  }
+ ]
+}

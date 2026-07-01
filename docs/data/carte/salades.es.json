@@ -1,0 +1,39 @@
+{
+ "items": [
+  {
+   "id": "salade-levante",
+   "prix": "16,90 €",
+   "coup_de_coeur": true,
+   "nom": "Ensalada levantina",
+   "desc": "Tataki de atún rojo, naranja sanguina, hinojo, aceitunas Taggiasca, tomate, cebolla"
+  },
+  {
+   "id": "salade-mer",
+   "prix": "17,90 €",
+   "coup_de_coeur": true,
+   "nom": "Ensalada de mariscos",
+   "desc": "Gambas, aguacate, mango, cilantro, vinagreta de yuzu"
+  },
+  {
+   "id": "salade-cesar",
+   "prix": "14,90 €",
+   "coup_de_coeur": true,
+   "nom": "Ensalada César al estilo Phoenix",
+   "desc": "Pollo asado, anchoas, queso parmesano, picatostes, aderezo César"
+  },
+  {
+   "id": "salade-grecque",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Ensalada griega",
+   "desc": "Ensalada, tomate, cebolla, pepino, queso feta"
+  },
+  {
+   "id": "salade-chevre-miel",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Ensalada de queso de cabra y miel (tostado caliente)",
+   "desc": "Rebanada de queso de cabra tibio, miel, ensalada crujiente"
+  }
+ ]
+}

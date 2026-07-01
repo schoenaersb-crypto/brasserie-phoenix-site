@@ -1,0 +1,90 @@
+{
+ "items": [
+  {
+   "id": "creme-brulee",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Crème brûlée au Grand Marnier",
+   "desc": "Crème brûlée maison flambée au Grand Marnier"
+  },
+  {
+   "id": "dame-blanche",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Dame blanche",
+   "desc": "Boules de glace vanille, chocolat Callebaut et chantilly"
+  },
+  {
+   "id": "poire-vin",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Poire au vin",
+   "desc": "Poire, boule de glace, chantilly"
+  },
+  {
+   "id": "cafe-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Café gourmand",
+   "desc": "Café au choix et assortiment de pâtisseries"
+  },
+  {
+   "id": "tarte-fruits",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tarte aux fruits & glace vanille",
+   "desc": "Tarte aux fruits maison, glace vanille, chantilly"
+  },
+  {
+   "id": "colonel",
+   "prix": "7,90 €",
+   "coup_de_coeur": false,
+   "nom": "Colonel",
+   "desc": "Sorbet citron, vodka"
+  },
+  {
+   "id": "bresilienne",
+   "prix": "9,90 €",
+   "coup_de_coeur": false,
+   "nom": "Brésilienne",
+   "desc": "Glace vanille et moka, caramel, noisettes caramélisées, chantilly"
+  },
+  {
+   "id": "tiramisu",
+   "prix": "9,90 €",
+   "coup_de_coeur": true,
+   "nom": "Tiramisu du jour",
+   "desc": "Notre tiramisu change au fil des saisons"
+  },
+  {
+   "id": "cava-gourmand",
+   "prix": "11,90 €",
+   "coup_de_coeur": false,
+   "nom": "Cava gourmand",
+   "desc": "Cava au choix et assortiment de pâtisseries"
+  },
+  {
+   "id": "plateau-fromages",
+   "prix": "",
+   "prix_special": true,
+   "coup_de_coeur": false,
+   "nom": "Plateau de fromages",
+   "prix_texte": "Prix du jour",
+   "desc": "Servi avec du pain et une confiture"
+  },
+  {
+   "id": "digestif-gourmand",
+   "prix": "8,90 €",
+   "coup_de_coeur": false,
+   "nom": "Digestif gourmand",
+   "desc": "Café au choix et assortiment de pâtisseries"
+  },
+  {
+   "id": "tartelette-pommes",
+   "prix": "12,90 €",
+   "coup_de_coeur": false,
+   "nom": "Tartelette aux pommes",
+   "desc": "Tarte aux pommes, boule de glace, chantilly"
+  }
+ ]
+}
