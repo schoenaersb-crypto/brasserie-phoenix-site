@@ -1,12 +1,23 @@
 {
-  "_commentaire": "Galerie photo (ouvre une visionneuse/lightbox au clic). Chaque image : 'src' + légende 4 langues. Pour ajouter une photo, copier un bloc et changer 'src'. Remplacer les .svg par vos vraies photos (.jpg) au même chemin.",
+  "_commentaire": "Galerie photo (ouvre une visionneuse/lightbox au clic). Chaque image : 'src' + légende 4 langues (la légende sert aussi de texte alternatif pour l'accessibilité/SEO). Pour ajouter une photo : copier un bloc et changer 'src'. Photos chargées en lazy-loading.",
   "actif": true,
   "images": [
-    { "src": "assets/img/galerie/g1.svg", "legende": { "fr": "Grillades sur la braise", "nl": "Grillspecialiteiten op de gloed", "es": "Carnes a la brasa", "en": "Grilling over the embers" } },
-    { "src": "assets/img/galerie/g2.svg", "legende": { "fr": "Produits de la mer, face au large", "nl": "Zeevruchten, met zicht op zee", "es": "Mariscos, frente al mar", "en": "Seafood, facing the open sea" } },
-    { "src": "assets/img/galerie/g3.svg", "legende": { "fr": "Pâtes fraîches maison", "nl": "Verse huisgemaakte pasta", "es": "Pasta fresca casera", "en": "Fresh homemade pasta" } },
-    { "src": "assets/img/galerie/g4.svg", "legende": { "fr": "La potence, le spectacle du feu", "nl": "Het spit, het vuurspektakel", "es": "El espetón, el espectáculo del fuego", "en": "The spit, the spectacle of fire" } },
-    { "src": "assets/img/galerie/g5.svg", "legende": { "fr": "La terrasse chiringuito", "nl": "Het chiringuito-terras", "es": "La terraza chiringuito", "en": "The chiringuito terrace" } },
-    { "src": "assets/img/galerie/g6.svg", "legende": { "fr": "Douceurs de fin de repas", "nl": "Zoete afsluiter", "es": "Dulces para terminar", "en": "Sweet endings" } }
+    { "src": "assets/img/galerie/01-huitres.jpeg", "legende": { "fr": "Huîtres fraîches", "nl": "Verse oesters", "es": "Ostras frescas", "en": "Fresh oysters" } },
+    { "src": "assets/img/galerie/09-tartare-caviar.jpg", "legende": { "fr": "Tartare de bœuf au caviar", "nl": "Rundertartaar met kaviaar", "es": "Tartar de ternera con caviar", "en": "Beef tartare with caviar" } },
+    { "src": "assets/img/galerie/08-entrecote.jpeg", "legende": { "fr": "Entrecôte grillée sur pierre de lave", "nl": "Entrecote gegrild op lavasteen", "es": "Entrecot a la parrilla sobre piedra de lava", "en": "Ribeye grilled on lava stone" } },
+    { "src": "assets/img/galerie/04-carpaccio-gambas.jpeg", "legende": { "fr": "Carpaccio de gambas", "nl": "Gamba-carpaccio", "es": "Carpaccio de gambas", "en": "Prawn carpaccio" } },
+    { "src": "assets/img/galerie/05-brochette-gambas.jpeg", "legende": { "fr": "Brochette de gambas grillées", "nl": "Spies van gegrilde gamba's", "es": "Brocheta de gambas a la parrilla", "en": "Grilled prawn skewer" } },
+    { "src": "assets/img/galerie/14-assiette-mer.jpeg", "legende": { "fr": "Assiette de poissons & fruits de mer", "nl": "Bord met vis & zeevruchten", "es": "Plato de pescado y mariscos", "en": "Fish & seafood platter" } },
+    { "src": "assets/img/galerie/13-seiche-grillee.jpeg", "legende": { "fr": "Seiche grillée", "nl": "Gegrilde inktvis", "es": "Sepia a la parrilla", "en": "Grilled cuttlefish" } },
+    { "src": "assets/img/galerie/11-saumon.jpg", "legende": { "fr": "Pavé de saumon", "nl": "Zalmmoot", "es": "Lomo de salmón", "en": "Salmon fillet" } },
+    { "src": "assets/img/galerie/07-pates-burrata.jpeg", "legende": { "fr": "Pâtes fraîches à la burrata", "nl": "Verse pasta met burrata", "es": "Pasta fresca con burrata", "en": "Fresh pasta with burrata" } },
+    { "src": "assets/img/galerie/02-burger-burrata.jpeg", "legende": { "fr": "Burger à la burrata", "nl": "Burger met burrata", "es": "Hamburguesa con burrata", "en": "Burrata burger" } },
+    { "src": "assets/img/galerie/03-tartare.jpeg", "legende": { "fr": "Tartare de bœuf", "nl": "Rundertartaar", "es": "Tartar de ternera", "en": "Beef tartare" } },
+    { "src": "assets/img/galerie/06-salade-gambas.jpeg", "legende": { "fr": "Salade de gambas", "nl": "Gambasalade", "es": "Ensalada de gambas", "en": "Prawn salad" } },
+    { "src": "assets/img/galerie/10-burrata-tomates.jpg", "legende": { "fr": "Burrata & tomates", "nl": "Burrata & tomaten", "es": "Burrata y tomates", "en": "Burrata & tomatoes" } },
+    { "src": "assets/img/galerie/15-pain-dips.jpg", "legende": { "fr": "Pain grillé, tapenade & aïoli", "nl": "Geroosterd brood, tapenade & aïoli", "es": "Pan tostado, tapenade y alioli", "en": "Toasted bread, tapenade & aioli" } },
+    { "src": "assets/img/galerie/16-planche-charcuterie-fromage.jpg", "legende": { "fr": "Planche charcuterie & fromages", "nl": "Plank charcuterie & kaas", "es": "Tabla de embutidos y quesos", "en": "Charcuterie & cheese board" } },
+    { "src": "assets/img/galerie/12-poulet-puree.jpg", "legende": { "fr": "Suprême de volaille & purée", "nl": "Kippenfilet & puree", "es": "Suprema de pollo y puré", "en": "Chicken supreme & purée" } },
+    { "src": "assets/img/galerie/17-espresso-martini.jpeg", "legende": { "fr": "Espresso martini", "nl": "Espresso martini", "es": "Espresso martini", "en": "Espresso martini" } }
   ]
 }

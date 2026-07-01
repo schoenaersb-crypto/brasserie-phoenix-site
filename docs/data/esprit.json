@@ -1,8 +1,8 @@
 {
   "_commentaire": "Section « L'esprit Phoenix » (récit). Modifier ici le texte du récit et l'image d'ambiance. 4 langues.",
   "actif": true,
-  "image": "assets/img/esprit/ambiance.svg",
-  "image_alt": { "fr": "Ambiance chaleureuse de la Brasserie Phoenix", "nl": "Warme sfeer van Brasserie Phoenix", "es": "Ambiente cálido de la Brasserie Phoenix", "en": "Warm atmosphere of Brasserie Phoenix" },
+  "image": "assets/img/ambiance/terrasse-coucher-soleil-mer.jpg",
+  "image_alt": { "fr": "Terrasse vitrée de la Brasserie Phoenix face à la mer au coucher du soleil, Torrevieja", "nl": "Overdekt terras van Brasserie Phoenix met zicht op zee bij zonsondergang, Torrevieja", "es": "Terraza acristalada de la Brasserie Phoenix frente al mar al atardecer, Torrevieja", "en": "Glass-walled terrace of Brasserie Phoenix facing the sea at sunset, Torrevieja" },
   "sur_titre": { "fr": "Notre récit", "nl": "Ons verhaal", "es": "Nuestra historia", "en": "Our story" },
   "titre": { "fr": "L'esprit Phoenix", "nl": "De geest van Phoenix", "es": "El espíritu Phoenix", "en": "The Phoenix spirit" },
   "paragraphes": [

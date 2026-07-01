@@ -77,12 +77,19 @@ Fichier : **`docs/assets/js/reservation.js`** — tout en haut, un bloc **`RESER
 - `mode: "url"` + `url: "…"` : pour brancher plus tard un vrai moteur de réservation (widget, TheFork, Zenchef…). Un seul endroit à changer.
 
 ## 11. Les images (hero, galerie, signature, ambiance)
-Dossiers : **`docs/assets/img/`** → `hero/`, `galerie/`, `signature/`, `esprit/`.
+Dossiers : **`docs/assets/img/`** → `hero/`, `galerie/`, `signature/`, `ambiance/`.
 
-> ⚠️ Les images livrées sont des **visuels de remplacement au format `.svg`**, aux couleurs
-> de la charte. Pour mettre vos **vraies photos**, déposez-les dans le même dossier puis
-> mettez à jour le chemin (`"image"` / `"src"`) dans le fichier `.json` correspondant
-> — ou gardez le même nom de fichier pour ne rien changer d'autre.
+- **Hero** : image de fond définie dans `index.html` (`.hero-kenburns`, `background-image`).
+  Photo actuelle : `hero/hero-facade-coucher-soleil.jpg`. Une 2ᵉ photo est prête
+  (`hero/hero-enseigne-mer.jpeg`) pour une future section ou un changement.
+- **Récit / ambiance** : `data/esprit.json` → `"image"` (photo `ambiance/terrasse-coucher-soleil-mer.jpg`).
+- **Plats signature** : `data/signature.json` → `"image"` de chaque plat.
+- **Galerie** : `data/galerie.json` → liste `"src"` (17 photos, légendes 4 langues).
+
+> Pour **remplacer** une photo : déposez le nouveau fichier dans le bon dossier et mettez à
+> jour le chemin dans le `.json` correspondant — ou gardez le même nom de fichier pour ne
+> rien changer d'autre. Les photos de galerie se chargent en `lazy-loading` et leur légende
+> sert aussi de texte alternatif (accessibilité + SEO).
 
 ---
 

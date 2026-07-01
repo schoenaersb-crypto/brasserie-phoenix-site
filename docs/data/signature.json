@@ -4,7 +4,7 @@
   "plats": [
     {
       "id": "entrecote-galicien",
-      "image": "assets/img/signature/entrecote.svg",
+      "image": "assets/img/signature/signature-01.jpg",
       "prix": "35,90 €",
       "etiquette": { "fr": "Sur pierre de lave", "nl": "Op lavasteen", "es": "Sobre piedra de lava", "en": "On lava stone" },
       "nom": { "fr": "Entrecôte de bœuf Galicien", "nl": "Galicische runderentrecote", "es": "Entrecot de ternera gallega", "en": "Galician beef ribeye" },
@@ -12,7 +12,7 @@
     },
     {
       "id": "potence-gambas",
-      "image": "assets/img/signature/potence-gambas.svg",
+      "image": "assets/img/signature/signature-02.jpg",
       "prix": "24,90 €",
       "etiquette": { "fr": "À la potence", "nl": "Aan het spit", "es": "Al espetón", "en": "Over the spit" },
       "nom": { "fr": "Gambas à la Potence", "nl": "Gamba's aan het spit", "es": "Gambas al espetón", "en": "Gambas on the spit" },
@@ -20,7 +20,7 @@
     },
     {
       "id": "saint-jacques-karmeliet",
-      "image": "assets/img/signature/saint-jacques.svg",
+      "image": "assets/img/signature/signature-03.jpg",
       "prix": "18,90 €",
       "etiquette": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
       "nom": { "fr": "Saint-Jacques Triple Karmeliet", "nl": "Sint-jakobsschelpen Triple Karmeliet", "es": "Vieiras Triple Karmeliet", "en": "Scallops Triple Karmeliet" },
