@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img">
+<defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16364A"/><stop offset="1" stop-color="#0b1d28"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="0.5" cy="1" r="0.9">
+        <stop offset="0" stop-color="#e2703a" stop-opacity="0.55"/>
+        <stop offset="0.5" stop-color="#e2703a" stop-opacity="0.12"/>
+        <stop offset="1" stop-color="#e2703a" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+<rect width="900" height="1100" fill="url(#bg)"/>
+<rect width="900" height="1100" fill="url(#glow)"/>
+<circle cx="386.0" cy="869.6" r="2.8" fill="#d0a869" opacity="0.38"/>
+<circle cx="371.2" cy="967.1" r="2.3" fill="#d0a869" opacity="0.62"/>
+<circle cx="832.7" cy="910.8" r="1.6" fill="#d0a869" opacity="0.25"/>
+<circle cx="679.0" cy="657.0" r="2.5" fill="#d0a869" opacity="0.63"/>
+<circle cx="769.7" cy="941.6" r="2.4" fill="#d0a869" opacity="0.65"/>
+<circle cx="663.5" cy="814.7" r="1.4" fill="#e2703a" opacity="0.66"/>
+<circle cx="337.9" cy="919.1" r="2.1" fill="#d0a869" opacity="0.63"/>
+<circle cx="234.4" cy="642.2" r="2.9" fill="#d0a869" opacity="0.43"/>
+<circle cx="516.2" cy="1065.2" r="2.6" fill="#d0a869" opacity="0.45"/>
+<circle cx="625.1" cy="667.3" r="1.9" fill="#d0a869" opacity="0.26"/>
+<circle cx="400.7" cy="945.9" r="2.4" fill="#e2703a" opacity="0.70"/>
+<circle cx="675.4" cy="940.6" r="1.2" fill="#e2703a" opacity="0.72"/>
+<circle cx="505.3" cy="873.9" r="3.2" fill="#d0a869" opacity="0.73"/>
+<circle cx="577.4" cy="1077.7" r="1.1" fill="#e2703a" opacity="0.43"/>
+<circle cx="118.5" cy="960.9" r="3.9" fill="#d0a869" opacity="0.35"/>
+<circle cx="86.5" cy="941.9" r="1.9" fill="#e2703a" opacity="0.31"/>
+<circle cx="706.3" cy="1095.4" r="2.4" fill="#d0a869" opacity="0.50"/>
+<circle cx="271.9" cy="1098.3" r="1.1" fill="#e2703a" opacity="0.56"/>
+<circle cx="606.9" cy="814.6" r="1.8" fill="#d0a869" opacity="0.60"/>
+<circle cx="342.6" cy="688.5" r="4.0" fill="#e2703a" opacity="0.38"/>
+<circle cx="766.8" cy="711.1" r="3.6" fill="#d0a869" opacity="0.41"/>
+<circle cx="326.1" cy="1091.1" r="1.2" fill="#d0a869" opacity="0.61"/>
+<g transform="translate(450.0,440.0)" opacity="0.14" fill="none" stroke="#d0a869" stroke-width="22.5" stroke-linecap="round">
+      <path d="M0,225 C -225,90 -202,-135 0,-225 C 202,-135 225,90 0,225 Z"/>
+      <path d="M0,144 C -126,36 -117,-90 0,-144 C 126,-90 117,36 0,144 Z"/>
+    </g>
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="900" height="1100" filter="url(#g)" opacity="0.05"/>
+<text x="450" y="946" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="31" letter-spacing="6.6" fill="#d0a869" opacity="0.85" style="text-transform:uppercase">Snackées, Triple Karmeliet</text>
+  <text x="450" y="1034" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-style="italic" font-size="55" fill="#F6F0E4" opacity="0.95">Saint-Jacques</text>
+</svg>

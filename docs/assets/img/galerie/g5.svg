@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img">
+<defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16364A"/><stop offset="1" stop-color="#0f2634"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="0.5" cy="1" r="0.9">
+        <stop offset="0" stop-color="#B98D55" stop-opacity="0.55"/>
+        <stop offset="0.5" stop-color="#B98D55" stop-opacity="0.12"/>
+        <stop offset="1" stop-color="#B98D55" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+<rect width="1000" height="800" fill="url(#bg)"/>
+<rect y="368" width="1000" height="432" fill="#0f2634" opacity="0.5"/>
+<rect y="366" width="1000" height="3" fill="#d0a869" opacity="0.35"/>
+<rect x="300" y="430" width="400" height="1.5" fill="#d0a869" opacity="0.18"/>
+<rect x="300" y="491" width="400" height="1.5" fill="#d0a869" opacity="0.16"/>
+<rect x="300" y="553" width="400" height="1.5" fill="#d0a869" opacity="0.14"/>
+<rect x="300" y="615" width="400" height="1.5" fill="#d0a869" opacity="0.12"/>
+<rect x="300" y="677" width="400" height="1.5" fill="#d0a869" opacity="0.10"/>
+<rect x="300" y="738" width="400" height="1.5" fill="#d0a869" opacity="0.08"/>
+<rect width="1000" height="800" fill="url(#glow)"/>
+<circle cx="818.9" cy="666.3" r="2.3" fill="#d0a869" opacity="0.47"/>
+<circle cx="585.3" cy="576.3" r="4.1" fill="#e2703a" opacity="0.37"/>
+<circle cx="697.7" cy="727.6" r="2.8" fill="#d0a869" opacity="0.71"/>
+<circle cx="941.7" cy="756.4" r="1.8" fill="#e2703a" opacity="0.47"/>
+<circle cx="167.0" cy="798.1" r="3.9" fill="#d0a869" opacity="0.49"/>
+<circle cx="857.2" cy="495.6" r="3.1" fill="#e2703a" opacity="0.59"/>
+<circle cx="79.5" cy="724.9" r="1.1" fill="#e2703a" opacity="0.44"/>
+<circle cx="141.4" cy="662.4" r="2.4" fill="#d0a869" opacity="0.54"/>
+<circle cx="801.8" cy="782.8" r="1.5" fill="#e2703a" opacity="0.52"/>
+<circle cx="537.2" cy="512.1" r="1.1" fill="#e2703a" opacity="0.68"/>
+<circle cx="119.6" cy="769.4" r="1.1" fill="#e2703a" opacity="0.65"/>
+<circle cx="309.8" cy="651.8" r="3.1" fill="#e2703a" opacity="0.35"/>
+<circle cx="481.7" cy="604.8" r="1.9" fill="#e2703a" opacity="0.45"/>
+<circle cx="715.2" cy="673.6" r="1.5" fill="#e2703a" opacity="0.64"/>
+<circle cx="292.6" cy="628.7" r="2.7" fill="#d0a869" opacity="0.74"/>
+<circle cx="139.1" cy="647.0" r="2.8" fill="#d0a869" opacity="0.30"/>
+<circle cx="110.6" cy="497.6" r="1.1" fill="#d0a869" opacity="0.74"/>
+<circle cx="637.1" cy="532.5" r="1.1" fill="#d0a869" opacity="0.40"/>
+<circle cx="675.6" cy="786.6" r="3.3" fill="#e2703a" opacity="0.28"/>
+<circle cx="771.7" cy="767.1" r="1.9" fill="#d0a869" opacity="0.52"/>
+<circle cx="56.5" cy="532.9" r="1.1" fill="#d0a869" opacity="0.43"/>
+<circle cx="926.1" cy="591.4" r="3.8" fill="#d0a869" opacity="0.31"/>
+<g transform="translate(500.0,320.0)" opacity="0.14" fill="none" stroke="#d0a869" stroke-width="20.0" stroke-linecap="round">
+      <path d="M0,200 C -200,80 -180,-120 0,-200 C 180,-120 200,80 0,200 Z"/>
+      <path d="M0,128 C -112,32 -104,-80 0,-128 C 112,-80 104,32 0,128 Z"/>
+    </g>
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1000" height="800" filter="url(#g)" opacity="0.05"/>
+<text x="500" y="688" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="22" letter-spacing="4.8" fill="#d0a869" opacity="0.85" style="text-transform:uppercase">La terrasse</text>
+  <text x="500" y="752" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-style="italic" font-size="40" fill="#F6F0E4" opacity="0.95">Chiringuito</text>
+</svg>

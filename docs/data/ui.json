@@ -8,10 +8,22 @@
   ],
   "nav": {
     "accueil": { "fr": "Accueil", "nl": "Home", "es": "Inicio", "en": "Home" },
+    "esprit": { "fr": "Le récit", "nl": "Het verhaal", "es": "La historia", "en": "Our story" },
     "carte": { "fr": "La carte", "nl": "Menukaart", "es": "La carta", "en": "Menu" },
     "semaine": { "fr": "Menu semaine", "nl": "Weekmenu", "es": "Menú semana", "en": "Weekly menu" },
+    "galerie": { "fr": "Galerie", "nl": "Galerij", "es": "Galería", "en": "Gallery" },
+    "avis": { "fr": "Avis", "nl": "Reviews", "es": "Opiniones", "en": "Reviews" },
     "reserver": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book" },
     "infos": { "fr": "Infos", "nl": "Info", "es": "Info", "en": "Info" }
+  },
+  "a11y": {
+    "aller_contenu": { "fr": "Aller au contenu", "nl": "Naar de inhoud", "es": "Ir al contenido", "en": "Skip to content" },
+    "ouvrir_menu": { "fr": "Ouvrir le menu", "nl": "Menu openen", "es": "Abrir el menú", "en": "Open menu" },
+    "fermer_menu": { "fr": "Fermer le menu", "nl": "Menu sluiten", "es": "Cerrar el menú", "en": "Close menu" },
+    "defiler": { "fr": "Découvrir", "nl": "Ontdek", "es": "Descubrir", "en": "Discover" },
+    "fermer": { "fr": "Fermer", "nl": "Sluiten", "es": "Cerrar", "en": "Close" },
+    "image_precedente": { "fr": "Image précédente", "nl": "Vorige afbeelding", "es": "Imagen anterior", "en": "Previous image" },
+    "image_suivante": { "fr": "Image suivante", "nl": "Volgende afbeelding", "es": "Imagen siguiente", "en": "Next image" }
   },
   "hero": {
     "slogan": { "fr": "La générosité du Sud, l'élégance d'une Brasserie.", "nl": "De gastvrijheid van het Zuiden, de elegantie van een brasserie.", "es": "La generosidad del Sur, la elegancia de una brasserie.", "en": "The generosity of the South, the elegance of a Brasserie." },
@@ -23,6 +35,13 @@
   "sections": {
     "carte_titre": { "fr": "La Carte", "nl": "De Menukaart", "es": "La Carta", "en": "The Menu" },
     "carte_intro": { "fr": "Prix TTC. Nos suggestions « Coup de Cœur » sont signalées.", "nl": "Prijzen incl. btw. Onze « favorieten van de chef » zijn aangeduid.", "es": "Precios con IVA. Nuestras sugerencias « favoritas » están señaladas.", "en": "Prices incl. VAT. Our « Chef's Favourite » suggestions are marked." },
+    "signature_titre": { "fr": "Plats signature", "nl": "Signatuurgerechten", "es": "Platos de autor", "en": "Signature dishes" },
+    "signature_intro": { "fr": "Les incontournables nés du feu — grillades sur pierre de lave et flambages à la potence.", "nl": "De klassiekers geboren uit het vuur — grillspecialiteiten op lavasteen en flamberen aan het spit.", "es": "Los imprescindibles nacidos del fuego — parrilla sobre piedra de lava y flambeados al espetón.", "en": "The must-haves born from fire — lava-stone grills and spit-flambéed specialities." },
+    "signature_cta": { "fr": "Voir toute la carte", "nl": "Bekijk de hele kaart", "es": "Ver toda la carta", "en": "See the full menu" },
+    "galerie_titre": { "fr": "Galerie", "nl": "Galerij", "es": "Galería", "en": "Gallery" },
+    "galerie_intro": { "fr": "La mer, la braise et la table — un aperçu de l'ambiance Phoenix.", "nl": "De zee, de gloed en de tafel — een blik op de sfeer van Phoenix.", "es": "El mar, la brasa y la mesa — un vistazo al ambiente Phoenix.", "en": "The sea, the embers and the table — a glimpse of the Phoenix atmosphere." },
+    "avis_titre": { "fr": "Ils ont vécu l'expérience", "nl": "Zij beleefden het", "es": "Vivieron la experiencia", "en": "They lived the experience" },
+    "avis_intro": { "fr": "Merci à nos convives pour leur confiance.", "nl": "Dank aan onze gasten voor hun vertrouwen.", "es": "Gracias a nuestros comensales por su confianza.", "en": "Thank you to our guests for their trust." },
     "reserver_titre": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book a table" },
     "reserver_intro": { "fr": "Remplissez le formulaire : votre demande part par WhatsApp ou email, pré-remplie. Nous confirmons rapidement.", "nl": "Vul het formulier in: uw aanvraag vertrekt vooraf ingevuld via WhatsApp of e-mail. Wij bevestigen snel.", "es": "Rellene el formulario: su solicitud se envía ya redactada por WhatsApp o email. Confirmamos rápidamente.", "en": "Fill in the form: your request is sent pre-filled via WhatsApp or email. We confirm quickly." },
     "infos_titre": { "fr": "Infos pratiques", "nl": "Praktische info", "es": "Información práctica", "en": "Practical info" }

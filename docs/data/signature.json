@@ -1,0 +1,30 @@
+{
+  "_commentaire": "Plats signature mis en avant sur l'accueil. Chaque plat : image, prix, 4 langues. Pour changer l'ordre, réordonner la liste 'plats'.",
+  "actif": true,
+  "plats": [
+    {
+      "id": "entrecote-galicien",
+      "image": "assets/img/signature/entrecote.svg",
+      "prix": "35,90 €",
+      "etiquette": { "fr": "Sur pierre de lave", "nl": "Op lavasteen", "es": "Sobre piedra de lava", "en": "On lava stone" },
+      "nom": { "fr": "Entrecôte de bœuf Galicien", "nl": "Galicische runderentrecote", "es": "Entrecot de ternera gallega", "en": "Galician beef ribeye" },
+      "desc": { "fr": "Maturée, grillée sur pierre de lave, sauce au choix et accompagnement du jour.", "nl": "Gerijpt, gegrild op lavasteen, saus naar keuze en bijgerecht van de dag.", "es": "Madurada, a la parrilla sobre piedra de lava, salsa a elegir y guarnición del día.", "en": "Aged, grilled on lava stone, sauce of your choice and side of the day." }
+    },
+    {
+      "id": "potence-gambas",
+      "image": "assets/img/signature/potence-gambas.svg",
+      "prix": "24,90 €",
+      "etiquette": { "fr": "À la potence", "nl": "Aan het spit", "es": "Al espetón", "en": "Over the spit" },
+      "nom": { "fr": "Gambas à la Potence", "nl": "Gamba's aan het spit", "es": "Gambas al espetón", "en": "Gambas on the spit" },
+      "desc": { "fr": "Flambées en salle à la potence, servies dans leur jus parfumé — le spectacle du feu à votre table.", "nl": "In de zaal aan het spit geflambeerd, geserveerd in hun geparfumeerde jus — het vuurspektakel aan uw tafel.", "es": "Flambeadas en sala al espetón, servidas en su jugo aromático — el espectáculo del fuego en su mesa.", "en": "Flambéed tableside on the spit, served in their fragrant juices — the spectacle of fire at your table." }
+    },
+    {
+      "id": "saint-jacques-karmeliet",
+      "image": "assets/img/signature/saint-jacques.svg",
+      "prix": "18,90 €",
+      "etiquette": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
+      "nom": { "fr": "Saint-Jacques Triple Karmeliet", "nl": "Sint-jakobsschelpen Triple Karmeliet", "es": "Vieiras Triple Karmeliet", "en": "Scallops Triple Karmeliet" },
+      "desc": { "fr": "Saint-Jacques snackées, sauce à la Triple Karmeliet, accompagnement du jour.", "nl": "Gebakken sint-jakobsschelpen, saus van Triple Karmeliet, bijgerecht van de dag.", "es": "Vieiras selladas, salsa de Triple Karmeliet, guarnición del día.", "en": "Seared scallops, Triple Karmeliet sauce, side of the day." }
+    }
+  ]
+}

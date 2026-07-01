@@ -1,0 +1,25 @@
+{
+  "_commentaire": "Avis clients affichés sur l'accueil. 'note' sur 5. Le texte peut rester dans une seule langue (avis authentique) ou être traduit. Mettre 'actif': false pour masquer la section.",
+  "actif": true,
+  "source": { "fr": "Avis de nos clients", "nl": "Beoordelingen van onze gasten", "es": "Opiniones de nuestros clientes", "en": "Reviews from our guests" },
+  "avis": [
+    {
+      "auteur": "Marie L.",
+      "note": 5,
+      "provenance": "Google",
+      "texte": { "fr": "Une vraie découverte à Torrevieja. L'entrecôte sur pierre de lave est exceptionnelle et le service aux petits soins. On revient !", "nl": "Een echte ontdekking in Torrevieja. De entrecote op lavasteen is uitzonderlijk en de bediening voortreffelijk. Wij komen terug!", "es": "Un verdadero descubrimiento en Torrevieja. El entrecot sobre piedra de lava es excepcional y el servicio impecable. ¡Volveremos!", "en": "A real find in Torrevieja. The lava-stone ribeye is exceptional and the service impeccable. We'll be back!" }
+    },
+    {
+      "auteur": "Johan V.",
+      "note": 5,
+      "provenance": "TripAdvisor",
+      "texte": { "fr": "Les gambas à la potence, flambées devant vous : un spectacle et un régal. Cadre élégant face à la mer, produits d'une grande fraîcheur.", "nl": "De gamba's aan het spit, voor u geflambeerd: een spektakel én een traktatie. Elegant kader aan zee, zeer verse producten.", "es": "Las gambas al espetón, flambeadas ante ti: un espectáculo y un placer. Marco elegante frente al mar, productos muy frescos.", "en": "The spit-flambéed gambas, right before you: a show and a treat. Elegant seafront setting, wonderfully fresh produce." }
+    },
+    {
+      "auteur": "Carmen R.",
+      "note": 5,
+      "provenance": "Google",
+      "texte": { "fr": "Pâtes fraîches maison délicieuses, accueil chaleureux en plusieurs langues. La terrasse au coucher du soleil est magique.", "nl": "Heerlijke verse huisgemaakte pasta, hartelijk onthaal in meerdere talen. Het terras bij zonsondergang is magisch.", "es": "Pasta fresca casera deliciosa, acogida cálida en varios idiomas. La terraza al atardecer es mágica.", "en": "Delicious fresh homemade pasta, warm welcome in several languages. The terrace at sunset is magical." }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "_commentaire": "Galerie photo (ouvre une visionneuse/lightbox au clic). Chaque image : 'src' + légende 4 langues. Pour ajouter une photo, copier un bloc et changer 'src'. Remplacer les .svg par vos vraies photos (.jpg) au même chemin.",
+  "actif": true,
+  "images": [
+    { "src": "assets/img/galerie/g1.svg", "legende": { "fr": "Grillades sur la braise", "nl": "Grillspecialiteiten op de gloed", "es": "Carnes a la brasa", "en": "Grilling over the embers" } },
+    { "src": "assets/img/galerie/g2.svg", "legende": { "fr": "Produits de la mer, face au large", "nl": "Zeevruchten, met zicht op zee", "es": "Mariscos, frente al mar", "en": "Seafood, facing the open sea" } },
+    { "src": "assets/img/galerie/g3.svg", "legende": { "fr": "Pâtes fraîches maison", "nl": "Verse huisgemaakte pasta", "es": "Pasta fresca casera", "en": "Fresh homemade pasta" } },
+    { "src": "assets/img/galerie/g4.svg", "legende": { "fr": "La potence, le spectacle du feu", "nl": "Het spit, het vuurspektakel", "es": "El espetón, el espectáculo del fuego", "en": "The spit, the spectacle of fire" } },
+    { "src": "assets/img/galerie/g5.svg", "legende": { "fr": "La terrasse chiringuito", "nl": "Het chiringuito-terras", "es": "La terraza chiringuito", "en": "The chiringuito terrace" } },
+    { "src": "assets/img/galerie/g6.svg", "legende": { "fr": "Douceurs de fin de repas", "nl": "Zoete afsluiter", "es": "Dulces para terminar", "en": "Sweet endings" } }
+  ]
+}

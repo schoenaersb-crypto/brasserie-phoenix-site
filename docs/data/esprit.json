@@ -1,0 +1,18 @@
+{
+  "_commentaire": "Section « L'esprit Phoenix » (récit). Modifier ici le texte du récit et l'image d'ambiance. 4 langues.",
+  "actif": true,
+  "image": "assets/img/esprit/ambiance.svg",
+  "image_alt": { "fr": "Ambiance chaleureuse de la Brasserie Phoenix", "nl": "Warme sfeer van Brasserie Phoenix", "es": "Ambiente cálido de la Brasserie Phoenix", "en": "Warm atmosphere of Brasserie Phoenix" },
+  "sur_titre": { "fr": "Notre récit", "nl": "Ons verhaal", "es": "Nuestra historia", "en": "Our story" },
+  "titre": { "fr": "L'esprit Phoenix", "nl": "De geest van Phoenix", "es": "El espíritu Phoenix", "en": "The Phoenix spirit" },
+  "paragraphes": [
+    { "fr": "Comme l'oiseau qui lui donne son nom, la Brasserie Phoenix est née du feu. Grillades sur pierre de lave, viandes flambées à la potence : ici, la flamme n'est pas un décor, c'est notre langage.", "nl": "Zoals de vogel die haar naam gaf, is Brasserie Phoenix uit het vuur geboren. Grillspecialiteiten op lavasteen, aan het spit geflambeerd vlees: hier is de vlam geen decor, maar onze taal.", "es": "Como el ave que le da nombre, la Brasserie Phoenix nació del fuego. Carnes a la parrilla sobre piedra de lava, flambeadas al espetón: aquí la llama no es decorado, es nuestro lenguaje.", "en": "Like the bird that gives it its name, Brasserie Phoenix was born from fire. Grills on lava stone, meats flambéed over the spit: here the flame isn't decor, it is our language." },
+    { "fr": "Face à la Méditerranée de Torrevieja, nous marions la générosité du Sud à l'élégance d'une vraie brasserie : produits de la mer du jour, pâtes fraîches maison, viandes d'exception sélectionnées avec soin.", "nl": "Aan de Middellandse Zee van Torrevieja verenigen we de gulheid van het Zuiden met de elegantie van een echte brasserie: dagverse zeevruchten, verse huisgemaakte pasta en met zorg geselecteerd topvlees.", "es": "Frente al Mediterráneo de Torrevieja, unimos la generosidad del Sur con la elegancia de una auténtica brasserie: mariscos del día, pasta fresca casera y carnes de excepción seleccionadas con esmero.", "en": "Facing the Mediterranean in Torrevieja, we blend the generosity of the South with the elegance of a true brasserie: seafood of the day, fresh homemade pasta, and exceptional meats chosen with care." },
+    { "fr": "Chaque service est une renaissance : celle d'un lieu où l'on prend le temps, où le feu réunit et où chaque assiette raconte la mer et la braise.", "nl": "Elke service is een wedergeboorte: die van een plek waar men de tijd neemt, waar het vuur verenigt en waar elk bord de zee en de gloed vertelt.", "es": "Cada servicio es un renacer: el de un lugar donde se toma el tiempo, donde el fuego reúne y donde cada plato cuenta el mar y la brasa.", "en": "Every service is a rebirth: that of a place where time is taken, where fire brings people together, and where every plate tells of the sea and the embers." }
+  ],
+  "reperes": [
+    { "valeur": "7j/7", "texte": { "fr": "midi & soir", "nl": "'s middags & 's avonds", "es": "mediodía y noche", "en": "lunch & dinner" } },
+    { "valeur": "100%", "texte": { "fr": "pâtes fraîches maison", "nl": "verse pasta, huisgemaakt", "es": "pasta fresca casera", "en": "fresh homemade pasta" } },
+    { "valeur": "Feu", "texte": { "fr": "pierre de lave & potence", "nl": "lavasteen & spit", "es": "piedra de lava y espetón", "en": "lava stone & spit" } }
+  ]
+}

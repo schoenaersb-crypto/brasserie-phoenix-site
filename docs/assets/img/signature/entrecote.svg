@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100" role="img">
+<defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16364A"/><stop offset="1" stop-color="#0b1d28"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="0.5" cy="1" r="0.9">
+        <stop offset="0" stop-color="#e2703a" stop-opacity="0.55"/>
+        <stop offset="0.5" stop-color="#e2703a" stop-opacity="0.12"/>
+        <stop offset="1" stop-color="#e2703a" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+<rect width="900" height="1100" fill="url(#bg)"/>
+<rect width="900" height="1100" fill="url(#glow)"/>
+<rect x="153" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="252" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="351" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="450" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="549" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="648" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<rect x="747" y="770" width="18" height="308" rx="9" fill="#c0392b" opacity="0.35"/>
+<circle cx="61.6" cy="1099.6" r="2.5" fill="#d0a869" opacity="0.71"/>
+<circle cx="340.4" cy="706.4" r="1.6" fill="#d0a869" opacity="0.49"/>
+<circle cx="425.3" cy="1076.3" r="2.5" fill="#d0a869" opacity="0.34"/>
+<circle cx="328.6" cy="1040.9" r="2.5" fill="#d0a869" opacity="0.69"/>
+<circle cx="649.2" cy="718.6" r="2.6" fill="#e2703a" opacity="0.38"/>
+<circle cx="400.1" cy="848.5" r="1.4" fill="#e2703a" opacity="0.39"/>
+<circle cx="507.8" cy="785.0" r="3.8" fill="#e2703a" opacity="0.63"/>
+<circle cx="539.3" cy="778.4" r="3.2" fill="#e2703a" opacity="0.70"/>
+<circle cx="351.2" cy="1004.3" r="1.9" fill="#e2703a" opacity="0.65"/>
+<circle cx="91.4" cy="711.6" r="2.5" fill="#e2703a" opacity="0.26"/>
+<circle cx="63.9" cy="742.1" r="3.5" fill="#e2703a" opacity="0.40"/>
+<circle cx="154.7" cy="801.8" r="3.5" fill="#d0a869" opacity="0.39"/>
+<circle cx="872.0" cy="916.4" r="1.1" fill="#d0a869" opacity="0.75"/>
+<circle cx="330.2" cy="988.2" r="3.1" fill="#d0a869" opacity="0.53"/>
+<circle cx="408.6" cy="813.9" r="3.5" fill="#e2703a" opacity="0.67"/>
+<circle cx="191.2" cy="1001.0" r="3.3" fill="#e2703a" opacity="0.54"/>
+<circle cx="675.0" cy="650.0" r="1.8" fill="#d0a869" opacity="0.32"/>
+<circle cx="490.9" cy="746.9" r="3.7" fill="#d0a869" opacity="0.49"/>
+<circle cx="853.1" cy="1084.9" r="3.8" fill="#d0a869" opacity="0.70"/>
+<circle cx="305.1" cy="882.4" r="1.4" fill="#e2703a" opacity="0.32"/>
+<circle cx="875.6" cy="723.9" r="2.3" fill="#e2703a" opacity="0.53"/>
+<circle cx="298.6" cy="611.9" r="1.3" fill="#e2703a" opacity="0.34"/>
+<g transform="translate(450.0,440.0)" opacity="0.14" fill="none" stroke="#d0a869" stroke-width="22.5" stroke-linecap="round">
+      <path d="M0,225 C -225,90 -202,-135 0,-225 C 202,-135 225,90 0,225 Z"/>
+      <path d="M0,144 C -126,36 -117,-90 0,-144 C 126,-90 117,36 0,144 Z"/>
+    </g>
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="900" height="1100" filter="url(#g)" opacity="0.05"/>
+<text x="450" y="946" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="31" letter-spacing="6.6" fill="#d0a869" opacity="0.85" style="text-transform:uppercase">Grillé sur pierre de lave</text>
+  <text x="450" y="1034" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-style="italic" font-size="55" fill="#F6F0E4" opacity="0.95">Entrecôte Galicienne</text>
+</svg>

@@ -5,6 +5,26 @@
 (function () {
   "use strict";
 
+  /* ============================================================
+     CIBLE DE RÉSERVATION — point unique à modifier
+     ------------------------------------------------------------
+     Aujourd'hui : WhatsApp + email (aucun serveur, aucune donnée stockée).
+     Le numéro / l'email viennent de data/infos.json.
+
+     👉 POUR BRANCHER UN VRAI MOTEUR DE RÉSERVATION plus tard
+        (widget, TheFork, Zenchef, SevenRooms, lien maison…),
+        il suffit de changer 'mode' ci-dessous et, le cas échéant,
+        de renseigner 'url'. Rien d'autre dans le code n'est à toucher.
+
+        mode: "whatsapp_email"  → comportement actuel (2 boutons)
+        mode: "url"             → redirige vers RESERVATION.url (moteur externe)
+     ============================================================ */
+  var RESERVATION = {
+    mode: "whatsapp_email",
+    url: "",                 // ex. "https://widget.mon-moteur.com/brasserie-phoenix"
+    ouvrir_dans_nouvel_onglet: true
+  };
+
   var infos = null;
 
   function t(p) { return window.Phoenix ? window.Phoenix.t(p) : ""; }
@@ -62,11 +82,29 @@
       "&body=" + encodeURIComponent(msg);
   }
 
+  /* Redirige vers un moteur de réservation externe (mode "url"). */
+  function ouvrirMoteur() {
+    if (!RESERVATION.url) return;
+    if (RESERVATION.ouvrir_dans_nouvel_onglet) {
+      window.open(RESERVATION.url, "_blank", "noopener");
+    } else {
+      window.location.href = RESERVATION.url;
+    }
+  }
+
   function init() {
     var btnWa = document.getElementById("btn-wa");
     var btnMail = document.getElementById("btn-email");
-    if (btnWa) btnWa.addEventListener("click", ouvrirWhatsApp);
-    if (btnMail) btnMail.addEventListener("click", ouvrirEmail);
+
+    // Aiguillage selon la cible de réservation configurée en haut du fichier.
+    if (RESERVATION.mode === "url" && RESERVATION.url) {
+      if (btnWa) btnWa.addEventListener("click", ouvrirMoteur);
+      if (btnMail) btnMail.addEventListener("click", ouvrirMoteur);
+    } else {
+      // mode par défaut "whatsapp_email"
+      if (btnWa) btnWa.addEventListener("click", ouvrirWhatsApp);
+      if (btnMail) btnMail.addEventListener("click", ouvrirEmail);
+    }
 
     // pré-remplir la date du jour comme valeur minimale
     var dateInput = document.getElementById("r-date");

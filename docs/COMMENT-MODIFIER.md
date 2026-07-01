@@ -59,6 +59,31 @@ Fichier : **`docs/data/infos.json`** — adresse, téléphone, email, horaires, 
 ## 5. Textes des boutons et menus
 Fichier : **`docs/data/ui.json`** — libellés de navigation, du formulaire, du hero, etc. (4 langues).
 
+## 6. Le récit « L'esprit Phoenix »
+Fichier : **`docs/data/esprit.json`** — sur-titre, titre, paragraphes du récit, image d'ambiance et les 3 « repères ». `"actif": false` masque la section.
+
+## 7. Les plats signature (accueil)
+Fichier : **`docs/data/signature.json`** — les plats mis en avant (image, prix, étiquette, 4 langues). Réordonner ou ajouter des blocs dans `"plats"`.
+
+## 8. La galerie photo
+Fichier : **`docs/data/galerie.json`** — liste d'images avec légende (4 langues). Un clic ouvre la visionneuse (lightbox). Pour ajouter une photo, copier un bloc et changer `"src"`.
+
+## 9. Les avis clients
+Fichier : **`docs/data/avis.json`** — auteur, note sur 5, provenance et texte de l'avis. `"actif": false` masque la section.
+
+## 10. La réservation (WhatsApp / email ou futur moteur)
+Fichier : **`docs/assets/js/reservation.js`** — tout en haut, un bloc **`RESERVATION`** isole la cible :
+- `mode: "whatsapp_email"` (par défaut) : les 2 boutons ouvrent WhatsApp / email pré-remplis (aucun serveur, aucune donnée stockée).
+- `mode: "url"` + `url: "…"` : pour brancher plus tard un vrai moteur de réservation (widget, TheFork, Zenchef…). Un seul endroit à changer.
+
+## 11. Les images (hero, galerie, signature, ambiance)
+Dossiers : **`docs/assets/img/`** → `hero/`, `galerie/`, `signature/`, `esprit/`.
+
+> ⚠️ Les images livrées sont des **visuels de remplacement au format `.svg`**, aux couleurs
+> de la charte. Pour mettre vos **vraies photos**, déposez-les dans le même dossier puis
+> mettez à jour le chemin (`"image"` / `"src"`) dans le fichier `.json` correspondant
+> — ou gardez le même nom de fichier pour ne rien changer d'autre.
+
 ---
 
 ## Où va le site en ligne

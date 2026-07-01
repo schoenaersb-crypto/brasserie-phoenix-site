@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img">
+<defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#16364A"/><stop offset="1" stop-color="#0f2634"/>
+      </linearGradient>
+      <radialGradient id="glow" cx="0.5" cy="1" r="0.9">
+        <stop offset="0" stop-color="#B98D55" stop-opacity="0.55"/>
+        <stop offset="0.5" stop-color="#B98D55" stop-opacity="0.12"/>
+        <stop offset="1" stop-color="#B98D55" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<rect width="1200" height="900" fill="url(#glow)"/>
+<rect x="204" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="336" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="468" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="600" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="732" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="864" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<rect x="996" y="630" width="24" height="252" rx="12" fill="#c0392b" opacity="0.35"/>
+<circle cx="949.4" cy="732.9" r="2.2" fill="#d0a869" opacity="0.61"/>
+<circle cx="330.0" cy="881.2" r="3.3" fill="#d0a869" opacity="0.75"/>
+<circle cx="333.9" cy="766.7" r="2.2" fill="#d0a869" opacity="0.64"/>
+<circle cx="540.3" cy="625.9" r="2.8" fill="#d0a869" opacity="0.66"/>
+<circle cx="926.5" cy="572.2" r="1.2" fill="#d0a869" opacity="0.39"/>
+<circle cx="817.0" cy="497.4" r="1.8" fill="#e2703a" opacity="0.72"/>
+<circle cx="297.4" cy="744.8" r="2.2" fill="#e2703a" opacity="0.36"/>
+<circle cx="108.6" cy="847.3" r="2.7" fill="#d0a869" opacity="0.53"/>
+<circle cx="483.7" cy="752.2" r="1.4" fill="#d0a869" opacity="0.73"/>
+<circle cx="36.0" cy="890.4" r="2.4" fill="#d0a869" opacity="0.45"/>
+<circle cx="16.7" cy="759.3" r="1.2" fill="#d0a869" opacity="0.51"/>
+<circle cx="1056.9" cy="786.8" r="3.8" fill="#e2703a" opacity="0.40"/>
+<circle cx="246.4" cy="807.7" r="2.0" fill="#d0a869" opacity="0.53"/>
+<circle cx="371.4" cy="752.2" r="2.4" fill="#d0a869" opacity="0.26"/>
+<circle cx="196.2" cy="666.9" r="1.2" fill="#e2703a" opacity="0.31"/>
+<circle cx="823.8" cy="762.8" r="1.7" fill="#e2703a" opacity="0.67"/>
+<circle cx="314.1" cy="563.0" r="3.5" fill="#d0a869" opacity="0.34"/>
+<circle cx="510.0" cy="732.7" r="4.0" fill="#e2703a" opacity="0.28"/>
+<circle cx="374.5" cy="839.7" r="3.9" fill="#d0a869" opacity="0.29"/>
+<circle cx="183.7" cy="563.7" r="1.9" fill="#e2703a" opacity="0.71"/>
+<circle cx="79.0" cy="600.3" r="3.5" fill="#d0a869" opacity="0.36"/>
+<circle cx="923.9" cy="728.7" r="1.6" fill="#d0a869" opacity="0.75"/>
+<g transform="translate(600.0,360.0)" opacity="0.14" fill="none" stroke="#d0a869" stroke-width="22.5" stroke-linecap="round">
+      <path d="M0,225 C -225,90 -202,-135 0,-225 C 202,-135 225,90 0,225 Z"/>
+      <path d="M0,144 C -126,36 -117,-90 0,-144 C 126,-90 117,36 0,144 Z"/>
+    </g>
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1200" height="900" filter="url(#g)" opacity="0.05"/>
+<text x="600" y="774" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="25" letter-spacing="5.4" fill="#d0a869" opacity="0.85" style="text-transform:uppercase">L'esprit Phoenix</text>
+  <text x="600" y="846" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-style="italic" font-size="45" fill="#F6F0E4" opacity="0.95">Une table qui renaît du feu</text>
+</svg>

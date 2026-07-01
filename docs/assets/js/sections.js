@@ -1,0 +1,251 @@
+/* ============================================================
+   sections.js — rend les sections du redesign à partir des data/*.json :
+     · L'esprit Phoenix (récit)   → data/esprit.json
+     · Plats signature            → data/signature.json
+     · Galerie + visionneuse      → data/galerie.json
+     · Avis clients               → data/avis.json
+   Se redessine à chaque changement de langue. Aucune dépendance externe.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var DATA = {}; // { esprit, signature, galerie, avis }
+
+  function tr(v) { return window.Phoenix ? window.Phoenix.tr(v) : (v && v.fr) || ""; }
+  function t(p) { return window.Phoenix ? window.Phoenix.t(p) : ""; }
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt != null) e.textContent = txt;
+    return e;
+  }
+  function montrer(id, visible) {
+    var s = document.getElementById(id);
+    if (s) s.hidden = !visible;
+  }
+
+  /* ---------- L'esprit Phoenix (récit) ---------- */
+  function rendreEsprit() {
+    var d = DATA.esprit;
+    if (!d || !d.actif) { montrer("esprit", false); return; }
+    montrer("esprit", true);
+
+    var img = document.getElementById("esprit-image");
+    if (img && d.image) { img.src = d.image; img.alt = tr(d.image_alt); }
+
+    var sur = document.getElementById("esprit-surtitre");
+    if (sur) sur.textContent = tr(d.sur_titre);
+    var titre = document.getElementById("esprit-titre");
+    if (titre) titre.textContent = tr(d.titre);
+
+    var paras = document.getElementById("esprit-paragraphes");
+    if (paras) {
+      paras.innerHTML = "";
+      (d.paragraphes || []).forEach(function (p) { paras.appendChild(el("p", null, tr(p))); });
+    }
+
+    var reperes = document.getElementById("esprit-reperes");
+    if (reperes) {
+      reperes.innerHTML = "";
+      (d.reperes || []).forEach(function (r) {
+        var li = el("li");
+        li.appendChild(el("span", "repere-valeur", r.valeur));
+        li.appendChild(el("span", "repere-texte", tr(r.texte)));
+        reperes.appendChild(li);
+      });
+    }
+  }
+
+  /* ---------- Plats signature ---------- */
+  function rendreSignature() {
+    var d = DATA.signature;
+    var cont = document.getElementById("signature-contenu");
+    if (!d || !d.actif || !cont) { montrer("signature", false); return; }
+    montrer("signature", true);
+    cont.innerHTML = "";
+
+    (d.plats || []).forEach(function (p) {
+      var card = el("article", "sig-card");
+
+      var media = el("div", "sig-media");
+      var img = el("img");
+      img.src = p.image; img.alt = tr(p.nom); img.loading = "lazy";
+      media.appendChild(img);
+      if (p.etiquette && tr(p.etiquette)) media.appendChild(el("span", "sig-tag", tr(p.etiquette)));
+      card.appendChild(media);
+
+      var corps = el("div", "sig-corps");
+      var tete = el("div", "sig-tete");
+      tete.appendChild(el("h3", "sig-nom", tr(p.nom)));
+      if (p.prix) tete.appendChild(el("span", "sig-prix", p.prix));
+      corps.appendChild(tete);
+      var desc = tr(p.desc);
+      if (desc) corps.appendChild(el("p", "sig-desc", desc));
+      card.appendChild(corps);
+
+      cont.appendChild(card);
+    });
+  }
+
+  /* ---------- Galerie ---------- */
+  var galerieImages = []; // [{src, legende}] dans l'ordre affiché
+
+  function rendreGalerie() {
+    var d = DATA.galerie;
+    var cont = document.getElementById("galerie-contenu");
+    if (!d || !d.actif || !cont) { montrer("galerie", false); return; }
+    montrer("galerie", true);
+    cont.innerHTML = "";
+    galerieImages = (d.images || []).map(function (im) { return { src: im.src, legende: tr(im.legende) }; });
+
+    galerieImages.forEach(function (im, i) {
+      var btn = el("button", "gal-item");
+      btn.type = "button";
+      btn.setAttribute("aria-label", im.legende || ("Image " + (i + 1)));
+      var img = el("img");
+      img.src = im.src; img.alt = im.legende || ""; img.loading = "lazy";
+      btn.appendChild(img);
+      btn.appendChild(el("span", "gal-legende", im.legende));
+      btn.addEventListener("click", function () { ouvrirLightbox(i); });
+      cont.appendChild(btn);
+    });
+  }
+
+  /* ---------- Visionneuse (lightbox) ---------- */
+  var lbIndex = 0;
+  var declencheur = null; // élément à re-focaliser à la fermeture
+
+  function majLightbox() {
+    var im = galerieImages[lbIndex];
+    if (!im) return;
+    var img = document.getElementById("lightbox-img");
+    var cap = document.getElementById("lightbox-caption");
+    if (img) { img.src = im.src; img.alt = im.legende || ""; }
+    if (cap) cap.textContent = im.legende || "";
+  }
+
+  function ouvrirLightbox(i) {
+    if (!galerieImages.length) return;
+    lbIndex = i;
+    declencheur = document.activeElement;
+    majLightbox();
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    lb.hidden = false;
+    document.body.classList.add("no-scroll");
+    var close = document.getElementById("lightbox-close");
+    if (close) close.focus();
+  }
+
+  function fermerLightbox() {
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    lb.hidden = true;
+    document.body.classList.remove("no-scroll");
+    if (declencheur && declencheur.focus) declencheur.focus();
+  }
+
+  function naviguer(pas) {
+    if (!galerieImages.length) return;
+    lbIndex = (lbIndex + pas + galerieImages.length) % galerieImages.length;
+    majLightbox();
+  }
+
+  function initLightbox() {
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    var close = document.getElementById("lightbox-close");
+    var prev = document.getElementById("lightbox-prev");
+    var next = document.getElementById("lightbox-next");
+    if (close) close.addEventListener("click", fermerLightbox);
+    if (prev) prev.addEventListener("click", function () { naviguer(-1); });
+    if (next) next.addEventListener("click", function () { naviguer(1); });
+    // clic sur le fond (hors image/boutons) ferme
+    lb.addEventListener("click", function (e) { if (e.target === lb) fermerLightbox(); });
+    // clavier : Échap ferme, flèches naviguent, Tab reste dans la boîte
+    document.addEventListener("keydown", function (e) {
+      if (lb.hidden) return;
+      if (e.key === "Escape") { fermerLightbox(); }
+      else if (e.key === "ArrowLeft") { naviguer(-1); }
+      else if (e.key === "ArrowRight") { naviguer(1); }
+      else if (e.key === "Tab") { piegerFocus(e, lb); }
+    });
+  }
+
+  function piegerFocus(e, boite) {
+    var focusables = boite.querySelectorAll("button, [href], img[tabindex]");
+    if (!focusables.length) return;
+    var premier = focusables[0], dernier = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === premier) { e.preventDefault(); dernier.focus(); }
+    else if (!e.shiftKey && document.activeElement === dernier) { e.preventDefault(); premier.focus(); }
+  }
+
+  /* ---------- Avis ---------- */
+  function etoiles(note) {
+    var n = Math.max(0, Math.min(5, parseInt(note, 10) || 0));
+    var wrap = el("span", "avis-note");
+    wrap.setAttribute("aria-label", n + "/5");
+    for (var i = 0; i < 5; i++) {
+      wrap.appendChild(el("span", "etoile" + (i < n ? " pleine" : ""), "★"));
+    }
+    return wrap;
+  }
+
+  function rendreAvis() {
+    var d = DATA.avis;
+    var cont = document.getElementById("avis-contenu");
+    if (!d || !d.actif || !cont) { montrer("avis", false); return; }
+    montrer("avis", true);
+    cont.innerHTML = "";
+
+    (d.avis || []).forEach(function (a) {
+      var card = el("figure", "avis-card");
+      card.appendChild(etoiles(a.note));
+      var bloc = el("blockquote", "avis-texte");
+      bloc.textContent = "« " + tr(a.texte) + " »";
+      card.appendChild(bloc);
+      var pied = el("figcaption", "avis-pied");
+      pied.appendChild(el("span", "avis-auteur", a.auteur));
+      if (a.provenance) pied.appendChild(el("span", "avis-source", a.provenance));
+      card.appendChild(pied);
+      cont.appendChild(card);
+    });
+  }
+
+  /* ---------- Rendu global ---------- */
+  function rendreTout() {
+    rendreEsprit();
+    rendreSignature();
+    rendreGalerie();
+    rendreAvis();
+  }
+
+  /* ---------- Chargement ---------- */
+  function charger() {
+    var urls = {
+      esprit: "data/esprit.json",
+      signature: "data/signature.json",
+      galerie: "data/galerie.json",
+      avis: "data/avis.json"
+    };
+    Promise.all(Object.keys(urls).map(function (nom) {
+      return fetch(urls[nom])
+        .then(function (r) { return r.json(); })
+        .then(function (d) { DATA[nom] = d; })
+        .catch(function () { DATA[nom] = null; });
+    })).then(function () {
+      rendreTout();
+      if (window.Phoenix) window.Phoenix.onLangChange(rendreTout);
+      // signale aux animations d'apparition que du contenu est arrivé
+      document.dispatchEvent(new CustomEvent("phoenix:sections-ready"));
+    });
+  }
+
+  initLightbox();
+
+  if (window.Phoenix && window.Phoenix.t("nav.accueil")) {
+    charger();
+  } else {
+    document.addEventListener("phoenix:i18n-ready", charger, { once: true });
+  }
+})();

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brasserie Phoenix · Torrevieja</title>
   <meta name="description" content="Brasserie Phoenix — grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée. Torrevieja, Espagne." />
+  <meta name="theme-color" content="#16364A" />
 
   <!-- Favicon (le logo phénix) -->
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
@@ -18,6 +19,9 @@
 </head>
 <body>
 
+  <!-- Lien d'évitement (accessibilité clavier) -->
+  <a href="#accueil" class="skip-link" data-ui="a11y.aller_contenu">Aller au contenu</a>
+
   <!-- ===== Bandeau annonces (rempli depuis data/annonces.json, masqué si inactif) ===== -->
   <div id="annonces" class="annonces" hidden></div>
 
@@ -28,10 +32,22 @@
       <span class="brand-name">Brasserie Phoenix</span>
     </a>
 
-    <nav class="main-nav" aria-label="Navigation principale">
+    <!-- Bouton hamburger (mobile) -->
+    <button type="button" class="nav-toggle" id="nav-toggle"
+            aria-expanded="false" aria-controls="main-nav" data-ui-label="a11y.ouvrir_menu"
+            aria-label="Ouvrir le menu">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
       <a href="#accueil" data-nav="accueil">Accueil</a>
+      <a href="#esprit" data-nav="esprit">Le récit</a>
       <a href="#carte" data-nav="carte">La carte</a>
       <a href="#semaine" data-nav="semaine">Menu semaine</a>
+      <a href="#galerie" data-nav="galerie">Galerie</a>
+      <a href="#avis" data-nav="avis">Avis</a>
       <a href="#reserver" data-nav="reserver">Réserver</a>
       <a href="#infos" data-nav="infos">Infos</a>
     </nav>
@@ -41,10 +57,17 @@
     </div>
   </header>
 
+  <!-- Voile qui assombrit la page quand le menu mobile est ouvert -->
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
   <main>
 
-    <!-- ===== Hero ===== -->
+    <!-- ===== Hero cinématique (image de fond + effet Ken Burns) ===== -->
     <section id="accueil" class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-kenburns" style="background-image: url('assets/img/hero/hero.svg');"></div>
+        <div class="hero-scrim"></div>
+      </div>
       <div class="hero-embers" aria-hidden="true"></div>
       <div class="hero-inner">
         <img src="assets/img/phoenix-logo.png" alt="Logo phénix de la Brasserie Phoenix" class="hero-logo" />
@@ -57,10 +80,42 @@
           <a href="#reserver" class="btn btn-ghost" data-ui="hero.cta_reserver"></a>
         </div>
       </div>
+      <!-- Indicateur de défilement -->
+      <a href="#esprit" class="hero-scroll" aria-label="Découvrir">
+        <span class="hero-scroll-txt" data-ui="a11y.defiler">Découvrir</span>
+        <span class="hero-scroll-arrow" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ===== L'esprit Phoenix (récit) — rempli depuis data/esprit.json ===== -->
+    <section id="esprit" class="section section-esprit reveal" hidden>
+      <div class="esprit-grid">
+        <figure class="esprit-media">
+          <img id="esprit-image" src="" alt="" loading="lazy" />
+        </figure>
+        <div class="esprit-texte">
+          <p class="sur-titre" id="esprit-surtitre"></p>
+          <h2 id="esprit-titre"></h2>
+          <div id="esprit-paragraphes"></div>
+          <ul class="esprit-reperes" id="esprit-reperes"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Plats signature — rempli depuis data/signature.json ===== -->
+    <section id="signature" class="section section-alt section-signature reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.signature_titre"></h2>
+        <p class="section-intro" data-ui="sections.signature_intro"></p>
+      </div>
+      <div id="signature-contenu" class="signature-grid"></div>
+      <div class="section-cta">
+        <a href="#carte" class="btn btn-ghost" data-ui="sections.signature_cta"></a>
+      </div>
     </section>
 
     <!-- ===== La carte ===== -->
-    <section id="carte" class="section">
+    <section id="carte" class="section reveal">
       <div class="section-head">
         <h2 data-ui="sections.carte_titre"></h2>
         <p class="section-intro" data-ui="sections.carte_intro"></p>
@@ -69,7 +124,7 @@
     </section>
 
     <!-- ===== Menu de la semaine ===== -->
-    <section id="semaine" class="section section-alt" hidden>
+    <section id="semaine" class="section section-alt reveal" hidden>
       <div class="section-head">
         <h2 id="semaine-titre"></h2>
         <p class="section-intro" id="semaine-soustitre"></p>
@@ -77,8 +132,26 @@
       <div id="semaine-contenu" class="semaine"></div>
     </section>
 
+    <!-- ===== Galerie (ouvre une visionneuse) — rempli depuis data/galerie.json ===== -->
+    <section id="galerie" class="section section-galerie reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.galerie_titre"></h2>
+        <p class="section-intro" data-ui="sections.galerie_intro"></p>
+      </div>
+      <div id="galerie-contenu" class="galerie-grid"></div>
+    </section>
+
+    <!-- ===== Avis clients — rempli depuis data/avis.json ===== -->
+    <section id="avis" class="section section-alt section-avis reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.avis_titre"></h2>
+        <p class="section-intro" data-ui="sections.avis_intro"></p>
+      </div>
+      <div id="avis-contenu" class="avis-grid"></div>
+    </section>
+
     <!-- ===== Réservation ===== -->
-    <section id="reserver" class="section">
+    <section id="reserver" class="section reveal">
       <div class="section-head">
         <h2 data-ui="sections.reserver_titre"></h2>
         <p class="section-intro" data-ui="sections.reserver_intro"></p>
@@ -108,6 +181,7 @@
 
         <p id="form-erreur" class="form-erreur" role="alert" hidden></p>
 
+        <!-- Boutons de réservation : cible branchée sur WhatsApp / email (voir reservation.js). -->
         <div class="reservation-actions">
           <button type="button" id="btn-wa" class="btn btn-primary" data-ui="form.envoyer_wa"></button>
           <button type="button" id="btn-email" class="btn btn-ghost" data-ui="form.envoyer_email"></button>
@@ -116,7 +190,7 @@
     </section>
 
     <!-- ===== Infos pratiques ===== -->
-    <section id="infos" class="section section-alt">
+    <section id="infos" class="section section-alt reveal">
       <div class="section-head">
         <h2 data-ui="sections.infos_titre"></h2>
       </div>
@@ -133,9 +207,22 @@
     <p class="footer-legal">© <span id="year"></span> Brasserie Phoenix S.L. — <span data-ui="footer.droits"></span></p>
   </footer>
 
+  <!-- ===== Visionneuse (lightbox) de la galerie ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer" data-ui-label="a11y.fermer">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Image précédente" data-ui-label="a11y.image_precedente">‹</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Image suivante" data-ui-label="a11y.image_suivante">›</button>
+  </div>
+
   <!-- Scripts : chargés en fin de page, sans dépendance externe -->
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/menu.js"></script>
+  <script src="assets/js/sections.js"></script>
+  <script src="assets/js/ui.js"></script>
   <script src="assets/js/reservation.js"></script>
 </body>
 </html>
