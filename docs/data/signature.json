@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Plats signature mis en avant sur l'accueil : l'identité Phoenix = feu, pierre de lave, viande & produits de la mer. Chaque plat : image, prix, 4 langues. Pour changer l'ordre, réordonner la liste 'plats'.",
+  "_commentaire": "Plats signature = l'identité Phoenix (feu, pierre de lave, viande & mer). Les prix proviennent de data/carte.json. 'prix_texte' remplace 'prix' pour les plats au prix du jour. Réordonner ou ajouter des blocs dans 'plats'.",
   "actif": true,
   "plats": [
     {
@@ -11,20 +11,20 @@
       "desc": { "fr": "Grillée à votre table sur pierre de lave brûlante, servie avec sa sélection de sauces et une salade fraîche.", "nl": "Aan tafel gegrild op gloeiend hete lavasteen, geserveerd met een selectie sauzen en een frisse salade.", "es": "A la parrilla en su mesa sobre piedra de lava ardiente, servida con su selección de salsas y ensalada fresca.", "en": "Grilled at your table on searing lava stone, served with its selection of sauces and a fresh salad." }
     },
     {
-      "id": "boeuf-angus",
+      "id": "black-angus",
       "image": "assets/img/signature/signature-02.jpg",
-      "prix": "23,90 €",
-      "etiquette": { "fr": "Viande d'exception", "nl": "Uitzonderlijk vlees", "es": "Carne de excepción", "en": "Exceptional meat" },
-      "nom": { "fr": "Bœuf Black Angus", "nl": "Black Angus rund", "es": "Ternera Black Angus", "en": "Black Angus beef" },
-      "desc": { "fr": "Émincé de bœuf Angus, nouilles sautées aux légumes et œuf mollet.", "nl": "Reepjes Angus-rund, gebakken noedels met groenten en zachtgekookt ei.", "es": "Ternera Angus en tiras, fideos salteados con verduras y huevo mollet.", "en": "Sliced Angus beef, stir-fried noodles with vegetables and a soft egg." }
+      "prix_texte": { "fr": "Prix du jour", "nl": "Prijs van de dag", "es": "Precio del día", "en": "Price of the day" },
+      "etiquette": { "fr": "Bœuf d'Irlande", "nl": "Iers rundvlees", "es": "Ternera de Irlanda", "en": "Irish beef" },
+      "nom": { "fr": "Bœuf Black Angus", "nl": "Black Angus rundvlees", "es": "Ternera Black Angus", "en": "Black Angus beef" },
+      "desc": { "fr": "Pièce d'exception, grillée sur pierre de lave. Prix du jour selon l'arrivage.", "nl": "Uitzonderlijk stuk, gegrild op lavasteen. Dagprijs volgens aanvoer.", "es": "Pieza de excepción, a la parrilla sobre piedra de lava. Precio del día según el mercado.", "en": "An exceptional cut, grilled on lava stone. Price of the day, subject to availability." }
     },
     {
-      "id": "sole-laquee",
-      "image": "assets/img/signature/signature-03.jpg",
-      "prix": "22,90 €",
-      "etiquette": { "fr": "Produits de la mer", "nl": "Uit de zee", "es": "Productos del mar", "en": "From the sea" },
-      "nom": { "fr": "Sole laquée soja, miel & gingembre", "nl": "Gelakte tong met soja, honing & gember", "es": "Lenguado lacado con soja, miel y jengibre", "en": "Lacquered sole with soy, honey & ginger" },
-      "desc": { "fr": "Filet de sole laqué, légumes sautés et écrasé de pommes de terre.", "nl": "Gelakte tongfilet, gebakken groenten en aardappelstoemp.", "es": "Filete de lenguado lacado, verduras salteadas y puré rústico de patata.", "en": "Lacquered sole fillet, sautéed vegetables and crushed potatoes." }
+      "id": "potence-gambas",
+      "image": "assets/img/galerie/05-brochette-gambas.jpeg",
+      "prix": "33,90 €",
+      "etiquette": { "fr": "À la potence, flambée", "nl": "Aan het spit, geflambeerd", "es": "Al espetón, flambeada", "en": "On the spit, flambéed" },
+      "nom": { "fr": "Potence Gambas flambée au Ricard", "nl": "Gamba's aan het spit, geflambeerd met Ricard", "es": "Langostinos al espetón flambeados con Ricard", "en": "Prawns on the spit, flambéed with Ricard" },
+      "desc": { "fr": "Flambées en salle à la potence — le spectacle du feu à votre table. 2 pers. minimum, prix par personne.", "nl": "In de zaal aan het spit geflambeerd — het vuurspektakel aan uw tafel. Minimum 2 personen, prijs per persoon.", "es": "Flambeados en sala al espetón — el espectáculo del fuego en su mesa. Mínimo 2 personas, precio por persona.", "en": "Flambéed tableside on the spit — the spectacle of fire at your table. Minimum 2 people, price per person." }
     }
   ]
 }

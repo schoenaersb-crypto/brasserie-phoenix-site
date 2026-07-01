@@ -339,6 +339,7 @@ body.nav-open .main-nav { transform: translateY(0); }
 .sig-tete { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .sig-nom { font-size: 1.4rem; color: var(--marine); }
 .sig-prix { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--marine); white-space: nowrap; }
+.sig-prix.sig-prix-jour { font-size: 0.95rem; font-style: italic; color: var(--cuivre); }
 .sig-desc { color: var(--texte-doux); font-size: 0.95rem; margin-top: 8px; }
 
 /* ---- Galerie ---- */
@@ -386,6 +387,7 @@ body.nav-open .main-nav { transform: translateY(0); }
 .avis-note { display: inline-flex; gap: 2px; }
 .avis-note .etoile { color: #d8cdb6; font-size: 1.05rem; }
 .avis-note .etoile.pleine { color: var(--cuivre); }
+.avis-note-txt { display: inline-block; font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--cuivre); font-size: 1.1rem; }
 .avis-texte { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--texte); line-height: 1.45; margin: 0; }
 .avis-pied { display: flex; align-items: baseline; gap: 10px; }
 .avis-auteur { font-weight: 600; color: var(--marine); }

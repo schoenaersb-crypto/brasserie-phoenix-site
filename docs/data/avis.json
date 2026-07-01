@@ -5,8 +5,8 @@
   "nombre_avis": { "fr": "226 avis", "nl": "226 beoordelingen", "es": "226 opiniones", "en": "226 reviews" },
   "source": { "fr": "D'après les avis de nos clients", "nl": "Op basis van de beoordelingen van onze gasten", "es": "Según las opiniones de nuestros clientes", "en": "Based on our guests' reviews" },
   "avis": [
-    { "texte": "Qualité de la viande, viande sur pierre, poisson frais. Bord de mer, ambiance très agréable." },
-    { "texte": "Todo perfecto para pasar un rato y disfrutar." },
-    { "texte": "Vue sur la mer, service très aimable, une belle découverte." }
+    { "note": 5, "texte": "Qualité de la viande, viande sur pierre, poisson frais. Bord de mer, ambiance très agréable." },
+    { "note": 5, "texte": "Todo perfecto para pasar un rato y disfrutar." },
+    { "note": 5, "texte": "Vue sur la mer, service très aimable, une belle découverte." }
   ]
 }

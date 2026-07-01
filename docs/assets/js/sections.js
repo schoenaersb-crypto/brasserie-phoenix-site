@@ -94,7 +94,8 @@
       var corps = el("div", "sig-corps");
       var tete = el("div", "sig-tete");
       tete.appendChild(el("h3", "sig-nom", tr(p.nom)));
-      if (p.prix) tete.appendChild(el("span", "sig-prix", p.prix));
+      var prixTxt = p.prix ? p.prix : (p.prix_texte ? tr(p.prix_texte) : "");
+      if (prixTxt) tete.appendChild(el("span", "sig-prix" + (p.prix ? "" : " sig-prix-jour"), prixTxt));
       corps.appendChild(tete);
       var desc = tr(p.desc);
       if (desc) corps.appendChild(el("p", "sig-desc", desc));
@@ -216,12 +217,28 @@
     cont.innerHTML = "";
     (d.avis || []).forEach(function (a) {
       var card = el("figure", "avis-card");
+
+      // note : étoiles (nombre ≤ 5) ou pastille texte (ex. "10/10")
+      if (a.note != null) {
+        if (typeof a.note === "number") {
+          var n = Math.max(0, Math.min(5, a.note));
+          var st = el("span", "avis-note");
+          st.setAttribute("aria-label", n + "/5");
+          for (var i = 0; i < 5; i++) st.appendChild(el("span", "etoile" + (i < n ? " pleine" : ""), "★"));
+          card.appendChild(st);
+        } else {
+          card.appendChild(el("span", "avis-note-txt", a.note));
+        }
+      }
+
       var bloc = el("blockquote", "avis-texte");
       bloc.textContent = "« " + tr(a.texte) + " »";
       card.appendChild(bloc);
-      if (a.auteur) {
+
+      if (a.auteur || a.source) {
         var pied = el("figcaption", "avis-pied");
-        pied.appendChild(el("span", "avis-auteur", a.auteur));
+        if (a.auteur) pied.appendChild(el("span", "avis-auteur", a.auteur));
+        if (a.source) pied.appendChild(el("span", "avis-source", tr(a.source)));
         card.appendChild(pied);
       }
       cont.appendChild(card);
