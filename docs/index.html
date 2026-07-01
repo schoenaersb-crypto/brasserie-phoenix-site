@@ -18,10 +18,20 @@
   <!-- Favicon (le logo phénix) -->
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 
-  <!-- Polices de la charte : Cormorant Garamond (titres) + Jost (texte) -->
+  <!-- Préchargement de l'image du hero (visible immédiatement) -->
+  <link rel="preload" as="image" href="assets/img/hero/hero-facade-coucher-soleil.jpg" fetchpriority="high" />
+
+  <!-- Polices de la charte : Cormorant Garamond (titres) + Jost (texte).
+       Chargées SANS bloquer le rendu (media=print puis bascule onload) :
+       la page s'affiche tout de suite même si Google Fonts est lent. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" />
+  </noscript>
 
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -155,6 +165,7 @@
         <h2 data-ui="sections.avis_titre"></h2>
         <p class="section-intro" data-ui="sections.avis_intro"></p>
       </div>
+      <div id="avis-macaron" class="avis-macaron"></div>
       <div id="avis-contenu" class="avis-grid"></div>
     </section>
 
@@ -169,10 +180,19 @@
         <div class="field">
           <label for="r-date" data-ui="form.date"></label>
           <input type="date" id="r-date" name="date" required />
+          <span class="field-note" data-ui="form.note_jours"></span>
         </div>
         <div class="field">
-          <label for="r-heure" data-ui="form.heure"></label>
-          <input type="time" id="r-heure" name="heure" required />
+          <label for="r-service" data-ui="form.service"></label>
+          <select id="r-service" name="service" required>
+            <!-- options injectées par reservation.js (déjeuner / dîner) -->
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-creneau" data-ui="form.creneau"></label>
+          <select id="r-creneau" name="creneau" required>
+            <!-- créneaux injectés selon le service (horaires de cuisine) -->
+          </select>
         </div>
         <div class="field">
           <label for="r-personnes" data-ui="form.personnes"></label>
@@ -226,11 +246,11 @@
     <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Image suivante" data-ui-label="a11y.image_suivante">›</button>
   </div>
 
-  <!-- Scripts : chargés en fin de page, sans dépendance externe -->
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/menu.js"></script>
-  <script src="assets/js/sections.js"></script>
-  <script src="assets/js/ui.js"></script>
-  <script src="assets/js/reservation.js"></script>
+  <!-- Scripts : en defer pour ne pas bloquer l'affichage, sans dépendance externe -->
+  <script defer src="assets/js/i18n.js"></script>
+  <script defer src="assets/js/menu.js"></script>
+  <script defer src="assets/js/sections.js"></script>
+  <script defer src="assets/js/ui.js"></script>
+  <script defer src="assets/js/reservation.js"></script>
 </body>
 </html>

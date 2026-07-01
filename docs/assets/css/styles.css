@@ -368,6 +368,18 @@ body.nav-open .main-nav { transform: translateY(0); }
 .lightbox-prev { left: 14px; }
 .lightbox-next { right: 14px; }
 
+/* ---- Avis : macaron 9/10 ---- */
+.avis-macaron {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  max-width: 420px; margin: 0 auto 34px; padding: 18px 26px;
+  background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre);
+  border: 1px solid var(--creme-2);
+}
+.macaron-note { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700; color: var(--cuivre); line-height: 1; }
+.macaron-detail { display: flex; flex-direction: column; text-align: left; }
+.macaron-nb { font-weight: 600; color: var(--marine); }
+.macaron-src { font-size: 0.82rem; color: var(--texte-doux); }
+
 /* ---- Avis ---- */
 .avis-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
 .avis-card { background: var(--blanc); border-radius: var(--rayon); padding: 26px 24px; box-shadow: var(--ombre); border-top: 3px solid var(--cuivre); margin: 0; display: flex; flex-direction: column; gap: 14px; }
@@ -378,6 +390,30 @@ body.nav-open .main-nav { transform: translateY(0); }
 .avis-pied { display: flex; align-items: baseline; gap: 10px; }
 .avis-auteur { font-weight: 600; color: var(--marine); }
 .avis-source { font-size: 0.78rem; color: var(--texte-doux); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ---- Chargement anticipé des images : placeholder crème + fondu ---- */
+.esprit-media, .sig-media, .gal-item { background-color: var(--creme-2); }
+img.lazyimg { opacity: 0; transition: opacity 0.5s ease; }
+img.lazyimg.is-loaded { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  img.lazyimg { transition: none; }
+}
+
+/* ---- Champs formulaire : select + note ---- */
+.field select {
+  font-family: 'Jost', sans-serif; font-size: 1rem; padding: 11px 13px;
+  border: 1px solid #d7cbb4; border-radius: 8px; background: var(--creme); color: var(--texte);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23B98D55' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 13px center;
+  padding-right: 34px;
+}
+.field select:focus { border-color: var(--cuivre); background-color: #fff; }
+.field-note { font-size: 0.78rem; color: var(--texte-doux); margin-top: 2px; }
+
+/* ---- Horaires : sous-blocs (Brasserie / Cuisine / Chiringuito) ---- */
+.horaire-titre { font-family: 'Jost', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cuivre); margin: 16px 0 6px; }
+.horaire-titre:first-of-type { margin-top: 10px; }
 
 /* ---- Responsive redesign ---- */
 @media (min-width: 760px) {

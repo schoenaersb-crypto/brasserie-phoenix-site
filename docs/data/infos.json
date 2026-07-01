@@ -1,7 +1,7 @@
 {
-  "_commentaire": "Infos pratiques du restaurant. Modifier ici adresse, téléphone, horaires, liens réseaux.",
+  "_commentaire": "Infos pratiques du restaurant. Modifier ici adresse, téléphone, horaires (3 blocs : Brasserie / Cuisine / Chiringuito), liens réseaux.",
   "nom": "Brasserie Phoenix",
-  "adresse": "Av. Desiderio Rodríguez, 37, 03185 Torrevieja, Alicante, Espagne",
+  "adresse": "Av. Desiderio Rodríguez, 37, local 10, 03185 Torrevieja, Alicante, Espagne",
   "telephone_affiche": "+34 744 62 29 75",
   "telephone_wa": "34744622975",
   "email": "brasseriephoenixrestaurant@gmail.com",
@@ -12,9 +12,28 @@
     "tiktok": "https://www.tiktok.com/@restaurantphoenix"
   },
   "horaires": {
-    "note": { "fr": "Ouvert 7j/7, midi et soir", "nl": "7/7 geopend, 's middags en 's avonds", "es": "Abierto todos los días, mediodía y noche", "en": "Open 7 days a week, lunch and dinner" },
-    "lignes": [
-      { "jours": { "fr": "Lundi – Dimanche", "nl": "Maandag – Zondag", "es": "Lunes – Domingo", "en": "Monday – Sunday" }, "heures": "12:00 – 16:00 · 19:00 – 23:00" }
+    "note": { "fr": "Salle : jeudi à lundi · Chiringuito : 7j/7", "nl": "Zaal: donderdag t/m maandag · Chiringuito: 7/7", "es": "Sala: de jueves a lunes · Chiringuito: todos los días", "en": "Dining room: Thursday to Monday · Chiringuito: 7 days a week" },
+    "blocs": [
+      {
+        "titre": { "fr": "Brasserie (bar & salle)", "nl": "Brasserie (bar & zaal)", "es": "Brasserie (bar y sala)", "en": "Brasserie (bar & dining room)" },
+        "lignes": [
+          { "jours": { "fr": "Jeudi – Lundi", "nl": "Donderdag – Maandag", "es": "Jueves – Lunes", "en": "Thursday – Monday" }, "heures": "11:00 – 00:00" },
+          { "jours": { "fr": "Mardi & Mercredi", "nl": "Dinsdag & Woensdag", "es": "Martes y Miércoles", "en": "Tuesday & Wednesday" }, "heures": { "fr": "Fermé", "nl": "Gesloten", "es": "Cerrado", "en": "Closed" } }
+        ]
+      },
+      {
+        "titre": { "fr": "Cuisine (service des plats)", "nl": "Keuken (gerechten)", "es": "Cocina (servicio de platos)", "en": "Kitchen (food service)" },
+        "lignes": [
+          { "jours": { "fr": "Déjeuner", "nl": "Lunch", "es": "Almuerzo", "en": "Lunch" }, "heures": "12:00 – 15:00" },
+          { "jours": { "fr": "Dîner", "nl": "Diner", "es": "Cena", "en": "Dinner" }, "heures": "18:00 – 22:00" }
+        ]
+      },
+      {
+        "titre": { "fr": "Chiringuito / terrasse", "nl": "Chiringuito / terras", "es": "Chiringuito / terraza", "en": "Chiringuito / terrace" },
+        "lignes": [
+          { "jours": { "fr": "7j/7", "nl": "7/7", "es": "Todos los días", "en": "Every day" }, "heures": "11:00 – 01:00" }
+        ]
+      }
     ]
   }
 }

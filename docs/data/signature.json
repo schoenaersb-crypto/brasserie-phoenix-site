@@ -1,30 +1,30 @@
 {
-  "_commentaire": "Plats signature mis en avant sur l'accueil. Chaque plat : image, prix, 4 langues. Pour changer l'ordre, réordonner la liste 'plats'.",
+  "_commentaire": "Plats signature mis en avant sur l'accueil : l'identité Phoenix = feu, pierre de lave, viande & produits de la mer. Chaque plat : image, prix, 4 langues. Pour changer l'ordre, réordonner la liste 'plats'.",
   "actif": true,
   "plats": [
     {
       "id": "entrecote-galicien",
-      "image": "assets/img/signature/signature-01.jpg",
+      "image": "assets/img/signature/entrecote-pierre-lave.jpg",
       "prix": "35,90 €",
       "etiquette": { "fr": "Sur pierre de lave", "nl": "Op lavasteen", "es": "Sobre piedra de lava", "en": "On lava stone" },
       "nom": { "fr": "Entrecôte de bœuf Galicien", "nl": "Galicische runderentrecote", "es": "Entrecot de ternera gallega", "en": "Galician beef ribeye" },
-      "desc": { "fr": "Maturée, grillée sur pierre de lave, sauce au choix et accompagnement du jour.", "nl": "Gerijpt, gegrild op lavasteen, saus naar keuze en bijgerecht van de dag.", "es": "Madurada, a la parrilla sobre piedra de lava, salsa a elegir y guarnición del día.", "en": "Aged, grilled on lava stone, sauce of your choice and side of the day." }
+      "desc": { "fr": "Grillée à votre table sur pierre de lave brûlante, servie avec sa sélection de sauces et une salade fraîche.", "nl": "Aan tafel gegrild op gloeiend hete lavasteen, geserveerd met een selectie sauzen en een frisse salade.", "es": "A la parrilla en su mesa sobre piedra de lava ardiente, servida con su selección de salsas y ensalada fresca.", "en": "Grilled at your table on searing lava stone, served with its selection of sauces and a fresh salad." }
     },
     {
-      "id": "potence-gambas",
+      "id": "boeuf-angus",
       "image": "assets/img/signature/signature-02.jpg",
-      "prix": "24,90 €",
-      "etiquette": { "fr": "À la potence", "nl": "Aan het spit", "es": "Al espetón", "en": "Over the spit" },
-      "nom": { "fr": "Gambas à la Potence", "nl": "Gamba's aan het spit", "es": "Gambas al espetón", "en": "Gambas on the spit" },
-      "desc": { "fr": "Flambées en salle à la potence, servies dans leur jus parfumé — le spectacle du feu à votre table.", "nl": "In de zaal aan het spit geflambeerd, geserveerd in hun geparfumeerde jus — het vuurspektakel aan uw tafel.", "es": "Flambeadas en sala al espetón, servidas en su jugo aromático — el espectáculo del fuego en su mesa.", "en": "Flambéed tableside on the spit, served in their fragrant juices — the spectacle of fire at your table." }
+      "prix": "23,90 €",
+      "etiquette": { "fr": "Viande d'exception", "nl": "Uitzonderlijk vlees", "es": "Carne de excepción", "en": "Exceptional meat" },
+      "nom": { "fr": "Bœuf Black Angus", "nl": "Black Angus rund", "es": "Ternera Black Angus", "en": "Black Angus beef" },
+      "desc": { "fr": "Émincé de bœuf Angus, nouilles sautées aux légumes et œuf mollet.", "nl": "Reepjes Angus-rund, gebakken noedels met groenten en zachtgekookt ei.", "es": "Ternera Angus en tiras, fideos salteados con verduras y huevo mollet.", "en": "Sliced Angus beef, stir-fried noodles with vegetables and a soft egg." }
     },
     {
-      "id": "saint-jacques-karmeliet",
+      "id": "sole-laquee",
       "image": "assets/img/signature/signature-03.jpg",
-      "prix": "18,90 €",
-      "etiquette": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
-      "nom": { "fr": "Saint-Jacques Triple Karmeliet", "nl": "Sint-jakobsschelpen Triple Karmeliet", "es": "Vieiras Triple Karmeliet", "en": "Scallops Triple Karmeliet" },
-      "desc": { "fr": "Saint-Jacques snackées, sauce à la Triple Karmeliet, accompagnement du jour.", "nl": "Gebakken sint-jakobsschelpen, saus van Triple Karmeliet, bijgerecht van de dag.", "es": "Vieiras selladas, salsa de Triple Karmeliet, guarnición del día.", "en": "Seared scallops, Triple Karmeliet sauce, side of the day." }
+      "prix": "22,90 €",
+      "etiquette": { "fr": "Produits de la mer", "nl": "Uit de zee", "es": "Productos del mar", "en": "From the sea" },
+      "nom": { "fr": "Sole laquée soja, miel & gingembre", "nl": "Gelakte tong met soja, honing & gember", "es": "Lenguado lacado con soja, miel y jengibre", "en": "Lacquered sole with soy, honey & ginger" },
+      "desc": { "fr": "Filet de sole laqué, légumes sautés et écrasé de pommes de terre.", "nl": "Gelakte tongfilet, gebakken groenten en aardappelstoemp.", "es": "Filete de lenguado lacado, verduras salteadas y puré rústico de patata.", "en": "Lacquered sole fillet, sautéed vegetables and crushed potatoes." }
     }
   ]
 }

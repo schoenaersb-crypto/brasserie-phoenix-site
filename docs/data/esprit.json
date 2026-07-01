@@ -11,8 +11,8 @@
     { "fr": "Chaque service est une renaissance : celle d'un lieu où l'on prend le temps, où le feu réunit et où chaque assiette raconte la mer et la braise.", "nl": "Elke service is een wedergeboorte: die van een plek waar men de tijd neemt, waar het vuur verenigt en waar elk bord de zee en de gloed vertelt.", "es": "Cada servicio es un renacer: el de un lugar donde se toma el tiempo, donde el fuego reúne y donde cada plato cuenta el mar y la brasa.", "en": "Every service is a rebirth: that of a place where time is taken, where fire brings people together, and where every plate tells of the sea and the embers." }
   ],
   "reperes": [
-    { "valeur": "7j/7", "texte": { "fr": "midi & soir", "nl": "'s middags & 's avonds", "es": "mediodía y noche", "en": "lunch & dinner" } },
-    { "valeur": "100%", "texte": { "fr": "pâtes fraîches maison", "nl": "verse pasta, huisgemaakt", "es": "pasta fresca casera", "en": "fresh homemade pasta" } },
+    { "valeur": "Jeu–Lun", "texte": { "fr": "salle, midi & soir", "nl": "zaal, middag & avond", "es": "sala, mediodía y noche", "en": "dining room, lunch & dinner" } },
+    { "valeur": "Maison", "texte": { "fr": "pâtes fraîches maison", "nl": "verse pasta, huisgemaakt", "es": "pasta fresca casera", "en": "fresh homemade pasta" } },
     { "valeur": "Feu", "texte": { "fr": "pierre de lave & potence", "nl": "lavasteen & spit", "es": "piedra de lava y espetón", "en": "lava stone & spit" } }
   ]
 }

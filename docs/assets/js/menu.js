@@ -154,18 +154,24 @@
     contact.appendChild(iframe);
     cont.appendChild(contact);
 
-    // Bloc horaires
-    if (i.horaires) {
+    // Bloc horaires (3 sous-blocs : Brasserie / Cuisine / Chiringuito)
+    if (i.horaires && (i.horaires.blocs || i.horaires.lignes)) {
       var h = el("div", "info-bloc");
-      h.appendChild(el("h3", null, tr(i.horaires.note)));
-      var ul = el("ul", "info-horaires");
-      (i.horaires.lignes || []).forEach(function (ligne) {
-        var li = el("li");
-        li.appendChild(el("span", null, tr(ligne.jours)));
-        li.appendChild(el("span", null, ligne.heures));
-        ul.appendChild(li);
+      h.appendChild(el("h3", null, t("sections.horaires_titre") || "Horaires"));
+
+      var blocs = i.horaires.blocs || [{ titre: i.horaires.note, lignes: i.horaires.lignes }];
+      blocs.forEach(function (b) {
+        if (b.titre) h.appendChild(el("h4", "horaire-titre", tr(b.titre)));
+        var ul = el("ul", "info-horaires");
+        (b.lignes || []).forEach(function (ligne) {
+          var li = el("li");
+          li.appendChild(el("span", null, tr(ligne.jours)));
+          var heures = typeof ligne.heures === "string" ? ligne.heures : tr(ligne.heures);
+          li.appendChild(el("span", null, heures));
+          ul.appendChild(li);
+        });
+        h.appendChild(ul);
       });
-      h.appendChild(ul);
       cont.appendChild(h);
     }
   }
@@ -197,31 +203,40 @@
     rendreSocial();
   }
 
-  /* ---------- Chargement des données ---------- */
+  /* ---------- Chargement des données ----------
+     Chaque fichier est chargé INDÉPENDAMMENT : si l'un échoue (réseau,
+     etc.), les autres sections s'affichent quand même. La carte ne
+     dépend donc plus du chargement des infos/annonces. */
+  function chargerUn(nom, url, rendre) {
+    fetch(url)
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { DATA[nom] = d; try { rendre(); } catch (e) { console.error("Rendu " + nom, e); } })
+      .catch(function (e) { console.error("Chargement " + nom + " impossible", e); });
+  }
+
   function charger() {
-    var fichiers = ["carte", "semaine", "annonces", "infos"];
-    var urls = {
-      carte: "data/carte.json",
-      semaine: "data/menu-semaine.json",
-      annonces: "data/annonces.json",
-      infos: "data/infos.json"
-    };
-    Promise.all(fichiers.map(function (nom) {
-      return fetch(urls[nom]).then(function (r) { return r.json(); }).then(function (d) { DATA[nom] = d; });
-    })).then(function () {
-      rendreTout();
-      if (window.Phoenix) window.Phoenix.onLangChange(rendreTout);
-    }).catch(function (e) { console.error("Erreur de chargement des données", e); });
+    rendreNav();
+    chargerUn("carte", "data/carte.json", rendreCarte);
+    chargerUn("semaine", "data/menu-semaine.json", rendreSemaine);
+    chargerUn("annonces", "data/annonces.json", rendreAnnonces);
+    chargerUn("infos", "data/infos.json", function () { rendreInfos(); rendreSocial(); });
+    if (window.Phoenix) window.Phoenix.onLangChange(rendreTout);
   }
 
   // année du footer
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  // on attend que i18n soit prêt (pour disposer des traductions), sinon on charge quand même
+  // On attend i18n (pour les traductions), mais avec un filet de sécurité :
+  // si l'événement tarde ou n'arrive jamais, on charge quand même les données
+  // (les fichiers de contenu contiennent déjà leurs 4 langues, repli FR).
+  var demarre = false;
+  function lancer() { if (demarre) return; demarre = true; charger(); }
+
   if (window.Phoenix && window.Phoenix.t("nav.accueil")) {
-    charger();
+    lancer();
   } else {
-    document.addEventListener("phoenix:i18n-ready", charger, { once: true });
+    document.addEventListener("phoenix:i18n-ready", lancer, { once: true });
+    setTimeout(lancer, 4000);
   }
 })();

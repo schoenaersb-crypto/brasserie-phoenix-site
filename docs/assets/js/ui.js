@@ -89,6 +89,44 @@
     });
   }
 
+  /* ---------- Chargement anticipé des images (lazy + IntersectionObserver) ----------
+     Les images marquées .lazyimg[data-src] commencent à charger ~500 px AVANT
+     d'entrer dans le viewport : au défilement, l'image suivante est déjà prête,
+     sans trou blanc (un fond crème sert de placeholder, fondu à l'arrivée). */
+  var lazyObserver = null;
+
+  function chargerImage(img) {
+    if (!img.dataset.src) return;
+    img.addEventListener("load", function () { img.classList.add("is-loaded"); }, { once: true });
+    img.addEventListener("error", function () { img.classList.add("is-loaded"); }, { once: true });
+    img.src = img.dataset.src;
+    img.removeAttribute("data-src");
+  }
+
+  function scanLazy() {
+    var imgs = document.querySelectorAll("img.lazyimg[data-src]");
+    if (lazyObserver) {
+      imgs.forEach(function (img) { lazyObserver.observe(img); });
+    } else {
+      // repli sans IntersectionObserver : on charge tout de suite
+      imgs.forEach(chargerImage);
+    }
+  }
+
+  function initLazy() {
+    if ("IntersectionObserver" in window) {
+      lazyObserver = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (e) {
+          if (e.isIntersecting) { chargerImage(e.target); lazyObserver.unobserve(e.target); }
+        });
+      }, { rootMargin: "500px 0px 500px 0px", threshold: 0 });
+    }
+    scanLazy();
+    // rescanner quand de nouvelles images arrivent (rendu des sections, langue)
+    document.addEventListener("phoenix:sections-ready", scanLazy);
+    document.addEventListener("phoenix:menu-ready", scanLazy);
+  }
+
   /* ---------- Traduction des libellés aria (data-ui-label) ---------- */
   function appliquerLabels() {
     if (!window.Phoenix) return;
@@ -103,6 +141,7 @@
     initNav();
     initHeader();
     initReveal();
+    initLazy();
     appliquerLabels();
     if (window.Phoenix) window.Phoenix.onLangChange(appliquerLabels);
   }

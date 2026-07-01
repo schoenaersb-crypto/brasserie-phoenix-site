@@ -54,7 +54,9 @@ Fichier : **`docs/data/annonces.json`**
 - `"ton"` : `"info"` (cuivre), `"fete"` (dégradé feu), `"alerte"` (marine).
 
 ## 4. Modifier les infos pratiques
-Fichier : **`docs/data/infos.json`** — adresse, téléphone, email, horaires, liens Instagram / Facebook / TikTok.
+Fichier : **`docs/data/infos.json`** — adresse, téléphone, email, liens réseaux, et **horaires en 3 blocs** :
+`"horaires" > "blocs"` = Brasserie (bar & salle), Cuisine (service des plats), Chiringuito / terrasse.
+Chaque bloc a un `"titre"` et des `"lignes"` (`jours` + `heures`). 4 langues.
 
 ## 5. Textes des boutons et menus
 Fichier : **`docs/data/ui.json`** — libellés de navigation, du formulaire, du hero, etc. (4 langues).
@@ -69,12 +71,15 @@ Fichier : **`docs/data/signature.json`** — les plats mis en avant (image, prix
 Fichier : **`docs/data/galerie.json`** — liste d'images avec légende (4 langues). Un clic ouvre la visionneuse (lightbox). Pour ajouter une photo, copier un bloc et changer `"src"`.
 
 ## 9. Les avis clients
-Fichier : **`docs/data/avis.json`** — auteur, note sur 5, provenance et texte de l'avis. `"actif": false` masque la section.
+Fichier : **`docs/data/avis.json`** — `"note_globale"` (ex. « 9/10 »), `"nombre_avis"`, `"source"` et une liste de
+citations (`"texte"`, `"auteur"` facultatif). Preuve sociale **sans lien ni logo TheFork**. `"actif": false` masque la section.
 
 ## 10. La réservation (WhatsApp / email ou futur moteur)
-Fichier : **`docs/assets/js/reservation.js`** — tout en haut, un bloc **`RESERVATION`** isole la cible :
-- `mode: "whatsapp_email"` (par défaut) : les 2 boutons ouvrent WhatsApp / email pré-remplis (aucun serveur, aucune donnée stockée).
-- `mode: "url"` + `url: "…"` : pour brancher plus tard un vrai moteur de réservation (widget, TheFork, Zenchef…). Un seul endroit à changer.
+Fichier : **`docs/assets/js/reservation.js`** — tout en haut, deux blocs de configuration :
+- **`RESERVATION`** isole la cible : `mode: "whatsapp_email"` (par défaut, 2 boutons pré-remplis, aucun serveur)
+  ou `mode: "url"` + `url: "…"` pour brancher plus tard un vrai moteur de réservation. Un seul endroit à changer.
+- **`SERVICES` / `JOURS_FERMES`** : créneaux proposés (déjeuner 12h–15h, dîner 18h–22h — horaires de cuisine) et
+  jours fermés (mardi & mercredi). Le formulaire bloque ces jours automatiquement.
 
 ## 11. Les images (hero, galerie, signature, ambiance)
 Dossiers : **`docs/assets/img/`** → `hero/`, `galerie/`, `signature/`, `ambiance/`.

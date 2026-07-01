@@ -96,17 +96,28 @@
     onLangChange: function (cb) { if (typeof cb === "function") abonnes.push(cb); }
   };
 
-  /* Démarrage : charge ui.json puis initialise */
+  /* Démarrage : charge ui.json puis initialise.
+     IMPORTANT : on émet TOUJOURS "phoenix:i18n-ready", même si ui.json
+     échoue — sinon le reste du site (carte, sections) resterait bloqué
+     en attente et ne s'afficherait jamais. En cas d'échec, les données
+     de contenu (carte.json, etc.) contiennent déjà leurs 4 langues :
+     le rendu se fait alors avec le repli français. */
+  function demarrer(data) {
+    ui = data || {};
+    lang = langueInitiale();
+    if (ui.langues) construireSelecteur();
+    appliquer();
+    document.dispatchEvent(new CustomEvent("phoenix:i18n-ready"));
+  }
+
   fetch("data/ui.json")
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      ui = data;
-      lang = langueInitiale();
-      construireSelecteur();
-      appliquer();
-      document.dispatchEvent(new CustomEvent("phoenix:i18n-ready"));
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
     })
+    .then(function (data) { demarrer(data); })
     .catch(function (e) {
-      console.error("Impossible de charger ui.json", e);
+      console.error("Impossible de charger ui.json — rendu en repli.", e);
+      demarrer(null);
     });
 })();

@@ -24,6 +24,19 @@
     if (s) s.hidden = !visible;
   }
 
+  /* Crée une <img> en chargement anticipé (data-src + placeholder crème).
+     Le chargement réel est déclenché par ui.js (IntersectionObserver,
+     rootMargin ~500px), pour que l'image soit prête avant d'entrer à l'écran. */
+  function imgLazy(src, alt) {
+    var im = document.createElement("img");
+    im.alt = alt || "";
+    im.setAttribute("decoding", "async");
+    im.setAttribute("loading", "lazy");
+    im.className = "lazyimg";
+    im.dataset.src = src;
+    return im;
+  }
+
   /* ---------- L'esprit Phoenix (récit) ---------- */
   function rendreEsprit() {
     var d = DATA.esprit;
@@ -31,7 +44,13 @@
     montrer("esprit", true);
 
     var img = document.getElementById("esprit-image");
-    if (img && d.image) { img.src = d.image; img.alt = tr(d.image_alt); }
+    if (img && d.image) {
+      img.alt = tr(d.image_alt);
+      img.setAttribute("decoding", "async");
+      img.classList.add("lazyimg");
+      img.removeAttribute("src");
+      img.dataset.src = d.image;
+    }
 
     var sur = document.getElementById("esprit-surtitre");
     if (sur) sur.textContent = tr(d.sur_titre);
@@ -68,9 +87,7 @@
       var card = el("article", "sig-card");
 
       var media = el("div", "sig-media");
-      var img = el("img");
-      img.src = p.image; img.alt = tr(p.nom); img.loading = "lazy";
-      media.appendChild(img);
+      media.appendChild(imgLazy(p.image, tr(p.nom)));
       if (p.etiquette && tr(p.etiquette)) media.appendChild(el("span", "sig-tag", tr(p.etiquette)));
       card.appendChild(media);
 
@@ -102,9 +119,7 @@
       var btn = el("button", "gal-item");
       btn.type = "button";
       btn.setAttribute("aria-label", im.legende || ("Image " + (i + 1)));
-      var img = el("img");
-      img.src = im.src; img.alt = im.legende || ""; img.loading = "lazy";
-      btn.appendChild(img);
+      btn.appendChild(imgLazy(im.src, im.legende || ""));
       btn.appendChild(el("span", "gal-legende", im.legende));
       btn.addEventListener("click", function () { ouvrirLightbox(i); });
       cont.appendChild(btn);
@@ -180,34 +195,35 @@
     else if (!e.shiftKey && document.activeElement === dernier) { e.preventDefault(); premier.focus(); }
   }
 
-  /* ---------- Avis ---------- */
-  function etoiles(note) {
-    var n = Math.max(0, Math.min(5, parseInt(note, 10) || 0));
-    var wrap = el("span", "avis-note");
-    wrap.setAttribute("aria-label", n + "/5");
-    for (var i = 0; i < 5; i++) {
-      wrap.appendChild(el("span", "etoile" + (i < n ? " pleine" : ""), "★"));
-    }
-    return wrap;
-  }
-
+  /* ---------- Avis (macaron 9/10 + citations réelles) ---------- */
   function rendreAvis() {
     var d = DATA.avis;
     var cont = document.getElementById("avis-contenu");
+    var mac = document.getElementById("avis-macaron");
     if (!d || !d.actif || !cont) { montrer("avis", false); return; }
     montrer("avis", true);
-    cont.innerHTML = "";
 
+    // Macaron : note globale + nombre d'avis (preuve sociale, sans lien TheFork)
+    if (mac) {
+      mac.innerHTML = "";
+      if (d.note_globale) mac.appendChild(el("span", "macaron-note", d.note_globale));
+      var det = el("div", "macaron-detail");
+      if (d.nombre_avis) det.appendChild(el("span", "macaron-nb", tr(d.nombre_avis)));
+      if (d.source) det.appendChild(el("span", "macaron-src", tr(d.source)));
+      mac.appendChild(det);
+    }
+
+    cont.innerHTML = "";
     (d.avis || []).forEach(function (a) {
       var card = el("figure", "avis-card");
-      card.appendChild(etoiles(a.note));
       var bloc = el("blockquote", "avis-texte");
       bloc.textContent = "« " + tr(a.texte) + " »";
       card.appendChild(bloc);
-      var pied = el("figcaption", "avis-pied");
-      pied.appendChild(el("span", "avis-auteur", a.auteur));
-      if (a.provenance) pied.appendChild(el("span", "avis-source", a.provenance));
-      card.appendChild(pied);
+      if (a.auteur) {
+        var pied = el("figcaption", "avis-pied");
+        pied.appendChild(el("span", "avis-auteur", a.auteur));
+        card.appendChild(pied);
+      }
       cont.appendChild(card);
     });
   }
@@ -218,6 +234,9 @@
     rendreSignature();
     rendreGalerie();
     rendreAvis();
+    // signale aux autres scripts (apparitions + chargement anticipé des images)
+    // que du contenu vient d'arriver / d'être redessiné
+    document.dispatchEvent(new CustomEvent("phoenix:sections-ready"));
   }
 
   /* ---------- Chargement ---------- */
@@ -236,8 +255,6 @@
     })).then(function () {
       rendreTout();
       if (window.Phoenix) window.Phoenix.onLangChange(rendreTout);
-      // signale aux animations d'apparition que du contenu est arrivé
-      document.dispatchEvent(new CustomEvent("phoenix:sections-ready"));
     });
   }
 

@@ -44,7 +44,8 @@
     "avis_intro": { "fr": "Merci à nos convives pour leur confiance.", "nl": "Dank aan onze gasten voor hun vertrouwen.", "es": "Gracias a nuestros comensales por su confianza.", "en": "Thank you to our guests for their trust." },
     "reserver_titre": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book a table" },
     "reserver_intro": { "fr": "Remplissez le formulaire : votre demande part par WhatsApp ou email, pré-remplie. Nous confirmons rapidement.", "nl": "Vul het formulier in: uw aanvraag vertrekt vooraf ingevuld via WhatsApp of e-mail. Wij bevestigen snel.", "es": "Rellene el formulario: su solicitud se envía ya redactada por WhatsApp o email. Confirmamos rápidamente.", "en": "Fill in the form: your request is sent pre-filled via WhatsApp or email. We confirm quickly." },
-    "infos_titre": { "fr": "Infos pratiques", "nl": "Praktische info", "es": "Información práctica", "en": "Practical info" }
+    "infos_titre": { "fr": "Infos pratiques", "nl": "Praktische info", "es": "Información práctica", "en": "Practical info" },
+    "horaires_titre": { "fr": "Horaires", "nl": "Openingsuren", "es": "Horario", "en": "Opening hours" }
   },
   "labels": {
     "coup_de_coeur": { "fr": "Coup de Cœur", "nl": "Favoriet van de chef", "es": "Nuestro Favorito", "en": "Chef's Favourite" },
@@ -53,13 +54,19 @@
   "form": {
     "date": { "fr": "Date", "nl": "Datum", "es": "Fecha", "en": "Date" },
     "heure": { "fr": "Heure", "nl": "Uur", "es": "Hora", "en": "Time" },
+    "service": { "fr": "Service", "nl": "Service", "es": "Servicio", "en": "Service" },
+    "creneau": { "fr": "Créneau", "nl": "Tijdstip", "es": "Franja horaria", "en": "Time slot" },
+    "service_dejeuner": { "fr": "Déjeuner (12h–15h)", "nl": "Lunch (12u–15u)", "es": "Almuerzo (12h–15h)", "en": "Lunch (12–3 pm)" },
+    "service_diner": { "fr": "Dîner (18h–22h)", "nl": "Diner (18u–22u)", "es": "Cena (18h–22h)", "en": "Dinner (6–10 pm)" },
+    "note_jours": { "fr": "Salle ouverte du jeudi au lundi (fermé mardi et mercredi).", "nl": "Zaal open van donderdag tot maandag (gesloten dinsdag en woensdag).", "es": "Sala abierta de jueves a lunes (cerrado martes y miércoles).", "en": "Dining room open Thursday to Monday (closed Tuesday and Wednesday)." },
     "personnes": { "fr": "Nombre de personnes", "nl": "Aantal personen", "es": "Número de personas", "en": "Number of guests" },
     "nom": { "fr": "Nom", "nl": "Naam", "es": "Nombre", "en": "Name" },
     "telephone": { "fr": "Téléphone", "nl": "Telefoon", "es": "Teléfono", "en": "Phone" },
     "envoyer_wa": { "fr": "Réserver par WhatsApp", "nl": "Reserveren via WhatsApp", "es": "Reservar por WhatsApp", "en": "Book via WhatsApp" },
     "envoyer_email": { "fr": "Réserver par email", "nl": "Reserveren via e-mail", "es": "Reservar por email", "en": "Book by email" },
-    "requis": { "fr": "Merci de remplir au moins la date, l'heure, le nombre de personnes et votre nom.", "nl": "Vul minstens de datum, het uur, het aantal personen en uw naam in.", "es": "Complete al menos la fecha, la hora, el número de personas y su nombre.", "en": "Please fill in at least the date, time, number of guests and your name." },
-    "message_modele": { "fr": "Bonjour, je souhaite réserver une table pour {personnes} personne(s) le {date} à {heure}. Nom : {nom}. Téléphone : {telephone}. Merci !", "nl": "Hallo, ik wil graag een tafel reserveren voor {personnes} persoon/personen op {date} om {heure}. Naam: {nom}. Telefoon: {telephone}. Bedankt!", "es": "Hola, deseo reservar una mesa para {personnes} persona(s) el {date} a las {heure}. Nombre: {nom}. Teléfono: {telephone}. ¡Gracias!", "en": "Hello, I would like to book a table for {personnes} guest(s) on {date} at {heure}. Name: {nom}. Phone: {telephone}. Thank you!" }
+    "requis": { "fr": "Merci de remplir au moins la date, le service, le créneau, le nombre de personnes et votre nom.", "nl": "Vul minstens de datum, de service, het tijdstip, het aantal personen en uw naam in.", "es": "Complete al menos la fecha, el servicio, la franja horaria, el número de personas y su nombre.", "en": "Please fill in at least the date, service, time slot, number of guests and your name." },
+    "ferme_jour": { "fr": "La salle est fermée le mardi et le mercredi. Merci de choisir un autre jour (jeudi à lundi).", "nl": "De zaal is gesloten op dinsdag en woensdag. Kies een andere dag (donderdag tot maandag).", "es": "La sala está cerrada los martes y miércoles. Elija otro día (de jueves a lunes).", "en": "The dining room is closed on Tuesday and Wednesday. Please choose another day (Thursday to Monday)." },
+    "message_modele": { "fr": "Bonjour, je souhaite réserver une table pour {personnes} personne(s) le {date} — {service}, à {heure}. Nom : {nom}. Téléphone : {telephone}. Merci !", "nl": "Hallo, ik wil graag een tafel reserveren voor {personnes} persoon/personen op {date} — {service}, om {heure}. Naam: {nom}. Telefoon: {telephone}. Bedankt!", "es": "Hola, deseo reservar una mesa para {personnes} persona(s) el {date} — {service}, a las {heure}. Nombre: {nom}. Teléfono: {telephone}. ¡Gracias!", "en": "Hello, I would like to book a table for {personnes} guest(s) on {date} — {service}, at {heure}. Name: {nom}. Phone: {telephone}. Thank you!" }
   },
   "footer": {
     "droits": { "fr": "Tous droits réservés.", "nl": "Alle rechten voorbehouden.", "es": "Todos los derechos reservados.", "en": "All rights reserved." },
