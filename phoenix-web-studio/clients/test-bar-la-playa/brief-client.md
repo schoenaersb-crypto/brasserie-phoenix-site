@@ -1,82 +1,51 @@
 # Brief client — Bar La Playa
 
-> Fiche générée par Phoenix Web Studio · pipeline de test end-to-end
+> Format canonique lisible par `_core/pws.py` (agent 01 brief-parser).
+> Une clef par ligne : `- clef : valeur`.
 
 ## Identité
-| Champ | Valeur |
-|---|---|
-| Entreprise | Bar La Playa |
-| Client (contact) | Carlos Martinez |
-| Slug | test-bar-la-playa |
-| Secteur | restaurant |
-| Template | restaurant/style-B-moderne |
-| Pack | Business (990 € setup + 59 €/mois) |
-| Année de création | 2021 |
+- entreprise : Bar La Playa
+- client : Carlos Martinez
+- slug : test-bar-la-playa
+- secteur : restaurant
+- template : restaurant/style-B-moderne
+- pack : Business
 
-## Coordonnées
-| Champ | Valeur |
-|---|---|
-| Téléphone | +34 612 345 678 |
-| Email | carlos@laplaya.es |
-| Adresse | Paseo Marítimo 12 |
-| Code postal | 03181 |
-| Ville | Torrevieja |
-| Pays | ES |
-| Domaine | laplaya.es |
-| Instagram | https://instagram.com/barlaplayatorrevieja |
+## Contacts
+- telephone : +34 612 345 678
+- email : carlos@laplaya.es
+- instagram : https://instagram.com/barlaplayatorrevieja
+
+## Adresse
+- adresse : Paseo Marítimo 12
+- cp : 03181
+- ville : Torrevieja
+- pays : ES
+- domaine : laplaya.es
 
 ## Identité visuelle
-| Champ | Valeur |
-|---|---|
-| Couleur principale | `#0A2540` |
-| Couleur accent | `#FF6B35` |
-| Police titres | Space Grotesk |
-| Police corps | Inter |
+- couleur_principale : #0A2540
+- couleur_accent : #FF6B35
+- police_titres : Space Grotesk
+- police_corps : Inter
 
-## Contenus
-- **Slogan :** Les pieds dans le sable
-- **Description courte :** Bar de plage décontracté à Torrevieja. Tapas, cocktails et couchers de soleil.
-- **Description longue :** Bar La Playa c'est l'endroit idéal pour profiter du bord de mer. Tapas fraîches, cocktails maison et vue mer imprenable.
-- **Horaires :** Tous les jours 11h–00h
-- **Services :** Tapas · Cocktails · Terrasse vue mer · Happy hour 18h-20h
+## Contenu
+- slogan : Les pieds dans le sable
+- description_courte : Bar de plage décontracté à Torrevieja. Tapas, cocktails et couchers de soleil.
+- description_longue : Bar La Playa c'est l'endroit idéal pour profiter du bord de mer. Tapas fraîches, cocktails maison et vue mer imprenable.
+- annee_creation : 2021
+- horaires : Tous les jours 11h–00h
+- services : Tapas · Cocktails · Terrasse vue mer · Happy hour 18h-20h
 
 ## Réputation
-- **Note :** 4.7 — 89 avis Google
-- **Avis 1 :** « Meilleur spot de Torrevieja ! » — Sophie M. (Google)
-- **Avis 2 :** « Les tapas sont excellentes. » — Jean-Pierre L. (Google)
-- **Avis 3 :** « On y retourne chaque année. » — Marie D. (TripAdvisor)
-
-## Table de correspondance placeholders → valeurs
-| Placeholder | Valeur |
-|---|---|
-| `[ENTREPRISE]` | Bar La Playa |
-| `[CLIENT_NOM]` | Carlos Martinez |
-| `[SLOGAN]` | Les pieds dans le sable |
-| `[DESCRIPTION_COURTE]` | Bar de plage décontracté à Torrevieja. Tapas, cocktails et couchers de soleil. |
-| `[DESCRIPTION_LONGUE]` | Bar La Playa c'est l'endroit idéal pour profiter du bord de mer. Tapas fraîches, cocktails maison et vue mer imprenable. |
-| `[TELEPHONE]` | +34 612 345 678 |
-| `[EMAIL]` | carlos@laplaya.es |
-| `[ADRESSE]` | Paseo Marítimo 12 |
-| `[CP]` | 03181 |
-| `[VILLE]` | Torrevieja |
-| `[PAYS]` | ES |
-| `[DOMAINE]` | laplaya.es |
-| `[INSTAGRAM]` | https://instagram.com/barlaplayatorrevieja |
-| `[COULEUR_PRINCIPALE]` | #0A2540 |
-| `[COULEUR_ACCENT]` | #FF6B35 |
-| `[POLICE_TITRES]` | Space Grotesk |
-| `[POLICE_CORPS]` | Inter |
-| `[HORAIRES]` | Tous les jours 11h–00h |
-| `[SERVICES]` | Tapas · Cocktails · Terrasse vue mer · Happy hour 18h-20h |
-| `[NOTE]` | 4.7 |
-| `[NB_AVIS]` | 89 |
-| `[ANNEE_CREATION]` | 2021 |
-| `[AVIS_1_TEXTE]` | Meilleur spot de Torrevieja ! |
-| `[AVIS_1_AUTEUR]` | Sophie M. |
-| `[AVIS_1_SOURCE]` | Google |
-| `[AVIS_2_TEXTE]` | Les tapas sont excellentes. |
-| `[AVIS_2_AUTEUR]` | Jean-Pierre L. |
-| `[AVIS_2_SOURCE]` | Google |
-| `[AVIS_3_TEXTE]` | On y retourne chaque année. |
-| `[AVIS_3_AUTEUR]` | Marie D. |
-| `[AVIS_3_SOURCE]` | TripAdvisor |
+- note : 4.7
+- nb_avis : 89
+- avis_1_texte : Meilleur spot de Torrevieja !
+- avis_1_auteur : Sophie M.
+- avis_1_source : Google
+- avis_2_texte : Les tapas sont excellentes.
+- avis_2_auteur : Jean-Pierre L.
+- avis_2_source : Google
+- avis_3_texte : On y retourne chaque année.
+- avis_3_auteur : Marie D.
+- avis_3_source : TripAdvisor
