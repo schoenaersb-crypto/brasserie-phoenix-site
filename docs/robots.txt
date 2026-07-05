@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://schoenaersb-crypto.github.io/brasserie-phoenix-site/sitemap.xml

@@ -14,9 +14,29 @@
   <meta property="og:image" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg" />
   <meta property="og:url" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brasserie Phoenix · Torrevieja" />
+  <meta name="twitter:description" content="Grillades sur pierre de lave & à la potence, produits de la mer — face à la Méditerranée." />
+  <meta name="twitter:image" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg" />
+  <meta property="og:site_name" content="Brasserie Phoenix" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="nl_NL" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+  <meta property="og:image:alt" content="La façade de la Brasserie Phoenix au coucher de soleil, face à la mer." />
 
-  <!-- Favicon (le logo phénix) -->
+  <!-- Référencement -->
+  <link rel="canonical" href="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Brasserie Phoenix" />
+  <meta name="geo.region" content="ES-A" />
+  <meta name="geo.placename" content="Torrevieja" />
+
+  <!-- Favicon & PWA (le logo phénix) -->
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
 
   <!-- Préchargement de l'image du hero (visible immédiatement) -->
   <link rel="preload" as="image" href="assets/img/hero/hero-facade-coucher-soleil.jpg" fetchpriority="high" />
@@ -34,6 +54,50 @@
   </noscript>
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Données structurées Schema.org (SEO : résultats enrichis Google, horaires, note) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/#restaurant",
+    "name": "Brasserie Phoenix",
+    "url": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/",
+    "image": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg",
+    "description": "Grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée. Torrevieja, Espagne.",
+    "servesCuisine": ["Méditerranéenne", "Grillades", "Fruits de mer", "Brasserie"],
+    "priceRange": "€€",
+    "telephone": "+34 744 62 29 75",
+    "email": "brasseriephoenixrestaurant@gmail.com",
+    "acceptsReservations": "True",
+    "currenciesAccepted": "EUR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Desiderio Rodríguez, 37, local 10",
+      "addressLocality": "Torrevieja",
+      "addressRegion": "Alicante",
+      "postalCode": "03185",
+      "addressCountry": "ES"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 37.9772, "longitude": -0.6785 },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Brasserie+Phoenix+Av.+Desiderio+Rodr%C3%ADguez+37+Torrevieja",
+    "sameAs": [
+      "https://www.instagram.com/brasseriephoenix",
+      "https://www.facebook.com/197488840124875",
+      "https://www.tiktok.com/@restaurantphoenix"
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday", "Monday"], "opens": "11:00", "closes": "23:59" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "9",
+      "bestRating": "10",
+      "worstRating": "1",
+      "ratingCount": "226"
+    }
+  }
+  </script>
 </head>
 <body>
 

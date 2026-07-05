@@ -58,6 +58,41 @@
     window.addEventListener("scroll", maj, { passive: true });
   }
 
+  /* ---------- Scrollspy : surligne le lien de la section visible ---------- */
+  function initScrollSpy() {
+    var liens = {};
+    document.querySelectorAll('.main-nav a[href^="#"]').forEach(function (a) {
+      liens[a.getAttribute("href").slice(1)] = a;
+    });
+    if (!("IntersectionObserver" in window)) return;
+
+    var courant = null;
+    function activer(id) {
+      if (courant === id) return;
+      courant = id;
+      Object.keys(liens).forEach(function (k) { liens[k].removeAttribute("aria-current"); });
+      if (liens[id]) liens[id].setAttribute("aria-current", "true");
+    }
+
+    var spy = new IntersectionObserver(function (entrees) {
+      var visibles = entrees.filter(function (e) { return e.isIntersecting; });
+      if (!visibles.length) return;
+      // la section active = celle dont le haut est le plus proche du milieu de l'écran
+      visibles.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      activer(visibles[0].target.id);
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+    function observer() {
+      Object.keys(liens).forEach(function (id) {
+        var sec = document.getElementById(id);
+        if (sec) spy.observe(sec);
+      });
+    }
+    observer();
+    // ré-observer les sections révélées après remplissage (data JSON)
+    document.addEventListener("phoenix:sections-ready", observer);
+  }
+
   /* ---------- Apparition des sections au défilement ---------- */
   function initReveal() {
     var cibles = document.querySelectorAll(".reveal");
@@ -140,6 +175,7 @@
   function init() {
     initNav();
     initHeader();
+    initScrollSpy();
     initReveal();
     initLazy();
     appliquerLabels();

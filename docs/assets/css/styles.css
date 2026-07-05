@@ -472,3 +472,89 @@ img.lazyimg.is-loaded { opacity: 1; }
   .galerie-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .avis-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ============================================================
+   ===============  RAFFINEMENT 2026  =========================
+   Élévation : header transparent sur le hero (solidifié au
+   défilement), typographie fluide, échelle d'ombres en couches,
+   scrollspy (nav active), micro-détails. Ajouts en fin de
+   feuille : priment via la cascade, sans casser l'existant.
+   ============================================================ */
+:root {
+  color-scheme: light;
+  --ombre-douce: 0 2px 8px rgba(22, 54, 74, 0.06);
+  --ombre-carte: 0 1px 2px rgba(22, 54, 74, 0.05), 0 10px 30px rgba(22, 54, 74, 0.08);
+  --ombre-carte-hover: 0 2px 6px rgba(22, 54, 74, 0.07), 0 22px 46px rgba(22, 54, 74, 0.15);
+}
+
+/* Sélection & rendu typographique */
+::selection { background: var(--cuivre); color: var(--marine); }
+h1, h2, h3,
+.hero-title, .section-head h2, .cat-titre, .sig-nom, .info-bloc h3, .esprit-texte h2 {
+  text-wrap: balance;
+}
+p, .plat-desc, .section-intro, .esprit-texte p, .avis-texte, .hero-accroche {
+  text-wrap: pretty;
+}
+body { font-synthesis: none; }
+
+/* En-tête transparent au sommet (au-dessus du hero) — bureau uniquement,
+   pour ne pas gêner la lisibilité du menu déroulant mobile (fond crème). */
+@media (min-width: 760px) {
+  .site-header { isolation: isolate; }
+  .site-header:not(.is-scrolled) {
+    background: transparent;
+    border-bottom-color: transparent;
+  }
+  .site-header:not(.is-scrolled)::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 240%;
+    background: linear-gradient(to bottom, rgba(11, 29, 40, 0.55), rgba(11, 29, 40, 0));
+    z-index: -1; pointer-events: none;
+  }
+  .site-header:not(.is-scrolled) .brand-name { color: var(--creme); }
+  .site-header:not(.is-scrolled) .main-nav a { color: var(--creme); }
+  .site-header:not(.is-scrolled) .main-nav a::after { background: var(--cuivre-clair); }
+  .site-header:not(.is-scrolled) .lang-switch button {
+    color: var(--creme); border-color: rgba(246, 240, 228, 0.55);
+  }
+  .site-header:not(.is-scrolled) .lang-switch button[aria-pressed="true"] {
+    background: var(--creme); color: var(--marine); border-color: var(--creme);
+  }
+}
+
+/* Scrollspy : lien de la section visible (aria-current posé par ui.js) */
+.main-nav a[aria-current="true"] { color: var(--cuivre); }
+.main-nav a[aria-current="true"]::after { width: 100%; }
+.site-header:not(.is-scrolled) .main-nav a[aria-current="true"] { color: var(--cuivre-clair); }
+
+/* Boutons : profondeur discrète + retour tactile */
+.btn { box-shadow: var(--ombre-douce); transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+.btn-primary { box-shadow: 0 6px 18px rgba(185, 141, 85, 0.28); }
+.btn-primary:hover { box-shadow: 0 10px 26px rgba(185, 141, 85, 0.36); }
+.btn-ghost { box-shadow: none; }
+.btn:active { transform: translateY(0); }
+
+/* Cartes : ombre en couches + filet fin (l'avis garde son filet cuivré du haut) */
+.sig-card, .info-bloc, .semaine-plat, .semaine-course, .avis-macaron, .sous-listes {
+  box-shadow: var(--ombre-carte);
+  border: 1px solid rgba(22, 54, 74, 0.06);
+}
+.avis-card { box-shadow: var(--ombre-carte); }
+.sig-card:hover { box-shadow: var(--ombre-carte-hover); }
+
+/* Respiration verticale un peu plus ample sur grand écran */
+@media (min-width: 760px) {
+  .section { padding-block: 88px; }
+}
+
+/* Lien de contenu : soulignement animé fin */
+.info-bloc a.lien-fort {
+  background: linear-gradient(var(--cuivre), var(--cuivre)) left bottom / 0% 1.5px no-repeat;
+  padding-bottom: 1px; transition: background-size 0.25s ease;
+}
+.info-bloc a.lien-fort:hover { background-size: 100% 1.5px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .info-bloc a.lien-fort { transition: none; }
+}
+
