@@ -1,0 +1,53 @@
+{
+  "clients": [
+    {
+      "slug": "brasserie-phoenix",
+      "entreprise": "Brasserie Phoenix",
+      "client": "Sofia Lambert",
+      "secteur": "restaurant",
+      "template": "restaurant/style-B-moderne",
+      "pack": "Premium",
+      "statut": "livré",
+      "url": "https://phoenix-studio.github.io/pws-brasserie-phoenix/",
+      "date_creation": "2026-05-12",
+      "mrr": 99
+    },
+    {
+      "slug": "test-bar-la-playa",
+      "entreprise": "Bar La Playa",
+      "client": "Carlos Martinez",
+      "secteur": "restaurant",
+      "template": "restaurant/style-B-moderne",
+      "pack": "Business",
+      "statut": "en_cours",
+      "url": "",
+      "date_creation": "2026-07-04",
+      "mrr": 59
+    }
+  ],
+  "packs": {
+    "Starter": {
+      "setup": 490,
+      "mensuel": 29,
+      "devise": "EUR",
+      "description": "Site vitrine 1 page, mise en ligne, nom de domaine offert 1 an."
+    },
+    "Business": {
+      "setup": 990,
+      "mensuel": 59,
+      "devise": "EUR",
+      "description": "Site multi-sections, SEO local, formulaire de réservation, maintenance."
+    },
+    "Premium": {
+      "setup": 1900,
+      "mensuel": 99,
+      "devise": "EUR",
+      "description": "Site sur-mesure, multilingue, galerie, carte dynamique, support prioritaire."
+    }
+  },
+  "stats": {
+    "total_clients": 2,
+    "mrr_total": 158,
+    "sites_deployes": 1
+  }
+}
