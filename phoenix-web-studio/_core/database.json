@@ -19,8 +19,8 @@
       "secteur": "restaurant",
       "template": "restaurant/style-B-moderne",
       "pack": "Business",
-      "statut": "en_cours",
-      "url": "",
+      "statut": "déployé",
+      "url": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/pws-test-bar-la-playa/",
       "date_creation": "2026-07-04",
       "mrr": 59
     }
@@ -48,6 +48,6 @@
   "stats": {
     "total_clients": 2,
     "mrr_total": 158,
-    "sites_deployes": 1
+    "sites_deployes": 2
   }
 }
