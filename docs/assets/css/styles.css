@@ -558,3 +558,51 @@ body { font-synthesis: none; }
   .btn, .info-bloc a.lien-fort { transition: none; }
 }
 
+/* ============================================================
+   ===============  MOTION 3D DES PHOTOS  =====================
+   Inclinaison 3D au pointeur (motion.js) + reflet spéculaire +
+   parallaxe de défilement sur la photo du récit. Bureau à pointeur
+   fin uniquement ; neutralisé si mouvement réduit.
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  .tilt {
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.5s ease;
+  }
+  .tilt.is-tilting { transition: transform 0.09s linear, box-shadow 0.09s linear; will-change: transform; }
+
+  /* profondeur : l'image « avance » légèrement pendant l'inclinaison */
+  .sig-media, .gal-item, .esprit-media { position: relative; }
+  .sig-media.is-tilting img,
+  .gal-item.is-tilting img,
+  .esprit-media.is-tilting img { transform: scale(1.06) translateZ(30px); }
+
+  /* reflet spéculaire discret qui suit le curseur */
+  .sig-media::after, .gal-item::after, .esprit-media::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.22), transparent 60%);
+    opacity: 0; transition: opacity 0.3s ease; mix-blend-mode: soft-light;
+  }
+  .sig-media.is-tilting::after, .gal-item.is-tilting::after, .esprit-media.is-tilting::after { opacity: 1; }
+
+  /* ombre portée renforcée pendant l'inclinaison (relief) */
+  .sig-card:has(.sig-media.is-tilting) { box-shadow: var(--ombre-carte-hover); }
+}
+
+/* Parallaxe de défilement (CSS pur, moderne) — photo du récit.
+   Se dégrade proprement : sans support, l'image reste fixe. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .esprit-media img {
+      animation: photo-parallaxe linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    @keyframes photo-parallaxe {
+      from { transform: translateY(-7%) scale(1.12); }
+      to   { transform: translateY(7%) scale(1.12); }
+    }
+  }
+}
+
