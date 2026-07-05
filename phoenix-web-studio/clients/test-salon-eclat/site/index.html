@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salon Éclat — Révélez votre éclat</title>
+  <meta name="description" content="Salon de coiffure & beauté au cœur de Lyon." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Salon Éclat — Révélez votre éclat" />
+  <meta property="og:description" content="Salon de coiffure & beauté au cœur de Lyon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://salon-eclat.fr" />
+
+  <!-- Polices Google (personnalisées par template) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Design system de base -->
+  <link rel="stylesheet" href="_base/assets/css/base.css" />
+
+  <!-- Identité visuelle du client : couleurs + polices -->
+  <style>
+    :root {
+      --color-primary: #2D2A32;
+      --color-accent: #C9A227;
+      --font-heading: "Cormorant Garamond", serif;
+      --font-body: "Inter", sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="nav__brand" href="#top">Salon Éclat</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false">☰</button>
+      <ul class="nav__links">
+        <li><a href="#apropos">Le salon</a></li>
+        <li><a href="#services">Prestations</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn--primary" href="tel:+33478123456">Prendre RDV</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container">
+      <p class="eyebrow" style="color:var(--color-on-primary);opacity:.85">Lyon · salon ouvert depuis 2018</p>
+      <h1>Salon Éclat</h1>
+      <p class="hero__tagline">Révélez votre éclat — Salon de coiffure & beauté au cœur de Lyon.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="tel:+33478123456">Prendre rendez-vous</a>
+        <a class="btn btn--ghost" href="#services">Voir les prestations</a>
+      </div>
+      <p class="hero__rating">
+        <span class="stars">★★★★★</span> 4.9 · 156 avis Google
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ À PROPOS ============ -->
+  <section class="section" id="apropos">
+    <div class="container grid grid--2" style="align-items:center">
+      <div class="reveal">
+        <p class="eyebrow">Notre univers</p>
+        <h2>Bienvenue chez Salon Éclat</h2>
+        <p>Depuis 2018, Salon Éclat sublime coupes, couleurs et coiffures d'exception dans une ambiance feutrée en plein cœur de Lyon.</p>
+        <ul class="info-list" style="margin-top:1.4rem">
+          <li><strong>Horaires</strong><span>Mar–Sam 9h–19h · Fermé dimanche et lundi</span></li>
+          <li><strong>Adresse</strong><span>24 Rue de la République, 69002 Lyon (FR)</span></li>
+        </ul>
+      </div>
+      <div class="reveal card" style="background:var(--color-bg-alt)">
+        <blockquote style="font-family:var(--font-heading);font-size:1.6rem;color:var(--color-primary);margin:0">
+          « Révélez votre éclat »
+        </blockquote>
+        <p style="margin-top:1rem;color:var(--color-muted)">— L'équipe de Salon Éclat</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section section--alt" id="services">
+    <div class="container">
+      <p class="eyebrow">Ce que nous proposons</p>
+      <h2>Nos prestations</h2>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <div class="card card--service reveal">
+          <div class="card__icon">✦</div>
+          <h3>Coupe &amp; coiffage</h3>
+          <p>Coupe · Couleur · Balayage · Coiffure mariage</p>
+        </div>
+        <div class="card card--service reveal">
+          <div class="card__icon">☀</div>
+          <h3>Un moment de détente</h3>
+          <p>Salon de coiffure & beauté au cœur de Lyon.</p>
+        </div>
+        <div class="card card--service reveal">
+          <div class="card__icon">★</div>
+          <h3>Recommandé</h3>
+          <p>Note 4.9 sur 156 avis. Rejoignez notre clientèle fidèle !</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVIS ============ -->
+  <section class="section" id="avis">
+    <div class="container">
+      <p class="eyebrow">Ils en parlent</p>
+      <h2>Avis clients</h2>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <figure class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <blockquote class="review__text" style="margin:0">« Un savoir-faire incroyable, je ne vais plus ailleurs. »</blockquote>
+          <figcaption class="review__author">Camille B. <span class="review__source">· Google</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <blockquote class="review__text" style="margin:0">« Balayage parfait et accueil adorable. »</blockquote>
+          <figcaption class="review__author">Léa M. <span class="review__source">· Google</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <div class="review__stars">★★★★★</div>
+          <blockquote class="review__text" style="margin:0">« Ma coiffure de mariage était sublime. »</blockquote>
+          <figcaption class="review__author">Sarah T. <span class="review__source">· TripAdvisor</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--alt" id="contact">
+    <div class="container grid grid--2">
+      <div class="reveal">
+        <p class="eyebrow">Nous trouver</p>
+        <h2>Contact &amp; rendez-vous</h2>
+        <ul class="info-list" style="margin-top:1.4rem">
+          <li><strong>Téléphone</strong><span><a href="tel:+33478123456">+33 4 78 12 34 56</a></span></li>
+          <li><strong>Email</strong><span><a href="mailto:contact@saloneclat.fr">contact@saloneclat.fr</a></span></li>
+          <li><strong>Adresse</strong><span>24 Rue de la République, 69002 Lyon (FR)</span></li>
+          <li><strong>Horaires</strong><span>Mar–Sam 9h–19h · Fermé dimanche et lundi</span></li>
+          <li><strong>Instagram</strong><span><a href="https://instagram.com/saloneclatlyon" target="_blank" rel="noopener">@Salon Éclat</a></span></li>
+        </ul>
+        <a class="btn btn--dark" href="tel:+33478123456" style="margin-top:1.6rem">Appeler maintenant</a>
+      </div>
+      <div class="reveal">
+        <iframe
+          class="map-embed"
+          title="Carte Salon Éclat"
+          loading="lazy"
+          src="https://www.google.com/maps?q=24+Rue+de+la+R%C3%A9publique+69002+Lyon+FR&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="nav__brand" style="color:var(--color-on-primary)">Salon Éclat</p>
+      <p>24 Rue de la République, 69002 Lyon · <a href="tel:+33478123456">+33 4 78 12 34 56</a></p>
+      <div class="socials">
+        <a href="https://instagram.com/saloneclatlyon" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:contact@saloneclat.fr">Email</a>
+        <a href="https://salon-eclat.fr">salon-eclat.fr</a>
+      </div>
+      <small>© <span data-year>2026</span> Salon Éclat — Tous droits réservés. Site réalisé par Phoenix Web Studio.</small>
+    </div>
+  </footer>
+
+  <script src="_base/assets/js/main.js"></script>
+</body>
+</html>

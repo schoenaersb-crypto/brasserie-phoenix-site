@@ -23,6 +23,18 @@
       "url": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/pws-test-bar-la-playa/",
       "date_creation": "2026-07-04",
       "mrr": 59
+    },
+    {
+      "slug": "test-salon-eclat",
+      "entreprise": "Salon Éclat",
+      "client": "Amélie Rousseau",
+      "secteur": "coiffeur",
+      "template": "coiffeur/style-A-elegant",
+      "pack": "Starter",
+      "statut": "livré (déploiement non effectué — gh absent, création de repo bloquée)",
+      "url": null,
+      "date_creation": "2026-07-05",
+      "mrr": 29
     }
   ],
   "packs": {
@@ -46,7 +58,7 @@
     }
   },
   "stats": {
-    "total_clients": 2,
+    "total_clients": 3,
     "mrr_total": 158,
     "sites_deployes": 2
   }
