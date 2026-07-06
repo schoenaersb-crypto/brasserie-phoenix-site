@@ -1,0 +1,42 @@
+{
+  "brand": {
+    "line1": "Brasserie",
+    "line2": "Phoenix",
+    "place": "TORREVIEJA · BORD DE MER",
+    "slogan": ["La générosité du Sud,", "l'élégance d'une Brasserie"]
+  },
+  "colors": {
+    "creme": [246, 240, 228],
+    "accent": [208, 168, 105],
+    "dark": [22, 54, 74],
+    "grey": [185, 198, 207]
+  },
+  "font_dir": "/mnt/skills/examples/canvas-design/canvas-fonts",
+  "fonts": {
+    "serif_bold": "CrimsonPro-Bold.ttf",
+    "serif_italic": "CrimsonPro-Italic.ttf",
+    "sans_bold": "BricolageGrotesque-Bold.ttf",
+    "sans_reg": "BricolageGrotesque-Regular.ttf"
+  },
+  "logo": "../../../docs/assets/img/phoenix-logo.png",
+  "hero": "../../../docs/assets/img/hero/hero-facade-coucher-soleil.jpg",
+  "photos": [
+    ["../../../docs/assets/img/ambiance/terrasse-coucher-soleil-mer.jpg", "Face à la Méditerranée", "out"],
+    ["../../../docs/assets/img/signature/entrecote-pierre-lave.jpg", "Grillades sur pierre de lave", "in"],
+    ["../../../docs/assets/img/galerie/14-assiette-mer.jpeg", "Le meilleur de la mer", "out"],
+    ["../../../docs/assets/img/ambiance/cocktails-terrasse.jpg", "Cocktails & couchers de soleil", "in"],
+    ["../../../docs/assets/img/galerie/01-huitres.jpeg", "Fraîcheur de la criée", "out"]
+  ],
+  "outro": {
+    "title": "Brasserie Phoenix",
+    "cta": "Réservez votre table",
+    "phone": "+34 744 62 29 75",
+    "address": "Av. Desiderio Rodríguez 37 · Torrevieja",
+    "social": "@brasseriephoenix"
+  },
+  "formats": [[1080, 1920, "reels"], [1080, 1080, "square"], [1920, 1080, "wide"]],
+  "fps": 30,
+  "scene_dur": 3.4,
+  "xfade": 0.5,
+  "out_dir": "./out"
+}
