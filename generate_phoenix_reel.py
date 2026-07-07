@@ -216,6 +216,53 @@ def motion_blur(frame, k, horizontal=True):
     return cv2.filter2D(frame, -1, ker)
 
 # ----------------------------------------------------------------------------
+# FINITION FILM — etalonnage cinema unifie + halation + aberration chromatique
+# (un seul "look colorist" fond les 8 sources disparates)
+# ----------------------------------------------------------------------------
+_cxf, _cyf = W / 2.0, H / 2.0
+_dxf = (xx - _cxf); _dyf = (yy - _cyf)
+_rrf = np.sqrt(_dxf * _dxf + _dyf * _dyf) + 1e-6
+_ca_amt = (_r_oval ** 2.2) * 2.4                     # px, croit vers les bords
+CA_RX = (xx + _dxf / _rrf * _ca_amt).astype(np.float32)
+CA_RY = (yy + _dyf / _rrf * _ca_amt).astype(np.float32)
+CA_BX = (xx - _dxf / _rrf * _ca_amt).astype(np.float32)
+CA_BY = (yy - _dyf / _rrf * _ca_amt).astype(np.float32)
+
+_TINT_SH = np.array([-0.030, 0.014, 0.055], np.float32)   # ombres -> teal/navy
+_TINT_HI = np.array([ 0.050, 0.020, -0.028], np.float32)  # hautes -> cuivre chaud
+_LUMW = np.array([0.299, 0.587, 0.114], np.float32)
+
+def cinematic_grade(f, bloom_amt=0.55):
+    """Split-tone filmique + courbe S + halation cuivree sur les hautes lumieres."""
+    n = f / 255.0
+    lum = (n * _LUMW).sum(2, keepdims=True)
+    n = n + (1.0 - lum) * _TINT_SH + lum * _TINT_HI      # split-tone
+    n = np.clip(n, 0, 1)
+    n = np.clip((n - 0.5) * 1.11 + 0.5, 0, 1)            # contraste courbe S
+    out = n * 255.0
+    # halation : hautes lumieres -> flou -> add screen chaud (braise/bougie)
+    bmask = np.clip((lum - 0.68) / 0.32, 0, 1)
+    bloom = cv2.GaussianBlur(out * bmask, (0, 0), 22)
+    bloom = bloom * np.array([1.0, 0.80, 0.52], np.float32)
+    a = out / 255.0
+    b = np.clip(bloom / 255.0 * bloom_amt, 0, 1)
+    out = (1 - (1 - a) * (1 - b)) * 255.0
+    return out
+
+def chroma_ab(f):
+    """Aberration chromatique radiale douce (R/B decales, net au centre)."""
+    r = cv2.remap(f[..., 0], CA_RX, CA_RY, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    bl = cv2.remap(f[..., 2], CA_BX, CA_BY, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    out = f.copy(); out[..., 0] = r; out[..., 2] = bl
+    return out
+
+def filmic(f, bloom_amt=0.55, ca=True):
+    f = cinematic_grade(f, bloom_amt)
+    if ca:
+        f = chroma_ab(f)
+    return f
+
+# ----------------------------------------------------------------------------
 # E8 — texte "forge" (PIL, tracking, glow copper, reveal color-shift)
 # ----------------------------------------------------------------------------
 _FONT_CACHE = {}
@@ -257,7 +304,8 @@ class TextEl:
     """Element de texte anime facon forge."""
     def __init__(self, text, font_path, size, color, cx=0.5, cy=0.5,
                  tracking=0, start=0.0, dur=0.6, glow=True, max_alpha=1.0,
-                 shift_color=True, scrim=False, scrim_k=0.55):
+                 shift_color=True, scrim=False, scrim_k=0.55,
+                 reveal="wipe", slide=14):
         self.color = np.array(color, np.float32)
         self.start = start
         self.dur = dur
@@ -265,6 +313,8 @@ class TextEl:
         self.max_alpha = max_alpha
         self.shift_color = shift_color
         self.scrim_k = scrim_k
+        self.reveal = reveal        # "wipe" (volet cinetique) | "forge" (fade)
+        self.slide = slide          # remontee sub-pixel a l'arrivee (px)
         mask, tw, thh = render_text_mask(text, font_path, size, tracking)
         self.mh, self.mw = mask.shape
         # position du coin haut-gauche dans le cadre plein
@@ -299,17 +349,79 @@ class TextEl:
         col = (WARM * (1 - e) + self.color * e) if self.shift_color else self.color
         base_a = min(1.0, e) * self.max_alpha
         H0, W0 = self.mh, self.mw
+        # remontee (slide) a l'arrivee -> decalage vertical du collage
+        dy = int(round((1.0 - e) * self.slide))
+        oy = self.oy - dy
+        # masque de revelation : volet gauche->droite (cinetique) ou plein (forge)
+        if self.reveal == "wipe" and p < 1.0:
+            feather = max(26.0, W0 * 0.14)
+            edge = e * (W0 + feather)
+            xr = np.arange(W0, dtype=np.float32)
+            ramp = np.clip((edge - xr) / feather, 0, 1)[None, :]
+        else:
+            ramp = 1.0
         if self.scrim is not None:
-            sa = (self.scrim * base_a * self.scrim_k)[..., None]
+            sa = (self.scrim * base_a * self.scrim_k) * ramp
             navy_rgb = np.ones((H0, W0, 3), np.float32) * NAVY
-            self._paste(canvas, navy_rgb, sa)
+            self._paste_at(canvas, navy_rgb, sa[..., None], self.ox, oy)
         if self.glow:
-            g = (self.glow_mask * base_a * 0.6)[..., None]
+            g = (self.glow_mask * base_a * 0.6) * ramp
             glow_rgb = np.ones((H0, W0, 3), np.float32) * COPPER
-            self._paste(canvas, glow_rgb, g)
-        a = (self.mask * base_a)[..., None]
+            self._paste_at(canvas, glow_rgb, g[..., None], self.ox, oy)
+        a = (self.mask * base_a) * ramp
         rgb = np.ones((H0, W0, 3), np.float32) * col
-        self._paste(canvas, rgb, a)
+        self._paste_at(canvas, rgb, a[..., None], self.ox, oy)
+
+    def _paste_at(self, canvas, layer_rgb, alpha, ox, oy):
+        x0 = max(0, ox); y0 = max(0, oy)
+        x1 = min(W, ox + self.mw); y1 = min(H, oy + self.mh)
+        if x1 <= x0 or y1 <= y0:
+            return
+        sx0, sy0 = x0 - ox, y0 - oy
+        a = alpha[sy0:sy0 + (y1 - y0), sx0:sx0 + (x1 - x0)]
+        rgb = layer_rgb[sy0:sy0 + (y1 - y0), sx0:sx0 + (x1 - x0)]
+        canvas[y0:y1, x0:x1] = canvas[y0:y1, x0:x1] * (1 - a) + rgb * a
+
+class RuleEl:
+    """Filet copper qui se trace du centre vers l'exterieur (accent typo pro)."""
+    def __init__(self, cx, cy, w, start=0.3, dur=0.5, thick=2,
+                 color=COPPER, alpha=0.9):
+        self.cx = cx; self.cy = cy; self.w = w
+        self.start = start; self.dur = dur; self.thick = thick
+        self.color = np.array(color, np.float32); self.alpha = alpha
+
+    def draw(self, canvas, t):
+        p = (t - self.start) / self.dur
+        if p <= 0:
+            return
+        half = self.w / 2 * ease(min(1.0, p))
+        y = int(self.cy * H)
+        x0 = int(self.cx * W - half); x1 = int(self.cx * W + half)
+        if x1 <= x0:
+            return
+        seg = canvas[max(0, y - self.thick):y + self.thick, x0:x1]
+        seg[:] = seg * (1 - self.alpha) + self.color * self.alpha
+
+
+_WM_CACHE = {}
+def _wordmark():
+    if "m" not in _WM_CACHE:
+        mask, w, h = render_text_mask("BRASSERIE  PHOENIX", FONT["jost_med"], 22, 6)
+        _WM_CACHE["m"] = mask; _WM_CACHE["w"] = w
+    return _WM_CACHE["m"], _WM_CACHE["w"]
+
+def draw_wordmark(canvas, alpha=0.5):
+    """Signature discrete persistante en haut (cohesion 'campagne')."""
+    mask, w = _wordmark()
+    mh, mw = mask.shape
+    ox = int(W / 2 - mw / 2); oy = int(H * 0.055)
+    x0 = max(0, ox); y0 = max(0, oy)
+    x1 = min(W, ox + mw); y1 = min(H, oy + mh)
+    if x1 <= x0 or y1 <= y0:
+        return
+    a = (mask[y0 - oy:y1 - oy, x0 - ox:x1 - ox] * alpha)[..., None]
+    canvas[y0:y1, x0:x1] = canvas[y0:y1, x0:x1] * (1 - a) + COPPER * a
+
 
 # ----------------------------------------------------------------------------
 # Logo phoenix detoure (fond creme -> transparent)
@@ -355,7 +467,8 @@ class PhotoScene:
     def __init__(self, img_path, dur, texts=None, *,
                  zoom=(1.0, 1.15), kb_dir=(0, 0), warp_amp=0.0,
                  tilt=False, leak_seed=None, leak_hi=True, leak_max=0.22,
-                 grain=6.0, vign=(0.55, 0.75), breathe=True, subject=None):
+                 grain=6.0, vign=(0.55, 0.75), breathe=True, subject=None,
+                 bloom=0.55, wordmark=True):
         base = load_photo(img_path)
         self.base = cover_fit(base, W, H)
         self.dur = dur
@@ -369,6 +482,8 @@ class PhotoScene:
         self.grain = grain
         self.vign = vign
         self.breathe = breathe
+        self.bloom = bloom
+        self.wordmark = wordmark
         if subject is None:
             subject = detect_subject(self.base)
         self.cx0, self.cy0 = subject
@@ -394,15 +509,19 @@ class PhotoScene:
             if 0 <= lt <= 1.5:
                 op = math.sin(lt / 1.5 * math.pi) * self.leak_max
                 f = screen_blend(f, self.leak, op)
+        # FINITION FILM : etalonnage unifie + halation + aberration chromatique
+        f = filmic(f, bloom_amt=self.bloom)
         # E6 Vignette navy respirante (0.8Hz)
         vmin, vmax = self.vign
         vi = (vmin + vmax) / 2
         if self.breathe:
             vi += (vmax - vmin) / 2 * math.sin(2 * math.pi * 0.8 * t)
         f = vignette(f, vi)
-        # E7 Grain
+        # E7 Grain (par-dessus le grade -> texture argentique authentique)
         f = add_grain(f, self.grain, int(t * 1000) ^ 0x9e3779b9)
-        # E8 Texte
+        # signature discrete + E8 Textes cinetiques
+        if self.wordmark:
+            draw_wordmark(f, 0.42)
         for te in self.texts:
             te.draw(f, t)
         return np.clip(f, 0, 255)
@@ -425,14 +544,20 @@ class LogoScene:
         # leak copper doux permanent (respiration)
         op = 0.10 + 0.06 * math.sin(2 * math.pi * 0.5 * t)
         f = screen_blend(f, self.leak, op)
-        # logo : leger float vertical + fade/scale d'entree
+        # logo : leger float + fade d'entree
         e = ease(min(1.0, t / 1.0))
         cy = 0.40 + 0.010 * math.sin(2 * math.pi * 0.25 * t)
-        rgb = self.logo_rgb
-        al = self.logo_a * e
-        paste_rgba(f, rgb, al, 0.5, cy)
+        paste_rgba(f, self.logo_rgb, self.logo_a * e, 0.5, cy)
+        # HOOK : traînee de lumiere (braise) qui balaie en diagonale ~0.5-1.5s
+        st = (t - 0.45) / 1.0
+        if 0 < st < 1:
+            diag = (xx * 0.72 + (yy - H * 0.40) * 0.5)
+            pos = st * (W * 1.5) - W * 0.25
+            band = np.exp(-((diag - pos) / 70.0) ** 2)[..., None]
+            f = screen_blend(f, band * WARM, 0.55 * math.sin(math.pi * st))
+        f = cinematic_grade(f, bloom_amt=0.5)
         f = vignette(f, 0.45)
-        f = add_grain(f, 5.0, int(t * 1000) ^ 0x51 )
+        f = add_grain(f, 5.0, int(t * 1000) ^ 0x51)
         for te in self.texts:
             te.draw(f, t)
         return np.clip(f, 0, 255)
@@ -475,6 +600,7 @@ class CTAScene:
         f = f + halo * COPPER * 0.06
         self._border(f, min(1.0, t / 0.8))
         paste_rgba(f, self.logo_rgb, self.logo_a, 0.5, 0.30)
+        f = cinematic_grade(f, bloom_amt=0.35)
         f = add_grain(f, 4.0, int(t * 1000) ^ 0x1234)
         for te in self.texts:
             te.draw(f, t)
@@ -516,109 +642,138 @@ def trans_iris(a, b, q, direction=1):
     out = out + ring * COPPER * 0.5 * (1 - q)
     return out
 
+def trans_whip(a, b, q, direction=1):
+    """TYPE D — whip-pan : glissement + flou directionnel fort, cut a mi-course."""
+    slide = int((1 - abs(2 * q - 1)) * W * 0.5) * direction
+    blur = int((1 - abs(2 * q - 1)) * 55) + 1
+    if q < 0.5:
+        f = motion_blur(a, blur, horizontal=True)
+        return np.roll(f, -slide, axis=1)
+    f = motion_blur(b, blur, horizontal=True)
+    return np.roll(f, int(W * 0.5 * direction) - slide, axis=1)
+
 # ----------------------------------------------------------------------------
 # Construction du storyboard
 # ----------------------------------------------------------------------------
-def cap(text, font, size, color, cy=0.88, cx=0.5, start=0.4, tracking=2,
-        glow=False, max_alpha=0.92, shift=False, scrim=True):
-    """Raccourci micro-caption."""
-    return TextEl(text, FONT[font], size, color, cx=cx, cy=cy, tracking=tracking,
-                  start=start, dur=0.6, glow=glow, max_alpha=max_alpha,
-                  shift_color=shift, scrim=scrim)
+def caption_block(kicker, title, cy=0.855, start=0.35, title_color=CREAM,
+                  title_size=48, title_font="cormorant_med"):
+    """Lower-third pro : kicker copper + titre serif + filet copper anime."""
+    return [
+        TextEl(kicker, FONT["jost_med"], 20, COPPER, cx=0.5, cy=cy - 0.055,
+               tracking=8, start=start, dur=0.5, glow=False, max_alpha=0.95,
+               shift_color=False, scrim=True, reveal="wipe", slide=8),
+        TextEl(title, FONT[title_font], title_size, title_color, cx=0.5, cy=cy,
+               tracking=3, start=start + 0.12, dur=0.6, glow=False,
+               shift_color=False, scrim=True, reveal="wipe", slide=16),
+        RuleEl(0.5, cy + 0.032, 0.11, start=start + 0.22, dur=0.5, thick=2),
+    ]
 
 def build_timeline():
     P = lambda n: os.path.join(PHOTOS, n)
 
     # --- LOGO / HOOK ---
-    logo = LogoScene(2.8, [
-        TextEl("Brasserie Phoenix", FONT["cormorant_bold"], 88, COPPER,
-               cx=0.5, cy=0.66, tracking=10, start=0.7, dur=0.7),
+    logo = LogoScene(2.6, [
+        TextEl("Brasserie Phoenix", FONT["cormorant_bold"], 90, COPPER,
+               cx=0.5, cy=0.655, tracking=10, start=0.7, dur=0.8,
+               reveal="forge", glow=True),
+        RuleEl(0.5, 0.705, 0.16, start=1.15, dur=0.5, thick=2),
         TextEl("Pierres brûlantes  ·  Pâtes maison  ·  Âme belge",
-               FONT["jost_light"], 27, CREAM, cx=0.5, cy=0.74, tracking=2,
-               start=1.3, dur=0.6, glow=False, max_alpha=0.92, shift_color=False),
+               FONT["jost_light"], 26, CREAM, cx=0.5, cy=0.745, tracking=3,
+               start=1.35, dur=0.6, glow=False, max_alpha=0.92,
+               shift_color=False, reveal="wipe", slide=6),
     ])
 
-    # --- 1. PLATEAU PIERRE CHAUDE (plan large) / DESIR ---
-    s1 = PhotoScene(P("01_spread.jpg"), 2.8, [
-        cap("Torrevieja  ·  Orihuela Costa", "jost_light", 30, CREAM,
-            cy=0.90, start=0.5, tracking=1)],
-        zoom=(1.0, 1.10), kb_dir=(0.04, 0.03), warp_amp=6.0, tilt=False,
-        leak_seed=1, leak_hi=True, leak_max=0.22, grain=6)
+    # --- 1. PLATEAU PIERRE CHAUDE (plan large) / ETABLISSEMENT ---
+    s1 = PhotoScene(P("01_spread.jpg"), 2.6,
+        caption_block("TORREVIEJA · ORIHUELA COSTA", "La pierre chaude",
+                      cy=0.86, start=0.5, title_color=CREAM),
+        zoom=(1.0, 1.09), kb_dir=(0.04, 0.03), warp_amp=6.0, tilt=False,
+        leak_seed=1, leak_hi=True, leak_max=0.20, grain=6, bloom=0.6)
 
     # --- 2. SPAGHETTI BURRATA / PATES MAISON ---
-    s2 = PhotoScene(P("02_burrata_pasta.jpg"), 2.5, [
-        cap("Pâtes maison", "cormorant_semi", 46, COPPER, cy=0.89, start=0.35)],
-        zoom=(1.02, 1.16), kb_dir=(-0.04, 0.03), warp_amp=0.0, tilt=True,
+    s2 = PhotoScene(P("02_burrata_pasta.jpg"), 2.2,
+        caption_block("LA CARTE", "Pâtes maison", cy=0.86, start=0.3,
+                      title_color=CREAM, title_font="cormorant_semi"),
+        zoom=(1.03, 1.17), kb_dir=(-0.04, 0.03), warp_amp=0.0, tilt=True,
         leak_seed=None, grain=6)
 
-    # --- 3. CALAMAR GRILLE / MER ---
-    s3 = PhotoScene(P("03_squid.jpg"), 2.5, [
-        cap("Produits de la mer", "jost_light", 30, CREAM, cy=0.90, start=0.3)],
-        zoom=(1.16, 1.02), kb_dir=(0.05, -0.03), warp_amp=5.0, tilt=False,
-        leak_seed=3, leak_hi=True, leak_max=0.2, grain=7)
+    # --- 3. CALAMAR GRILLE / MER (plan court, punchy) ---
+    s3 = PhotoScene(P("03_squid.jpg"), 1.9,
+        caption_block("DE LA MER", "Calamar grillé", cy=0.86, start=0.25),
+        zoom=(1.18, 1.03), kb_dir=(0.06, -0.03), warp_amp=5.0, tilt=False,
+        leak_seed=3, leak_hi=True, leak_max=0.20, grain=7)
 
     # --- 4. BURGER BURRATA / SIGNATURE ---
-    s4 = PhotoScene(P("04_burger.jpg"), 2.5, [
-        cap("Fait maison", "jost_med", 30, COPPER, cy=0.90, start=0.3)],
-        zoom=(1.0, 1.14), kb_dir=(-0.05, 0.02), warp_amp=6.0, tilt=False,
+    s4 = PhotoScene(P("04_burger.jpg"), 2.2,
+        caption_block("SIGNATURE", "Fait maison", cy=0.86, start=0.3,
+                      title_font="cormorant_semi"),
+        zoom=(1.0, 1.15), kb_dir=(-0.05, 0.02), warp_amp=6.0, tilt=False,
         leak_seed=None, grain=7)
 
-    # --- 5. PAIN / SALSA / AIOLI — A PARTAGER ---
-    s5 = PhotoScene(P("05_bread.jpg"), 2.5, [
-        cap("À partager", "jost_light_it", 32, CREAM, cy=0.90, start=0.3)],
-        zoom=(1.14, 1.02), kb_dir=(0.04, 0.03), warp_amp=0.0, tilt=True,
-        leak_seed=5, leak_hi=False, leak_max=0.2, grain=8)
+    # --- 5. PAIN / SALSA / AIOLI — A PARTAGER (plan court) ---
+    s5 = PhotoScene(P("05_bread.jpg"), 1.9,
+        caption_block("À PARTAGER", "Pain & aïoli", cy=0.86, start=0.25),
+        zoom=(1.15, 1.02), kb_dir=(0.05, 0.03), warp_amp=0.0, tilt=True,
+        leak_seed=5, leak_hi=False, leak_max=0.20, grain=8)
 
-    # --- 6. TARTARE / L'ART DU CRU ---
-    s6 = PhotoScene(P("06_tartare.jpg"), 2.6, [
-        cap("L'art du cru", "cormorant_med", 46, CREAM, cy=0.89, start=0.35)],
-        zoom=(1.02, 1.15), kb_dir=(0.04, -0.03), warp_amp=4.0, tilt=False,
+    # --- 6. TARTARE / LE CRU ---
+    s6 = PhotoScene(P("06_tartare.jpg"), 2.3,
+        caption_block("LE CRU", "Tartare au couteau", cy=0.86, start=0.3),
+        zoom=(1.02, 1.16), kb_dir=(0.04, -0.03), warp_amp=4.0, tilt=False,
         leak_seed=None, grain=6)
 
     # --- 7. STEAK PIERRE 900°C (gros plan) / CLIMAX ---
     s7 = PhotoScene(P("07_steak.jpg"), 3.4, [
-        TextEl("Pierres brûlantes.", FONT["cormorant_semi"], 62, COPPER,
-               cx=0.5, cy=0.40, tracking=4, start=0.3, dur=0.6, scrim=True),
-        TextEl("Pâtes maison.", FONT["cormorant_semi"], 62, COPPER,
-               cx=0.5, cy=0.50, tracking=4, start=0.7, dur=0.6, scrim=True),
-        TextEl("Âme belge.", FONT["cormorant_semi"], 62, CREAM,
-               cx=0.5, cy=0.60, tracking=4, start=1.1, dur=0.6, scrim=True),
-    ], zoom=(1.0, 1.20), kb_dir=(-0.03, 0.04), warp_amp=9.0, tilt=False,
-        leak_seed=7, leak_hi=True, leak_max=0.35, grain=7,
-        subject=(0.60, 0.66), vign=(0.6, 0.8))
+        TextEl("Pierres brûlantes.", FONT["cormorant_semi"], 64, COPPER,
+               cx=0.5, cy=0.40, tracking=5, start=0.3, dur=0.55, scrim=True,
+               reveal="wipe", slide=18, glow=True),
+        TextEl("Pâtes maison.", FONT["cormorant_semi"], 64, COPPER,
+               cx=0.5, cy=0.50, tracking=5, start=0.72, dur=0.55, scrim=True,
+               reveal="wipe", slide=18, glow=True),
+        TextEl("Âme belge.", FONT["cormorant_semi"], 64, CREAM,
+               cx=0.5, cy=0.60, tracking=5, start=1.14, dur=0.55, scrim=True,
+               reveal="wipe", slide=18, glow=True),
+    ], zoom=(1.0, 1.22), kb_dir=(-0.03, 0.04), warp_amp=10.0, tilt=False,
+        leak_seed=7, leak_hi=True, leak_max=0.38, grain=7,
+        subject=(0.60, 0.66), vign=(0.62, 0.82), bloom=0.7, wordmark=False)
 
-    # --- 8. ESPRESSO MARTINI / DOUCEUR ---
-    s8 = PhotoScene(P("08_martini.jpg"), 2.8, [
-        TextEl("Une table vous attend.", FONT["cormorant_med"], 60, CREAM,
-               cx=0.5, cy=0.85, tracking=3, start=0.4, dur=0.7, glow=True, scrim=True),
-    ], zoom=(1.12, 1.02), kb_dir=(0.02, -0.03), warp_amp=4.0, tilt=False,
+    # --- 8. ESPRESSO MARTINI / L'HEURE DOUCE ---
+    s8 = PhotoScene(P("08_martini.jpg"), 2.6, [
+        TextEl("L'HEURE DOUCE", FONT["jost_med"], 20, COPPER, cx=0.5, cy=0.80,
+               tracking=8, start=0.35, dur=0.5, glow=False, max_alpha=0.95,
+               shift_color=False, scrim=True, reveal="wipe", slide=8),
+        TextEl("Une table vous attend.", FONT["cormorant_med"], 58, CREAM,
+               cx=0.5, cy=0.855, tracking=3, start=0.5, dur=0.7, glow=True,
+               scrim=True, reveal="wipe", slide=16, shift_color=False),
+    ], zoom=(1.13, 1.02), kb_dir=(0.02, -0.03), warp_amp=4.0, tilt=False,
         leak_seed=None, grain=7, vign=(0.58, 0.8))
 
     # --- CTA ---
-    cta = CTAScene(4.8, [
+    cta = CTAScene(4.6, [
         TextEl("Réservez votre table", FONT["cormorant_bold"], 70, COPPER,
-               cx=0.5, cy=0.45, tracking=6, start=0.5, dur=0.7),
+               cx=0.5, cy=0.45, tracking=6, start=0.5, dur=0.7,
+               reveal="forge", glow=True),
         TextEl("Jeudi  ›  Lundi  ·  Midi & Soir", FONT["jost_reg"], 30, CREAM,
                cx=0.5, cy=0.545, tracking=2, start=0.9, dur=0.6,
-               glow=False, shift_color=False),
+               glow=False, shift_color=False, reveal="wipe", slide=8),
         TextEl("Av. Desiderio Rodríguez 37  ·  Torrevieja", FONT["jost_light"], 25,
                CREAM, cx=0.5, cy=0.62, tracking=1, start=1.2, dur=0.6,
-               glow=False, max_alpha=0.78, shift_color=False),
+               glow=False, max_alpha=0.78, shift_color=False, reveal="wipe", slide=6),
         TextEl("(+34) 744 622 975", FONT["jost_light"], 25, COPPER,
                cx=0.5, cy=0.675, tracking=2, start=1.45, dur=0.6,
-               glow=False, max_alpha=0.9, shift_color=False),
+               glow=False, max_alpha=0.9, shift_color=False, reveal="wipe", slide=6),
     ])
 
     scenes = [logo, s1, s2, s3, s4, s5, s6, s7, s8, cta]
-    # 9 transitions (type, duree, direction) : glide/flash alternes, iris aux bornes
+    # 9 transitions (type, duree, direction) : whip/glide/flash + iris aux bornes
     trans = [
         (trans_iris,  0.5,  1),   # logo -> 1
-        (trans_glide, 0.4,  1),   # 1 -> 2
-        (trans_flash, 0.3,  1),   # 2 -> 3
-        (trans_glide, 0.4, -1),   # 3 -> 4
-        (trans_flash, 0.3,  1),   # 4 -> 5
-        (trans_glide, 0.4,  1),   # 5 -> 6
-        (trans_flash, 0.3,  1),   # 6 -> 7
+        (trans_whip,  0.35, 1),   # 1 -> 2  whip pan
+        (trans_glide, 0.35, 1),   # 2 -> 3
+        (trans_whip,  0.35,-1),   # 3 -> 4  whip pan inverse
+        (trans_flash, 0.3,  1),   # 4 -> 5  flash braise
+        (trans_whip,  0.35, 1),   # 5 -> 6  whip pan
+        (trans_flash, 0.3,  1),   # 6 -> 7  flash -> climax
         (trans_iris,  0.5,  1),   # 7 -> 8
         (trans_iris,  0.5,  1),   # 8 -> CTA
     ]
@@ -668,7 +823,7 @@ def main():
     if preview:
         os.makedirs(os.path.join(OUTDIR, "_preview"), exist_ok=True)
         # instants representatifs (incluant transitions)
-        times = [1.2, 4.2, 6.8, 9.3, 11.8, 14.3, 16.8, 20.0, 22.8, 26.5]
+        times = [1.5, 4.3, 6.6, 8.6, 10.7, 12.8, 14.9, 18.2, 20.9, 24.0]
         for k, t in enumerate(times):
             t = min(t, tl.total - 0.01)
             fr = tl.frame(t).astype(np.uint8)
