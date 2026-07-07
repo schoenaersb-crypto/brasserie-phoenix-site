@@ -1,0 +1,5 @@
+# Frames intermediaires et previsualisations du generateur de reel
+output/_frames/
+output/_preview/
+__pycache__/
+*.pyc
