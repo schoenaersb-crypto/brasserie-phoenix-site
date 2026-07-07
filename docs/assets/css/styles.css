@@ -606,3 +606,84 @@ body { font-synthesis: none; }
   }
 }
 
+/* ============================================================
+   ===============  EXPÉRIENCE 2026  ==========================
+   Hero vidéo · curseur · boutons magnétiques · titre en cascade
+   · bandeau défilant · compteurs · barre de progression.
+   ============================================================ */
+
+/* ---- Hero cinématique plein écran + vidéo de fond ---- */
+.hero { min-height: 100svh; }
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.hero-kenburns { z-index: -1; }            /* repli derrière la vidéo */
+.hero-scrim { z-index: 1; }
+.hero-embers { z-index: 1; }
+.hero-inner, .hero-scroll { z-index: 2; }
+
+/* ---- Titre héro : apparition lettre par lettre ---- */
+.hero-title .char {
+  display: inline-block;
+  opacity: 0; transform: translateY(0.55em) rotate(3deg);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-title.is-in .char { opacity: 1; transform: none; transition-delay: calc(var(--i) * 42ms); }
+.hero-title .space { display: inline-block; width: 0.32em; }
+
+/* ---- Barre de progression de lecture ---- */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--cuivre), var(--feu-1));
+  z-index: 200; pointer-events: none;
+}
+
+/* ---- Curseur personnalisé (desktop, activé par JS) ---- */
+#cursor, #cursor-dot {
+  position: fixed; top: 0; left: 0; z-index: 300; pointer-events: none;
+  opacity: 0; transition: opacity 0.3s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+#cursor { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1.5px solid rgba(185,141,85,0.9); border-radius: 50%; }
+#cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--cuivre); }
+#cursor.is-visible, #cursor-dot.is-visible { opacity: 1; }
+#cursor.is-hover { width: 66px; height: 66px; margin: -33px 0 0 -33px; background: rgba(185,141,85,0.14); border-color: var(--cuivre-clair); }
+body.has-cursor, body.has-cursor a, body.has-cursor .btn, body.has-cursor .gal-item, body.has-cursor .nav-toggle { cursor: none; }
+
+/* ---- Boutons magnétiques ---- */
+.magnetic { transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.magnetic.is-magnetic { transition: none; }
+
+/* ---- Bandeau défilant (marquee) ---- */
+.marquee {
+  overflow: hidden; background: var(--marine); color: var(--creme);
+  padding: 16px 0; white-space: nowrap;
+  border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.marquee__track { display: inline-flex; align-items: center; animation: marq 30s linear infinite; will-change: transform; }
+.marquee__track span { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; letter-spacing: 0.02em; padding: 0 26px; font-style: italic; }
+.marquee__sep { color: var(--cuivre); font-style: normal; }
+@keyframes marq { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+
+/* ---- Bande de chiffres animés ---- */
+.stats {
+  max-width: var(--largeur); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  padding: 72px 20px; text-align: center;
+}
+.stat-num { font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--marine); line-height: 1; font-size: clamp(2.6rem, 7vw, 4.2rem); }
+.stat-suffix { font-size: 0.5em; color: var(--cuivre); }
+.stat-num--txt { font-style: italic; font-size: clamp(1.8rem, 5vw, 2.8rem); }
+.stat-label { display: block; margin-top: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--texte-doux); }
+.stat { position: relative; }
+.stat + .stat::before { content: ""; position: absolute; left: -12px; top: 20%; height: 60%; width: 1px; background: var(--creme-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .hero-title .char { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 620px) {
+  .stats { grid-template-columns: 1fr; gap: 34px; }
+  .stat + .stat::before { display: none; }
+}
+
