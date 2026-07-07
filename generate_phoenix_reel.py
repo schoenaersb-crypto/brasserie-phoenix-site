@@ -497,9 +497,11 @@ class PhotoScene:
         cy = self.cy0 + self.kb_dir[1] * (e - 0.5)
         cx = min(0.72, max(0.28, cx)); cy = min(0.72, max(0.28, cy))
         f = ken_burns(self.base, z, cx, cy)
-        # E1 Depth warp
+        # E1 Depth warp (parallaxe 2.5D renforcee : +drift directionnel = mini-travelling)
         if self.warp_amp:
-            f = depth_warp(f, self.warp_amp * math.sin(p * math.pi))
+            amp = self.warp_amp * 1.6
+            drift = 0.35 * amp * (e - 0.5) * 2          # translation continue
+            f = depth_warp(f, amp * math.sin(p * math.pi) + drift)
         # E3 Tilt-shift
         if self.tilt:
             f = tilt_shift(f)
@@ -765,6 +767,10 @@ def build_timeline():
     ])
 
     scenes = [logo, s1, s2, s3, s4, s5, s6, s7, s8, cta]
+    # durees verrouillees sur le tempo (100 BPM) -> les coupes tombent sur les
+    # beats de la piste audio (audio_engine.py). Total = 25.2s.
+    for sc, d in zip(scenes, [2.4, 2.4, 1.8, 1.8, 1.8, 1.8, 2.4, 3.6, 2.4, 4.8]):
+        sc.dur = d
     # 9 transitions (type, duree, direction) : whip/glide/flash + iris aux bornes
     trans = [
         (trans_iris,  0.5,  1),   # logo -> 1
