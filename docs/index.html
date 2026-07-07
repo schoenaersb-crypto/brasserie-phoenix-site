@@ -104,6 +104,13 @@
   <!-- Lien d'évitement (accessibilité clavier) -->
   <a href="#accueil" class="skip-link" data-ui="a11y.aller_contenu">Aller au contenu</a>
 
+  <!-- Barre de progression de lecture -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Curseur personnalisé (desktop, activé par experience.js) -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+
   <!-- ===== Bandeau annonces (rempli depuis data/annonces.json, masqué si inactif) ===== -->
   <div id="annonces" class="annonces" hidden></div>
 
@@ -147,6 +154,11 @@
     <!-- ===== Hero cinématique (image de fond + effet Ken Burns) ===== -->
     <section id="accueil" class="hero">
       <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto"
+               poster="assets/img/hero/hero-facade-coucher-soleil.jpg">
+          <source src="assets/video/hero-loop.webm" type="video/webm" />
+          <source src="assets/video/hero-loop.mp4" type="video/mp4" />
+        </video>
         <div class="hero-kenburns" style="background-image: url('assets/img/hero/hero-facade-coucher-soleil.jpg');"></div>
         <div class="hero-scrim"></div>
       </div>
@@ -158,8 +170,8 @@
         <p class="hero-accroche" data-ui="hero.accroche"></p>
         <p class="hero-lieu" data-ui="hero.lieu"></p>
         <div class="hero-cta">
-          <a href="#carte" class="btn btn-primary" data-ui="hero.cta_carte"></a>
-          <a href="#reserver" class="btn btn-ghost" data-ui="hero.cta_reserver"></a>
+          <a href="#carte" class="btn btn-primary magnetic" data-ui="hero.cta_carte"></a>
+          <a href="#reserver" class="btn btn-ghost magnetic" data-ui="hero.cta_reserver"></a>
         </div>
       </div>
       <!-- Indicateur de défilement -->
@@ -167,6 +179,33 @@
         <span class="hero-scroll-txt" data-ui="a11y.defiler">Découvrir</span>
         <span class="hero-scroll-arrow" aria-hidden="true"></span>
       </a>
+    </section>
+
+    <!-- ===== Bandeau défilant (marquee) ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Grillades sur pierre de lave</span><span class="marquee__sep">✦</span>
+        <span>Fruits de mer</span><span class="marquee__sep">✦</span>
+        <span>Pâtes fraîches</span><span class="marquee__sep">✦</span>
+        <span>Cocktails au coucher du soleil</span><span class="marquee__sep">✦</span>
+        <span>Face à la Méditerranée</span><span class="marquee__sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ===== Bande de chiffres animés ===== -->
+    <section class="stats reveal" aria-label="En quelques chiffres">
+      <div class="stat">
+        <span class="stat-num"><span data-count="9">9</span><span class="stat-suffix">/10</span></span>
+        <span class="stat-label">Note globale</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num"><span data-count="226">226</span></span>
+        <span class="stat-label">Avis clients</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num stat-num--txt">Torrevieja</span>
+        <span class="stat-label">Bord de mer</span>
+      </div>
     </section>
 
     <!-- ===== L'esprit Phoenix (récit) — rempli depuis data/esprit.json ===== -->
@@ -317,5 +356,6 @@
   <script defer src="assets/js/ui.js"></script>
   <script defer src="assets/js/reservation.js"></script>
   <script defer src="assets/js/motion.js"></script>
+  <script defer src="assets/js/experience.js"></script>
 </body>
 </html>
