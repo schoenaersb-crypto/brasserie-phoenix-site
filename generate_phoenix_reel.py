@@ -18,6 +18,7 @@ import os, sys, math, glob
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
+import photolab
 
 # ----------------------------------------------------------------------------
 # Constantes / identite visuelle verrouillee
@@ -511,6 +512,9 @@ class PhotoScene:
             if 0 <= lt <= 1.5:
                 op = math.sin(lt / 1.5 * math.pi) * self.leak_max
                 f = screen_blend(f, self.leak, op)
+        return self._finish(f, t)
+
+    def _finish(self, f, t):
         # FINITION FILM : etalonnage unifie + halation + aberration chromatique
         f = filmic(f, bloom_amt=self.bloom)
         # E6 Vignette navy respirante (0.8Hz)
@@ -527,6 +531,111 @@ class PhotoScene:
         for te in self.texts:
             te.draw(f, t)
         return np.clip(f, 0, 255)
+
+
+def _warp_layer(img, center, z, tx, ty):
+    """Zoom z autour de center + translation (tx,ty)."""
+    M = cv2.getRotationMatrix2D(center, 0, z)
+    M[0, 2] += tx; M[1, 2] += ty
+    return cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR,
+                          borderMode=cv2.BORDER_REFLECT)
+
+def _screen_map(f, color, amap):
+    """Blend screen avec opacite variable par pixel (amap HxW 0..1)."""
+    a = f / 255.0
+    b = (np.asarray(color, np.float32) / 255.0)[None, None, :] * amap[..., None]
+    return (1 - (1 - a) * (1 - b)) * 255.0
+
+_STEAM_COL = np.array([246, 242, 234], np.float32)
+
+class Layer25Scene(PhotoScene):
+    """Plan anime en couches : parallaxe 2.5D (sujet vs fond reconstruit),
+    vapeur montante, scintillement/bokeh. Base = analyse photolab."""
+    def __init__(self, img_path, dur, texts=None, *, parallax=26.0,
+                 cam_dir=(1.0, -0.4), zoom=(1.02, 1.10), steam=0.0,
+                 steam_org=None, flicker=0.0, bokeh=0.0, tilt=False,
+                 leak_seed=None, leak_hi=True, leak_max=0.2, grain=6.0,
+                 vign=(0.55, 0.75), bloom=0.55, wordmark=True):
+        super().__init__(img_path, dur, texts, zoom=zoom, kb_dir=(0, 0),
+                         warp_amp=0.0, tilt=tilt, leak_seed=leak_seed,
+                         leak_hi=leak_hi, leak_max=leak_max, grain=grain,
+                         vign=vign, breathe=True, bloom=bloom, wordmark=wordmark)
+        a = photolab.analyze_cached(img_path)
+        self.rgb = a["rgb"].astype(np.float32)
+        self.bg = a["bg"].astype(np.float32)
+        self.fga = np.clip(a["fg"].astype(np.float32), 0, 1)
+        self.hot = list(a["hot"])
+        if steam_org is not None:
+            self.origin = np.array([steam_org[0]*W, steam_org[1]*H], np.float32)
+        else:
+            self.origin = np.asarray(a["steam"], np.float32)
+        self.parallax = parallax
+        d = np.array(cam_dir, np.float32); self.cam_dir = d / (np.linalg.norm(d) + 1e-6)
+        self.steam_i = steam
+        self.flicker = flicker
+        self.bokeh = bokeh
+        self.center = (float(self.cx0 * W), float(self.cy0 * H))
+
+    def _parallax(self, e):
+        z = self.zoom[0] + (self.zoom[1] - self.zoom[0]) * e
+        ph = (e - 0.5) * 2.0                       # -1..1 : mini-travelling
+        dx, dy = self.cam_dir * self.parallax * ph
+        bg = _warp_layer(self.bg, self.center, z * 1.02, dx * 0.30, dy * 0.30)
+        frgb = _warp_layer(self.rgb, self.center, z, dx, dy)
+        fa = _warp_layer(self.fga, self.center, z, dx, dy)[..., None]
+        comp = bg * (1 - fa) + frgb * fa
+        # point d'emission vapeur suivi par le meme warp que le sujet
+        ox = (self.origin[0] - self.center[0]) * z + self.center[0] + dx
+        oy = (self.origin[1] - self.center[1]) * z + self.center[1] + dy
+        return comp, (ox, oy)
+
+    def _steam(self, f, origin, t):
+        lay = np.zeros((H, W), np.float32)
+        rng = np.random.RandomState(0x51EA)
+        offs = rng.rand(9); jit = (rng.rand(9) - 0.5)
+        for i in range(9):
+            ph = (t * 0.30 + offs[i]) % 1.0
+            px = origin[0] + math.sin((ph * 2.4 + i) * 2.1) * 26 + jit[i] * 46 + ph*ph*18*(jit[i])
+            py = origin[1] - ph * (H * 0.26) - 10
+            rad = 14 + ph * 60
+            a = math.sin(math.pi * ph) ** 1.15 * self.steam_i
+            if a > 0.003:
+                cv2.circle(lay, (int(px), int(py)), int(rad), float(a), -1)
+        lay = cv2.GaussianBlur(lay, (0, 0), 22) * 2.2      # gain apres flou -> visible
+        return _screen_map(f, _STEAM_COL, np.clip(lay, 0, 0.72))
+
+    def _sparkle(self, f, t):
+        if not self.hot or (self.flicker <= 0 and self.bokeh <= 0):
+            return f
+        lay = np.zeros((H, W), np.float32)
+        for i, (cx, cy, rad) in enumerate(self.hot[:6]):
+            if self.flicker > 0:                    # bougies : scintillement bruite
+                fl = 0.55 + 0.45 * math.sin(t * (7 + i) + i) * math.sin(t * 3.3 + i * 2)
+                inten = self.flicker * max(0.2, fl)
+                rr = rad * 1.6
+            else:                                   # bokeh : pulsation douce
+                inten = self.bokeh * (0.5 + 0.5 * math.sin(t * (1.4 + 0.3 * i) + i))
+                rr = rad * 2.2
+            cv2.circle(lay, (int(cx), int(cy)), int(rr), float(inten), -1)
+        lay = cv2.GaussianBlur(lay, (0, 0), 18)
+        col = COPPER if self.flicker > 0 else np.array([255, 238, 210], np.float32)
+        return _screen_map(f, col, np.clip(lay, 0, 1))
+
+    def render(self, t):
+        p = min(1.0, max(0.0, t / self.dur))
+        e = ease(p)
+        f, origin = self._parallax(e)
+        if self.tilt:
+            f = tilt_shift(f)
+        if self.leak is not None:
+            lt = t - self.dur * 0.28
+            if 0 <= lt <= 1.5:
+                f = screen_blend(f, self.leak, math.sin(lt / 1.5 * math.pi) * self.leak_max)
+        if self.steam_i > 0:
+            f = self._steam(f, origin, t)
+        if self.flicker > 0 or self.bokeh > 0:
+            f = self._sparkle(f, t)
+        return self._finish(f, t)
 
 
 class LogoScene:
@@ -685,47 +794,47 @@ def build_timeline():
                shift_color=False, reveal="wipe", slide=6),
     ])
 
-    # --- 1. PLATEAU PIERRE CHAUDE (plan large) / ETABLISSEMENT ---
-    s1 = PhotoScene(P("01_spread.jpg"), 2.6,
+    # --- 1. PLATEAU PIERRE CHAUDE (plan large) : parallaxe + vapeur + bougie ---
+    s1 = Layer25Scene(P("01_spread.jpg"), 2.4,
         caption_block("TORREVIEJA · ORIHUELA COSTA", "La pierre chaude",
                       cy=0.86, start=0.5, title_color=CREAM),
-        zoom=(1.0, 1.09), kb_dir=(0.04, 0.03), warp_amp=6.0, tilt=False,
-        leak_seed=1, leak_hi=True, leak_max=0.20, grain=6, bloom=0.6)
+        parallax=26, cam_dir=(1.0, -0.35), zoom=(1.02, 1.10),
+        steam=0.5, flicker=0.5, leak_seed=1, leak_max=0.18, grain=6, bloom=0.6)
 
-    # --- 2. SPAGHETTI BURRATA / PATES MAISON ---
-    s2 = PhotoScene(P("02_burrata_pasta.jpg"), 2.2,
+    # --- 2. SPAGHETTI BURRATA / PATES MAISON : vapeur + parallaxe ---
+    s2 = Layer25Scene(P("02_burrata_pasta.jpg"), 1.8,
         caption_block("LA CARTE", "Pâtes maison", cy=0.86, start=0.3,
-                      title_color=CREAM, title_font="cormorant_semi"),
-        zoom=(1.03, 1.17), kb_dir=(-0.04, 0.03), warp_amp=0.0, tilt=True,
-        leak_seed=None, grain=6)
+                      title_font="cormorant_semi"),
+        parallax=24, cam_dir=(-1.0, 0.3), zoom=(1.03, 1.14),
+        steam=0.42, tilt=True, grain=6)
 
-    # --- 3. CALAMAR GRILLE / MER (plan court, punchy) ---
-    s3 = PhotoScene(P("03_squid.jpg"), 1.9,
+    # --- 3. CALAMAR GRILLE / MER : fumee + push parallaxe ---
+    s3 = Layer25Scene(P("03_squid.jpg"), 1.8,
         caption_block("DE LA MER", "Calamar grillé", cy=0.86, start=0.25),
-        zoom=(1.18, 1.03), kb_dir=(0.06, -0.03), warp_amp=5.0, tilt=False,
-        leak_seed=3, leak_hi=True, leak_max=0.20, grain=7)
+        parallax=28, cam_dir=(1.0, -0.3), zoom=(1.02, 1.13),
+        steam=0.5, leak_seed=3, leak_max=0.18, grain=7)
 
-    # --- 4. BURGER BURRATA / SIGNATURE ---
-    s4 = PhotoScene(P("04_burger.jpg"), 2.2,
+    # --- 4. BURGER BURRATA / SIGNATURE : vapeur douce ---
+    s4 = Layer25Scene(P("04_burger.jpg"), 1.8,
         caption_block("SIGNATURE", "Fait maison", cy=0.86, start=0.3,
                       title_font="cormorant_semi"),
-        zoom=(1.0, 1.15), kb_dir=(-0.05, 0.02), warp_amp=6.0, tilt=False,
-        leak_seed=None, grain=7)
+        parallax=24, cam_dir=(-1.0, 0.25), zoom=(1.02, 1.13),
+        steam=0.36, grain=7)
 
-    # --- 5. PAIN / SALSA / AIOLI — A PARTAGER (plan court) ---
-    s5 = PhotoScene(P("05_bread.jpg"), 1.9,
+    # --- 5. PAIN / SALSA / AIOLI — A PARTAGER : vapeur pain ---
+    s5 = Layer25Scene(P("05_bread.jpg"), 1.8,
         caption_block("À PARTAGER", "Pain & aïoli", cy=0.86, start=0.25),
-        zoom=(1.15, 1.02), kb_dir=(0.05, 0.03), warp_amp=0.0, tilt=True,
-        leak_seed=5, leak_hi=False, leak_max=0.20, grain=8)
+        parallax=24, cam_dir=(1.0, 0.3), zoom=(1.02, 1.12),
+        steam=0.4, tilt=True, leak_seed=5, leak_hi=False, leak_max=0.18, grain=8)
 
-    # --- 6. TARTARE / LE CRU ---
-    s6 = PhotoScene(P("06_tartare.jpg"), 2.3,
+    # --- 6. TARTARE / LE CRU : parallaxe seule (plat froid, pas de vapeur) ---
+    s6 = Layer25Scene(P("06_tartare.jpg"), 2.4,
         caption_block("LE CRU", "Tartare au couteau", cy=0.86, start=0.3),
-        zoom=(1.02, 1.16), kb_dir=(0.04, -0.03), warp_amp=4.0, tilt=False,
-        leak_seed=None, grain=6)
+        parallax=22, cam_dir=(1.0, -0.3), zoom=(1.02, 1.12),
+        steam=0.0, grain=6)
 
-    # --- 7. STEAK PIERRE 900°C (gros plan) / CLIMAX ---
-    s7 = PhotoScene(P("07_steak.jpg"), 3.4, [
+    # --- 7. STEAK PIERRE 900°C (gros plan) / CLIMAX : vapeur forte + braise ---
+    s7 = Layer25Scene(P("07_steak.jpg"), 3.6, [
         TextEl("Pierres brûlantes.", FONT["cormorant_semi"], 64, COPPER,
                cx=0.5, cy=0.40, tracking=5, start=0.3, dur=0.55, scrim=True,
                reveal="wipe", slide=18, glow=True),
@@ -735,20 +844,20 @@ def build_timeline():
         TextEl("Âme belge.", FONT["cormorant_semi"], 64, CREAM,
                cx=0.5, cy=0.60, tracking=5, start=1.14, dur=0.55, scrim=True,
                reveal="wipe", slide=18, glow=True),
-    ], zoom=(1.0, 1.22), kb_dir=(-0.03, 0.04), warp_amp=10.0, tilt=False,
-        leak_seed=7, leak_hi=True, leak_max=0.38, grain=7,
-        subject=(0.60, 0.66), vign=(0.62, 0.82), bloom=0.7, wordmark=False)
+    ], parallax=30, cam_dir=(-0.6, 0.5), zoom=(1.02, 1.16),
+        steam=0.62, steam_org=(0.60, 0.82), flicker=0.45, leak_seed=7, leak_max=0.32, grain=7,
+        vign=(0.62, 0.82), bloom=0.7, wordmark=False)
 
-    # --- 8. ESPRESSO MARTINI / L'HEURE DOUCE ---
-    s8 = PhotoScene(P("08_martini.jpg"), 2.6, [
+    # --- 8. ESPRESSO MARTINI / L'HEURE DOUCE : bokeh scintillant ---
+    s8 = Layer25Scene(P("08_martini.jpg"), 2.4, [
         TextEl("L'HEURE DOUCE", FONT["jost_med"], 20, COPPER, cx=0.5, cy=0.80,
                tracking=8, start=0.35, dur=0.5, glow=False, max_alpha=0.95,
                shift_color=False, scrim=True, reveal="wipe", slide=8),
         TextEl("Une table vous attend.", FONT["cormorant_med"], 58, CREAM,
                cx=0.5, cy=0.855, tracking=3, start=0.5, dur=0.7, glow=True,
                scrim=True, reveal="wipe", slide=16, shift_color=False),
-    ], zoom=(1.13, 1.02), kb_dir=(0.02, -0.03), warp_amp=4.0, tilt=False,
-        leak_seed=None, grain=7, vign=(0.58, 0.8))
+    ], parallax=20, cam_dir=(1.0, -0.3), zoom=(1.02, 1.11),
+        steam=0.0, bokeh=0.4, grain=7, vign=(0.58, 0.8))
 
     # --- CTA ---
     cta = CTAScene(4.6, [
@@ -829,7 +938,7 @@ def main():
     if preview:
         os.makedirs(os.path.join(OUTDIR, "_preview"), exist_ok=True)
         # instants representatifs (incluant transitions)
-        times = [1.5, 4.3, 6.6, 8.6, 10.7, 12.8, 14.9, 18.2, 20.9, 24.0]
+        times = [1.2, 3.8, 5.8, 7.6, 9.4, 11.2, 13.4, 16.5, 19.5, 23.0]
         for k, t in enumerate(times):
             t = min(t, tl.total - 0.01)
             fr = tl.frame(t).astype(np.uint8)
