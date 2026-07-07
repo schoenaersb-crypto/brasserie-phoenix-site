@@ -519,68 +519,83 @@ def trans_iris(a, b, q, direction=1):
 # ----------------------------------------------------------------------------
 # Construction du storyboard
 # ----------------------------------------------------------------------------
+def cap(text, font, size, color, cy=0.88, cx=0.5, start=0.4, tracking=2,
+        glow=False, max_alpha=0.92, shift=False, scrim=True):
+    """Raccourci micro-caption."""
+    return TextEl(text, FONT[font], size, color, cx=cx, cy=cy, tracking=tracking,
+                  start=start, dur=0.6, glow=glow, max_alpha=max_alpha,
+                  shift_color=shift, scrim=scrim)
+
 def build_timeline():
     P = lambda n: os.path.join(PHOTOS, n)
 
-    # --- S1 LOGO / HOOK ---
-    s1_txt = [
+    # --- LOGO / HOOK ---
+    logo = LogoScene(2.8, [
         TextEl("Brasserie Phoenix", FONT["cormorant_bold"], 88, COPPER,
-               cx=0.5, cy=0.66, tracking=10, start=0.9, dur=0.7),
+               cx=0.5, cy=0.66, tracking=10, start=0.7, dur=0.7),
         TextEl("Pierres brûlantes  ·  Pâtes maison  ·  Âme belge",
                FONT["jost_light"], 27, CREAM, cx=0.5, cy=0.74, tracking=2,
-               start=1.6, dur=0.6, glow=False, max_alpha=0.92, shift_color=False),
-    ]
-    s1 = LogoScene(3.4, s1_txt)
+               start=1.3, dur=0.6, glow=False, max_alpha=0.92, shift_color=False),
+    ])
 
-    # --- S2 STEAK / DESIR ---
-    s2_txt = [
-        TextEl("Pierre brûlante  ·  900°C", FONT["jost_light"], 30, CREAM,
-               cx=0.34, cy=0.88, tracking=1, start=0.4, dur=0.6,
-               glow=False, max_alpha=0.92, shift_color=False, scrim=True),
-    ]
-    s2 = PhotoScene(P("01_steak.jpg"), 3.2, s2_txt, zoom=(1.0, 1.12),
-                    kb_dir=(0.05, 0.02), warp_amp=7.0, tilt=False,
-                    leak_seed=1, leak_hi=True, leak_max=0.22, grain=6, subject=(0.60, 0.62))
+    # --- 1. PLATEAU PIERRE CHAUDE (plan large) / DESIR ---
+    s1 = PhotoScene(P("01_spread.jpg"), 2.8, [
+        cap("Torrevieja  ·  Orihuela Costa", "jost_light", 30, CREAM,
+            cy=0.90, start=0.5, tracking=1)],
+        zoom=(1.0, 1.10), kb_dir=(0.04, 0.03), warp_amp=6.0, tilt=False,
+        leak_seed=1, leak_hi=True, leak_max=0.22, grain=6)
 
-    # --- S3 TARTARE / TEXTURE ---
-    s3 = PhotoScene(P("02_tartare.jpg"), 3.0, [], zoom=(1.02, 1.16),
-                    kb_dir=(-0.04, 0.03), warp_amp=0.0, tilt=True,
-                    leak_seed=None, grain=6)
+    # --- 2. SPAGHETTI BURRATA / PATES MAISON ---
+    s2 = PhotoScene(P("02_burrata_pasta.jpg"), 2.5, [
+        cap("Pâtes maison", "cormorant_semi", 46, COPPER, cy=0.89, start=0.35)],
+        zoom=(1.02, 1.16), kb_dir=(-0.04, 0.03), warp_amp=0.0, tilt=True,
+        leak_seed=None, grain=6)
 
-    # --- S4 PRAWN / ARTISANAT ---
-    s4_txt = [
-        TextEl("Produits frais  ·  Fait maison", FONT["jost_med"], 30, COPPER,
-               cx=0.5, cy=0.88, tracking=2, start=0.35, dur=0.6, scrim=True),
-    ]
-    s4 = PhotoScene(P("03_prawn.jpg"), 3.2, s4_txt, zoom=(1.16, 1.02),
-                    kb_dir=(0.05, -0.03), warp_amp=5.0, tilt=False,
-                    leak_seed=3, leak_hi=False, leak_max=0.2, grain=10)
+    # --- 3. CALAMAR GRILLE / MER ---
+    s3 = PhotoScene(P("03_squid.jpg"), 2.5, [
+        cap("Produits de la mer", "jost_light", 30, CREAM, cy=0.90, start=0.3)],
+        zoom=(1.16, 1.02), kb_dir=(0.05, -0.03), warp_amp=5.0, tilt=False,
+        leak_seed=3, leak_hi=True, leak_max=0.2, grain=7)
 
-    # --- S5 STEAK / CLIMAX ---
-    s5_txt = [
+    # --- 4. BURGER BURRATA / SIGNATURE ---
+    s4 = PhotoScene(P("04_burger.jpg"), 2.5, [
+        cap("Fait maison", "jost_med", 30, COPPER, cy=0.90, start=0.3)],
+        zoom=(1.0, 1.14), kb_dir=(-0.05, 0.02), warp_amp=6.0, tilt=False,
+        leak_seed=None, grain=7)
+
+    # --- 5. PAIN / SALSA / AIOLI — A PARTAGER ---
+    s5 = PhotoScene(P("05_bread.jpg"), 2.5, [
+        cap("À partager", "jost_light_it", 32, CREAM, cy=0.90, start=0.3)],
+        zoom=(1.14, 1.02), kb_dir=(0.04, 0.03), warp_amp=0.0, tilt=True,
+        leak_seed=5, leak_hi=False, leak_max=0.2, grain=8)
+
+    # --- 6. TARTARE / L'ART DU CRU ---
+    s6 = PhotoScene(P("06_tartare.jpg"), 2.6, [
+        cap("L'art du cru", "cormorant_med", 46, CREAM, cy=0.89, start=0.35)],
+        zoom=(1.02, 1.15), kb_dir=(0.04, -0.03), warp_amp=4.0, tilt=False,
+        leak_seed=None, grain=6)
+
+    # --- 7. STEAK PIERRE 900°C (gros plan) / CLIMAX ---
+    s7 = PhotoScene(P("07_steak.jpg"), 3.4, [
         TextEl("Pierres brûlantes.", FONT["cormorant_semi"], 62, COPPER,
                cx=0.5, cy=0.40, tracking=4, start=0.3, dur=0.6, scrim=True),
         TextEl("Pâtes maison.", FONT["cormorant_semi"], 62, COPPER,
                cx=0.5, cy=0.50, tracking=4, start=0.7, dur=0.6, scrim=True),
         TextEl("Âme belge.", FONT["cormorant_semi"], 62, CREAM,
                cx=0.5, cy=0.60, tracking=4, start=1.1, dur=0.6, scrim=True),
-    ]
-    s5 = PhotoScene(P("01_steak.jpg"), 3.8, s5_txt, zoom=(1.0, 1.22),
-                    kb_dir=(-0.03, 0.04), warp_amp=9.0, tilt=False,
-                    leak_seed=5, leak_hi=True, leak_max=0.35, grain=7,
-                    subject=(0.60, 0.66), vign=(0.6, 0.8))
+    ], zoom=(1.0, 1.20), kb_dir=(-0.03, 0.04), warp_amp=9.0, tilt=False,
+        leak_seed=7, leak_hi=True, leak_max=0.35, grain=7,
+        subject=(0.60, 0.66), vign=(0.6, 0.8))
 
-    # --- S6 TARTARE / APPARTENANCE ---
-    s6_txt = [
-        TextEl("Une table vous attend.", FONT["cormorant_med"], 64, CREAM,
-               cx=0.5, cy=0.5, tracking=3, start=0.4, dur=0.7, glow=True, scrim=True),
-    ]
-    s6 = PhotoScene(P("02_tartare.jpg"), 3.2, s6_txt, zoom=(1.14, 1.04),
-                    kb_dir=(0.03, -0.02), warp_amp=4.0, tilt=False,
-                    leak_seed=None, grain=8, vign=(0.6, 0.82))
+    # --- 8. ESPRESSO MARTINI / DOUCEUR ---
+    s8 = PhotoScene(P("08_martini.jpg"), 2.8, [
+        TextEl("Une table vous attend.", FONT["cormorant_med"], 60, CREAM,
+               cx=0.5, cy=0.85, tracking=3, start=0.4, dur=0.7, glow=True, scrim=True),
+    ], zoom=(1.12, 1.02), kb_dir=(0.02, -0.03), warp_amp=4.0, tilt=False,
+        leak_seed=None, grain=7, vign=(0.58, 0.8))
 
-    # --- S7 CTA ---
-    s7_txt = [
+    # --- CTA ---
+    cta = CTAScene(4.8, [
         TextEl("Réservez votre table", FONT["cormorant_bold"], 70, COPPER,
                cx=0.5, cy=0.45, tracking=6, start=0.5, dur=0.7),
         TextEl("Jeudi  ›  Lundi  ·  Midi & Soir", FONT["jost_reg"], 30, CREAM,
@@ -592,18 +607,20 @@ def build_timeline():
         TextEl("(+34) 744 622 975", FONT["jost_light"], 25, COPPER,
                cx=0.5, cy=0.675, tracking=2, start=1.45, dur=0.6,
                glow=False, max_alpha=0.9, shift_color=False),
-    ]
-    s7 = CTAScene(5.2, s7_txt)
+    ])
 
-    scenes = [s1, s2, s3, s4, s5, s6, s7]
-    # transitions entre scenes consecutives (type, duree, direction)
+    scenes = [logo, s1, s2, s3, s4, s5, s6, s7, s8, cta]
+    # 9 transitions (type, duree, direction) : glide/flash alternes, iris aux bornes
     trans = [
-        (trans_iris,  0.5, 1),   # S1 -> S2
-        (trans_glide, 0.4, 1),   # S2 -> S3
-        (trans_flash, 0.3, 1),   # S3 -> S4
-        (trans_glide, 0.4, -1),  # S4 -> S5
-        (trans_flash, 0.3, 1),   # S5 -> S6
-        (trans_iris,  0.5, 1),   # S6 -> S7
+        (trans_iris,  0.5,  1),   # logo -> 1
+        (trans_glide, 0.4,  1),   # 1 -> 2
+        (trans_flash, 0.3,  1),   # 2 -> 3
+        (trans_glide, 0.4, -1),   # 3 -> 4
+        (trans_flash, 0.3,  1),   # 4 -> 5
+        (trans_glide, 0.4,  1),   # 5 -> 6
+        (trans_flash, 0.3,  1),   # 6 -> 7
+        (trans_iris,  0.5,  1),   # 7 -> 8
+        (trans_iris,  0.5,  1),   # 8 -> CTA
     ]
     return scenes, trans
 
@@ -651,8 +668,7 @@ def main():
     if preview:
         os.makedirs(os.path.join(OUTDIR, "_preview"), exist_ok=True)
         # instants representatifs (incluant transitions)
-        times = [0.3, 1.2, 2.2, 3.45, 4.6, 6.2, 7.0, 8.6, 9.55, 11.0,
-                 12.8, 14.5, 16.7, 18.2, 19.85, 21.5, 23.0, 24.6]
+        times = [1.2, 4.2, 6.8, 9.3, 11.8, 14.3, 16.8, 20.0, 22.8, 26.5]
         for k, t in enumerate(times):
             t = min(t, tl.total - 0.01)
             fr = tl.frame(t).astype(np.uint8)
