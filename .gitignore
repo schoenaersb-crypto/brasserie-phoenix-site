@@ -6,3 +6,5 @@ __pycache__/
 
 # Cache d'analyse par photo (regenerable via photolab.py)
 output/_analysis/
+output/_concept/
+output/_film/
