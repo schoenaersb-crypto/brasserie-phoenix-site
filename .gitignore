@@ -3,3 +3,6 @@ output/_frames/
 output/_preview/
 __pycache__/
 *.pyc
+
+# Cache d'analyse par photo (regenerable via photolab.py)
+output/_analysis/
