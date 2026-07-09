@@ -68,14 +68,14 @@ def contain_width(img, wd):
 # ---------------------------------------------------------------------------
 IMG_W = int(W*0.90)            # largeur du plat a l'ecran (plat entier)
 COURSES = [
-    dict(file="01_spread.jpg",        num="I",    name="La pierre chaude",   sub="LE FEU · À LA PIERRE 900°C"),
-    dict(file="02_burrata_pasta.jpg", num="II",   name="Spaghetti burrata",  sub="BURRATA · BASILIC · POIVRE"),
-    dict(file="03_squid.jpg",         num="III",  name="Calamar grillé",     sub="GRILLÉ MINUTE · PIMENT DOUX"),
-    dict(file="04_burger.jpg",        num="IV",   name="Burger burrata",     sub="BŒUF · BURRATA · PESTO"),
-    dict(file="05_bread.jpg",         num="V",    name="Pain & aïoli",       sub="À PARTAGER · SALSA MAISON"),
-    dict(file="06_tartare.jpg",       num="VI",   name="Tartare au couteau", sub="BŒUF · CÂPRES · JAUNE"),
-    dict(file="07_steak.jpg",         num="VII",  name="Pierres brûlantes",  sub="LA SIGNATURE · 900°C"),
-    dict(file="08_martini.jpg",       num="VIII", name="Espresso martini",   sub="L'HEURE DOUCE"),
+    dict(file="01_spread.jpg",        num="I",    name="La piedra caliente",  sub="EL FUEGO · A LA PIEDRA 400°C"),
+    dict(file="02_burrata_pasta.jpg", num="II",   name="Spaghetti burrata",   sub="BURRATA · ALBAHACA · PIMIENTA"),
+    dict(file="03_squid.jpg",         num="III",  name="Sepia a la parrilla", sub="A LA PARRILLA · PIMIENTO DULCE"),
+    dict(file="04_burger.jpg",        num="IV",   name="Hamburguesa burrata", sub="TERNERA · BURRATA · PESTO"),
+    dict(file="05_bread.jpg",         num="V",    name="Pan & alioli",        sub="PARA COMPARTIR · SALSA CASERA"),
+    dict(file="06_tartare.jpg",       num="VI",   name="Tartar a cuchillo",   sub="TERNERA · ALCAPARRAS · YEMA"),
+    dict(file="07_steak.jpg",         num="VII",  name="Piedras calientes",   sub="LA ESPECIALIDAD · 400°C"),
+    dict(file="08_martini.jpg",       num="VIII", name="Espresso martini",    sub="LA HORA DULCE"),
 ]
 for c in COURSES:
     c["img"] = grade(contain_width(load(c["file"]), IMG_W))
@@ -122,7 +122,7 @@ def reveal(canvas, s, font, tr, color, y, t, start, dur=0.5, cx=None, xleft=None
                              alpha=min(1, e)*amax, rise=int((1-e)*14))
 
 def kicker(canvas, alpha=0.6):
-    return text(canvas, "BRASSERIE  PHOENIX      ·      LA  CARTE", JM(19), 6, COPPER,
+    return text(canvas, "BRASSERIE  PHOENIX      ·      LA  CARTA", JM(19), 6, COPPER,
                 H*0.052, cx=W*0.5, alpha=alpha)
 
 def course_type(canvas, c, tl):
@@ -184,8 +184,8 @@ def title_type(canvas, tl):
     if p > 0:
         xw = int(W*0.12*ease(min(1, p)))
         cv2.line(canvas, (W//2-xw, int(H*0.645)), (W//2+xw, int(H*0.645)), COPPER.tolist(), 1, cv2.LINE_AA)
-    canvas = reveal(canvas, "BRASSERIE BELGE   ·   TORREVIEJA", JM(22), 7, CREAM, H*0.668, tl, 1.1, cx=W*0.5, amax=0.85)
-    canvas = reveal(canvas, "Pierre chaude · Cuisine de marché · Âme belge", CM(34), 1, CREAM,
+    canvas = reveal(canvas, "COCINA BELGA   ·   TORREVIEJA", JM(22), 7, CREAM, H*0.668, tl, 1.1, cx=W*0.5, amax=0.85)
+    canvas = reveal(canvas, "Piedra caliente · Cocina de mercado · Alma belga", CM(33), 1, CREAM,
                     H*0.705, tl, 1.35, cx=W*0.5, amax=0.8)
     return canvas
 
@@ -201,13 +201,13 @@ def cta_visual(canvas, alpha, rise):
     return canvas
 
 def cta_type(canvas, tl):
-    canvas = reveal(canvas, "RÉSERVEZ", JM(30), 10, COPPER, H*0.50, tl, 0.3, cx=W*0.5)
-    canvas = reveal(canvas, "votre table", CM(88), 2, CREAM, H*0.535, tl, 0.45, cx=W*0.5)
+    canvas = reveal(canvas, "RESERVA", JM(30), 10, COPPER, H*0.50, tl, 0.3, cx=W*0.5)
+    canvas = reveal(canvas, "tu mesa", CM(88), 2, CREAM, H*0.535, tl, 0.45, cx=W*0.5)
     p = (tl-0.75)/0.5
     if p > 0:
         xw = int(W*0.10*ease(min(1, p)))
         cv2.line(canvas, (W//2-xw, int(H*0.675)), (W//2+xw, int(H*0.675)), COPPER.tolist(), 1, cv2.LINE_AA)
-    canvas = reveal(canvas, "JEUDI — LUNDI     ·     MIDI & SOIR", JL(24), 5, CREAM, H*0.69, tl, 0.95, cx=W*0.5, amax=0.85)
+    canvas = reveal(canvas, "JUEVES — LUNES     ·     MEDIODÍA Y NOCHE", JL(24), 5, CREAM, H*0.69, tl, 0.95, cx=W*0.5, amax=0.85)
     canvas = reveal(canvas, "Av. Desiderio Rodríguez 37 · Torrevieja", JL(22), 2, CREAM, H*0.73, tl, 1.15, cx=W*0.5, amax=0.62)
     canvas = reveal(canvas, "(+34) 744 622 975", JL(22), 3, COPPER, H*0.77, tl, 1.3, cx=W*0.5, amax=0.85)
     fo = (tl-(DUR[-1]-1.1))/1.1
