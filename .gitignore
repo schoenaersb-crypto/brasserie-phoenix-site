@@ -8,3 +8,5 @@ __pycache__/
 output/_analysis/
 output/_concept/
 output/_film/
+output/_sc_frames/
+assets_sc/*.jpg
