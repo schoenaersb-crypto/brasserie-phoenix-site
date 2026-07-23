@@ -46,20 +46,23 @@ python3 scripts/split_carte.py
 ```
 (Le plus simple : demande-moi la modif en français, je m'occupe de `carte.json` **et** de la régénération.)
 
-## 2. Changer le menu de la semaine
-Fichier : **`docs/data/menu-semaine.json`**
+## 2. Changer le menu dégustation
+Fichier : **`docs/data/menu-degustation.json`**
 ```json
 {
   "actif": true,
-  "semaine_du": "2026-06-29",
-  "plats": [
-    { "prix": "18,90 €", "nom": { "fr": "…", "nl": "…", "es": "…", "en": "…" },
+  "titre": { "fr": "Menu Dégustation", "nl": "…", "es": "…", "en": "…" },
+  "prix": { "fr": "37,50 €", "nl": "€ 37,50", "es": "37,50 €", "en": "€37.50" },
+  "temps": [
+    { "num": "I", "label": { "fr": "Entrée", "…": "…" },
+      "nom": { "fr": "…", "nl": "…", "es": "…", "en": "…" },
       "desc": { "fr": "…", "nl": "…", "es": "…", "en": "…" } }
   ]
 }
 ```
-- Remplacer les plats de la liste, mettre à jour `"semaine_du"`.
-- Pour **cacher** la section quand il n'y a pas de menu spécial : `"actif": false`.
+- `temps` = les 5 services numérotés (`num` = chiffre romain I…V).
+- Un temps avec `"choix": true` propose plusieurs options (chacune avec un `"tag"` Poisson/Viande).
+- Pour **cacher** la section : `"actif": false`.
 
 ## 3. Publier / retirer une annonce
 Fichier : **`docs/data/annonces.json`**

@@ -10,7 +10,7 @@
     "accueil": { "fr": "Accueil", "nl": "Home", "es": "Inicio", "en": "Home" },
     "esprit": { "fr": "Le récit", "nl": "Het verhaal", "es": "La historia", "en": "Our story" },
     "carte": { "fr": "La carte", "nl": "Menukaart", "es": "La carta", "en": "Menu" },
-    "semaine": { "fr": "Menu semaine", "nl": "Weekmenu", "es": "Menú semana", "en": "Weekly menu" },
+    "degustation": { "fr": "Menu Dégustation", "nl": "Degustatiemenu", "es": "Menú Degustación", "en": "Tasting menu" },
     "galerie": { "fr": "Galerie", "nl": "Galerij", "es": "Galería", "en": "Gallery" },
     "avis": { "fr": "Avis", "nl": "Reviews", "es": "Opiniones", "en": "Reviews" },
     "reserver": { "fr": "Réserver", "nl": "Reserveren", "es": "Reservar", "en": "Book" },
