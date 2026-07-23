@@ -181,37 +181,49 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .sous-bloc li { font-size: 0.95rem; color: var(--texte); position: relative; padding-left: 14px; }
 .sous-bloc li::before { content: "•"; color: var(--cuivre); position: absolute; left: 0; }
 
-/* ============================ Menu de la semaine ============================ */
-.semaine { display: grid; gap: 14px; max-width: 720px; margin: 0 auto; }
-.semaine-plat { background: var(--blanc); border-left: 4px solid var(--cuivre); border-radius: var(--rayon); padding: 18px 22px; box-shadow: var(--ombre); }
-.semaine-plat .plat-tete { justify-content: space-between; }
-.semaine-plat .plat-desc { margin-top: 6px; }
+/* ============================ Menu Dégustation (5 temps) ============================ */
+:root { --or: #D4A843; }               /* or chaud (accents dégustation) */
+.degust { max-width: 760px; margin: 0 auto; }
 
-/* ---- Menu lunch structuré (entrée / plat au choix / dessert) ---- */
-.semaine-prix { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 6px; }
-.semaine-prix-montant {
+/* Badge prix */
+.degust-prix { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 44px; }
+.degust-prix-montant {
   font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--marine);
-  font-size: 2.2rem; line-height: 1;
-  border: 2px solid var(--cuivre); border-radius: 999px; padding: 8px 26px; background: var(--blanc);
+  font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1;
+  border: 2px solid var(--or); border-radius: 999px; padding: 10px 36px; background: var(--blanc);
+  box-shadow: 0 10px 30px rgba(212, 168, 67, 0.16);
 }
-.semaine-prix-note { font-size: 0.82rem; color: var(--texte-doux); text-transform: uppercase; letter-spacing: 0.12em; }
+.degust-prix-note { font-size: 0.82rem; color: var(--texte-doux); text-transform: uppercase; letter-spacing: 0.14em; }
 
-.semaine-course { background: var(--blanc); border-left: 4px solid var(--cuivre); border-radius: var(--rayon); padding: 16px 22px; box-shadow: var(--ombre); }
-.course-label { font-family: 'Jost', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--cuivre); margin-bottom: 10px; }
-.course-item .plat-tete { align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.course-item .plat-desc { margin-top: 4px; }
-
-/* « Plat au choix » : deux options séparées par « ou » */
-.course-choix { display: grid; gap: 12px; }
-.course-choix .course-item { padding: 12px 14px; background: var(--creme); border-radius: 8px; }
-.choix-ou {
-  justify-self: center; align-self: center;
-  font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--cuivre);
-  font-size: 1rem; text-transform: lowercase; position: relative; padding: 2px 0;
+/* Fil vertical numéroté I–V */
+.degust-temps { list-style: none; margin: 0; padding: 0; }
+.degust-item { position: relative; display: grid; grid-template-columns: 64px 1fr; gap: 22px; padding: 24px 0; align-items: start; }
+.degust-item + .degust-item { border-top: 1px solid var(--creme-2); }
+.degust-num {
+  font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2rem; line-height: 1;
+  color: var(--or); text-align: center; padding-top: 2px; position: relative;
 }
-.plat-tag {
-  font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+/* trait reliant les chiffres */
+.degust-item:not(:last-child) .degust-num::after {
+  content: ""; position: absolute; left: 50%; top: 2.7rem; bottom: -48px; width: 1px;
+  background: linear-gradient(var(--cuivre), transparent); transform: translateX(-50%);
+}
+.degust-label { display: block; font-family: 'Jost', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--cuivre); margin-bottom: 6px; }
+.degust-nom { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--marine); margin: 0; line-height: 1.2; }
+.degust-desc { color: var(--texte-doux); font-size: 0.95rem; margin-top: 5px; }
+
+/* Plat au choix : deux options séparées par « ou » */
+.degust-choix { display: grid; gap: 14px; }
+.degust-ou { justify-self: start; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--cuivre); font-size: 1.05rem; }
+.degust-tete { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.degust-tag {
+  font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
   color: var(--marine); background: var(--cuivre-clair); padding: 2px 9px; border-radius: 999px; white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .degust-item { grid-template-columns: 44px 1fr; gap: 14px; }
+  .degust-num { font-size: 1.6rem; }
+  .degust-item:not(:last-child) .degust-num::after { top: 2.2rem; }
 }
 
 /* ============================ Réservation ============================ */
@@ -535,7 +547,7 @@ body { font-synthesis: none; }
 .btn:active { transform: translateY(0); }
 
 /* Cartes : ombre en couches + filet fin (l'avis garde son filet cuivré du haut) */
-.sig-card, .info-bloc, .semaine-plat, .semaine-course, .avis-macaron, .sous-listes {
+.sig-card, .info-bloc, .avis-macaron, .sous-listes {
   box-shadow: var(--ombre-carte);
   border: 1px solid rgba(22, 54, 74, 0.06);
 }

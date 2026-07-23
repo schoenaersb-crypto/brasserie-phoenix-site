@@ -1,0 +1,48 @@
+{
+  "_commentaire": "Menu Dégustation en 5 temps. 'temps' = les 5 services numérotés (num = chiffre romain I..V). Un temps avec 'choix': true propose plusieurs options (chacune avec un 'tag' Poisson/Viande). 'prix' et les textes sont en 4 langues. Mettre 'actif': false pour masquer la section.",
+  "actif": true,
+  "titre": { "fr": "Menu Dégustation", "nl": "Degustatiemenu", "es": "Menú Degustación", "en": "Tasting Menu" },
+  "sous_titre": { "fr": "Servi en 5 temps", "nl": "Geserveerd in vijf gangen", "es": "Servido en cinco tiempos", "en": "Served in five courses" },
+  "prix": { "fr": "37,50 €", "nl": "€ 37,50", "es": "37,50 €", "en": "€37.50" },
+  "prix_note": { "fr": "Cinq temps · cuisine bistronomique", "nl": "Vijf gangen · bistronomie", "es": "Cinco tiempos · cocina bistronómica", "en": "Five courses · bistronomy" },
+  "choix_ou": { "fr": "ou", "nl": "of", "es": "o", "en": "or" },
+  "temps": [
+    {
+      "num": "I",
+      "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
+      "nom": { "fr": "Salade fraîcheur du marché", "nl": "Frisse marktsalade", "es": "Ensalada fresca del mercado", "en": "Market-fresh salad" }
+    },
+    {
+      "num": "II",
+      "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
+      "nom": { "fr": "Saint-Jacques snackées", "nl": "Gebakken sint-jakobsvruchten", "es": "Vieiras a la plancha", "en": "Seared scallops" },
+      "desc": { "fr": "Pain brioché toasté & confiture d'oignons", "nl": "Getoast briochebrood & uienconfituur", "es": "Pan brioche tostado y confitura de cebolla", "en": "Toasted brioche & onion jam" }
+    },
+    {
+      "num": "III",
+      "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
+      "nom": { "fr": "Demi foie gras maison", "nl": "Halve huisgemaakte foie gras", "es": "Medio foie gras casero", "en": "Homemade half foie gras" }
+    },
+    {
+      "num": "IV",
+      "label": { "fr": "Plat au choix", "nl": "Hoofdgerecht naar keuze", "es": "Plato principal a elegir", "en": "Choice of main" },
+      "choix": true,
+      "items": [
+        {
+          "tag": { "fr": "Poisson", "nl": "Vis", "es": "Pescado", "en": "Fish" },
+          "nom": { "fr": "Bar entier grillé", "nl": "Hele gegrilde zeebaars", "es": "Lubina entera a la parrilla", "en": "Whole grilled sea bass" }
+        },
+        {
+          "tag": { "fr": "Viande", "nl": "Vlees", "es": "Carne", "en": "Meat" },
+          "nom": { "fr": "Demi-magret de canard", "nl": "Halve eendenborst", "es": "Medio magret de pato", "en": "Half duck breast" }
+        }
+      ]
+    },
+    {
+      "num": "V",
+      "label": { "fr": "Dessert", "nl": "Dessert", "es": "Postre", "en": "Dessert" },
+      "nom": { "fr": "Poire pochée au vin rouge", "nl": "In rode wijn gepocheerde peer", "es": "Pera al vino tinto", "en": "Red wine poached pear" },
+      "desc": { "fr": "Boule de glace vanille", "nl": "Vanille-ijs", "es": "Helado de vainilla", "en": "Vanilla ice cream" }
+    }
+  ]
+}

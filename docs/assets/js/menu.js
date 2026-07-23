@@ -1,12 +1,12 @@
 /* ============================================================
    menu.js — génère le contenu du site à partir des fichiers data/*.json
-   Rendu : navigation, carte, menu de la semaine, annonces, infos, réseaux.
+   Rendu : navigation, carte, menu dégustation, annonces, infos, réseaux.
    Se redessine à chaque changement de langue.
    ============================================================ */
 (function () {
   "use strict";
 
-  var DATA = {}; // { carte, semaine, annonces, infos }
+  var DATA = {}; // { carte, degustation, annonces, infos }
 
   function tr(v) { return window.Phoenix ? window.Phoenix.tr(v) : (v && v.fr) || ""; }
   function t(p) { return window.Phoenix ? window.Phoenix.t(p) : ""; }
@@ -143,65 +143,62 @@
       .catch(function (e) { console.error("Index de la carte indisponible", e); });
   }
 
-  /* ---------- Menu de la semaine ---------- */
-  function rendreSemaine() {
-    var section = document.getElementById("semaine");
-    var cont = document.getElementById("semaine-contenu");
-    var s = DATA.semaine;
+  /* ---------- Menu Dégustation (5 temps, numérotés I–V) ---------- */
+  function rendreDegustation() {
+    var section = document.getElementById("degustation");
+    var cont = document.getElementById("degustation-contenu");
+    var s = DATA.degustation;
     if (!section || !cont) return;
 
     if (!s || !s.actif) { section.hidden = true; return; }
     section.hidden = false;
 
-    var titre = document.getElementById("semaine-titre");
-    var sous = document.getElementById("semaine-soustitre");
+    var titre = document.getElementById("degustation-titre");
+    var sous = document.getElementById("degustation-soustitre");
     if (titre) titre.textContent = tr(s.titre);
     if (sous) sous.textContent = tr(s.sous_titre);
 
     cont.innerHTML = "";
 
-    // Prix du menu (badge) — ex. « 17,90 € »
+    // Prix du menu (badge) — ex. « 37,50 € »
     if (s.prix) {
-      var badge = el("div", "semaine-prix");
-      badge.appendChild(el("span", "semaine-prix-montant", s.prix));
-      if (tr(s.prix_note)) badge.appendChild(el("span", "semaine-prix-note", tr(s.prix_note)));
+      var badge = el("div", "degust-prix");
+      badge.appendChild(el("span", "degust-prix-montant", tr(s.prix)));
+      if (tr(s.prix_note)) badge.appendChild(el("span", "degust-prix-note", tr(s.prix_note)));
       cont.appendChild(badge);
     }
 
-    if (s.courses) {
-      // Menu structuré : Entrée / Plat au choix / Dessert
-      s.courses.forEach(function (course) {
-        var bloc = el("div", "semaine-course");
-        bloc.appendChild(el("h4", "course-label", tr(course.label)));
+    // Les cinq temps, en fil vertical numéroté
+    var liste = el("ol", "degust-temps");
+    (s.temps || []).forEach(function (temps) {
+      var li = el("li", "degust-item");
+      li.appendChild(el("span", "degust-num", temps.num || ""));
 
-        var liste = el("div", "course-items" + (course.choix ? " course-choix" : ""));
-        (course.items || []).forEach(function (it, idx) {
-          if (course.choix && idx > 0) liste.appendChild(el("span", "choix-ou", tr(s.choix_ou) || "ou"));
-          var item = el("div", "course-item");
-          var tete = el("div", "plat-tete");
-          if (it.tag && tr(it.tag)) tete.appendChild(el("span", "plat-tag", tr(it.tag)));
-          tete.appendChild(el("span", "plat-nom", tr(it.nom)));
-          item.appendChild(tete);
-          var d = tr(it.desc);
-          if (d) item.appendChild(el("p", "plat-desc", d));
-          liste.appendChild(item);
+      var body = el("div", "degust-body");
+      if (tr(temps.label)) body.appendChild(el("span", "degust-label", tr(temps.label)));
+
+      if (temps.choix && temps.items) {
+        // Plat au choix : options séparées par « ou »
+        var choix = el("div", "degust-choix");
+        temps.items.forEach(function (it, idx) {
+          if (idx > 0) choix.appendChild(el("span", "degust-ou", tr(s.choix_ou) || "ou"));
+          var opt = el("div", "degust-option");
+          var tete = el("div", "degust-tete");
+          if (tr(it.tag)) tete.appendChild(el("span", "degust-tag", tr(it.tag)));
+          tete.appendChild(el("span", "degust-nom", tr(it.nom)));
+          opt.appendChild(tete);
+          if (tr(it.desc)) opt.appendChild(el("p", "degust-desc", tr(it.desc)));
+          choix.appendChild(opt);
         });
-        bloc.appendChild(liste);
-        cont.appendChild(bloc);
-      });
-    } else {
-      // Ancien format : liste simple de plats
-      (s.plats || []).forEach(function (p) {
-        var c = el("div", "semaine-plat");
-        var tete = el("div", "plat-tete");
-        tete.appendChild(el("span", "plat-nom", tr(p.nom)));
-        if (p.prix) tete.appendChild(el("span", "plat-prix", p.prix));
-        c.appendChild(tete);
-        var d = tr(p.desc);
-        if (d) c.appendChild(el("p", "plat-desc", d));
-        cont.appendChild(c);
-      });
-    }
+        body.appendChild(choix);
+      } else {
+        body.appendChild(el("h4", "degust-nom", tr(temps.nom)));
+        if (tr(temps.desc)) body.appendChild(el("p", "degust-desc", tr(temps.desc)));
+      }
+      li.appendChild(body);
+      liste.appendChild(li);
+    });
+    cont.appendChild(liste);
   }
 
   /* ---------- Bandeau annonces ---------- */
@@ -290,7 +287,7 @@
   function rendreTout() {
     rendreNav();
     rendreCarte();
-    rendreSemaine();
+    rendreDegustation();
     rendreAnnonces();
     rendreInfos();
     rendreSocial();
@@ -310,7 +307,7 @@
   function charger() {
     rendreNav();
     chargerCarteIndex();
-    chargerUn("semaine", "data/menu-semaine.json", rendreSemaine);
+    chargerUn("degustation", "data/menu-degustation.json", rendreDegustation);
     chargerUn("annonces", "data/annonces.json", rendreAnnonces);
     chargerUn("infos", "data/infos.json", function () { rendreInfos(); rendreSocial(); });
     if (window.Phoenix) window.Phoenix.onLangChange(rendreTout);
