@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Menu Dégustation en 5 temps. 'temps' = les 5 services numérotés (num = chiffre romain I..V). Un temps avec 'choix': true propose plusieurs options (chacune avec un 'tag' Poisson/Viande). 'prix' et les textes sont en 4 langues. Mettre 'actif': false pour masquer la section.",
+  "_commentaire": "Menu Dégustation en 5 temps. 'temps' = les 5 services numérotés (num = chiffre romain I..V). Nom du plat en grand + description en petit. Un temps avec 'choix': true propose plusieurs options (chacune avec un 'tag' Poisson/Viande, un 'nom' et une 'desc'). 'prix' et les textes sont en 4 langues. Mettre 'actif': false pour masquer la section.",
   "actif": true,
   "titre": { "fr": "Menu Dégustation", "nl": "Degustatiemenu", "es": "Menú Degustación", "en": "Tasting Menu" },
   "sous_titre": { "fr": "Servi en 5 temps", "nl": "Geserveerd in vijf gangen", "es": "Servido en cinco tiempos", "en": "Served in five courses" },
@@ -10,18 +10,20 @@
     {
       "num": "I",
       "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
-      "nom": { "fr": "Salade fraîcheur du marché", "nl": "Frisse marktsalade", "es": "Ensalada fresca del mercado", "en": "Market-fresh salad" }
+      "nom": { "fr": "Salade fraîcheur", "nl": "Frisse salade", "es": "Ensalada fresca", "en": "Fresh salad" },
+      "desc": { "fr": "Pamplemousse, câpres, olives noires & croûtons", "nl": "Pompelmoes, kappertjes, zwarte olijven & croutons", "es": "Pomelo, alcaparras, aceitunas negras y picatostes", "en": "Grapefruit, capers, black olives & croutons" }
     },
     {
       "num": "II",
       "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
       "nom": { "fr": "Saint-Jacques snackées", "nl": "Gebakken sint-jakobsvruchten", "es": "Vieiras a la plancha", "en": "Seared scallops" },
-      "desc": { "fr": "Pain brioché toasté & confiture d'oignons", "nl": "Getoast briochebrood & uienconfituur", "es": "Pan brioche tostado y confitura de cebolla", "en": "Toasted brioche & onion jam" }
+      "desc": { "fr": "Écrasé de pommes de terre, réduction de Tripel Karmeliet", "nl": "Aardappelpuree, reductie van Tripel Karmeliet", "es": "Parmentier de patata, reducción de Tripel Karmeliet", "en": "Potato mash, Tripel Karmeliet reduction" }
     },
     {
       "num": "III",
       "label": { "fr": "Entrée", "nl": "Voorgerecht", "es": "Entrante", "en": "Starter" },
-      "nom": { "fr": "Demi foie gras maison", "nl": "Halve huisgemaakte foie gras", "es": "Medio foie gras casero", "en": "Homemade half foie gras" }
+      "nom": { "fr": "Demi foie gras poêlé", "nl": "Halve gebakken foie gras", "es": "Medio foie gras a la sartén", "en": "Pan-seared half foie gras" },
+      "desc": { "fr": "Pain brioché & confiture de piments", "nl": "Briochebrood & confituur van pepers", "es": "Pan brioche y confitura de pimientos", "en": "Brioche & chilli jam" }
     },
     {
       "num": "IV",
@@ -30,11 +32,13 @@
       "items": [
         {
           "tag": { "fr": "Poisson", "nl": "Vis", "es": "Pescado", "en": "Fish" },
-          "nom": { "fr": "Bar entier grillé", "nl": "Hele gegrilde zeebaars", "es": "Lubina entera a la parrilla", "en": "Whole grilled sea bass" }
+          "nom": { "fr": "Bar entier grillé", "nl": "Hele gegrilde zeebaars", "es": "Lubina entera a la parrilla", "en": "Whole grilled sea bass" },
+          "desc": { "fr": "Frites & légumes grillés", "nl": "Frietjes & gegrilde groenten", "es": "Patatas fritas y verduras a la parrilla", "en": "Fries & grilled vegetables" }
         },
         {
           "tag": { "fr": "Viande", "nl": "Vlees", "es": "Carne", "en": "Meat" },
-          "nom": { "fr": "Demi-magret de canard", "nl": "Halve eendenborst", "es": "Medio magret de pato", "en": "Half duck breast" }
+          "nom": { "fr": "Demi-magret de canard", "nl": "Halve eendenborst", "es": "Medio magret de pato", "en": "Half duck breast" },
+          "desc": { "fr": "Potatoes & légumes grillés", "nl": "Aardappelpartjes & gegrilde groenten", "es": "Patatas gajo y verduras a la parrilla", "en": "Potato wedges & grilled vegetables" }
         }
       ]
     },
