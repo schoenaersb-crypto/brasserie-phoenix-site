@@ -77,7 +77,7 @@
    "id": "potence-gambas",
    "prix": "33,90 €",
    "coup_de_coeur": false,
-   "nom": "Potence Gambas flambée au Ricard",
+   "nom": "Brochette de scampis",
    "desc": "2 pers. minimum — prix par personne"
   },
   {
@@ -85,7 +85,7 @@
    "prix": "",
    "prix_special": true,
    "coup_de_coeur": true,
-   "nom": "Potence Viande flambée au rhum",
+   "nom": "Ramen du jour",
    "prix_texte": "Prix du jour",
    "desc": "2 pers. minimum — prix par personne. Choix entre porc Duroc, volaille jaune, bœuf Belge, bœuf Galicien"
   }
