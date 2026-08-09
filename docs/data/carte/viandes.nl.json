@@ -77,7 +77,7 @@
    "id": "potence-gambas",
    "prix": "33,90 €",
    "coup_de_coeur": false,
-   "nom": "Garnalen aan het spit, geflambeerd met Ricard",
+   "nom": "Scampispies",
    "desc": "Minimum 2 personen — prijs per persoon"
   },
   {
@@ -85,7 +85,7 @@
    "prix": "",
    "prix_special": true,
    "coup_de_coeur": true,
-   "nom": "Vlees aan het spit, geflambeerd met rum",
+   "nom": "Ramen van de dag",
    "prix_texte": "Prijs van de dag",
    "desc": "Minimum 2 personen — prijs per persoon. Keuze uit Duroc varkensvlees, geel gevogelte, Belgisch rundvlees, Galicisch rundvlees"
   }
