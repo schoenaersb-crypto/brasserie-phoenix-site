@@ -77,7 +77,7 @@
    "id": "potence-gambas",
    "prix": "33,90 €",
    "coup_de_coeur": false,
-   "nom": "Langostinos al espetón flambeados con Ricard",
+   "nom": "Brocheta de scampi",
    "desc": "Mínimo 2 personas — precio por persona"
   },
   {
@@ -85,7 +85,7 @@
    "prix": "",
    "prix_special": true,
    "coup_de_coeur": true,
-   "nom": "Carne al espetón flambeada con ron",
+   "nom": "Ramen del día",
    "prix_texte": "Precio del día",
    "desc": "Mínimo 2 personas — precio por persona. A elegir entre cerdo Duroc, ave amarilla, ternera belga o ternera gallega"
   }
