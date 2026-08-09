@@ -77,7 +77,7 @@
    "id": "potence-gambas",
    "prix": "33,90 €",
    "coup_de_coeur": false,
-   "nom": "Prawns on the spit, flambéed with Ricard",
+   "nom": "Scampi skewer",
    "desc": "Minimum 2 people — price per person"
   },
   {
@@ -85,7 +85,7 @@
    "prix": "",
    "prix_special": true,
    "coup_de_coeur": true,
-   "nom": "Meat on the spit, flambéed with rum",
+   "nom": "Ramen of the day",
    "prix_texte": "Price of the day",
    "desc": "Minimum 2 people — price per person. Choice between Duroc pork, yellow poultry, Belgian beef, Galician beef"
   }
