@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brasserie Phoenix · Torrevieja (test app installable)</title>
+  <meta name="description" content="Brasserie Phoenix — grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée. Torrevieja, Espagne." />
+  <meta name="theme-color" content="#16364A" />
+
+  <!-- Open Graph / partage réseaux sociaux -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Brasserie Phoenix · Torrevieja" />
+  <meta property="og:description" content="Grillades sur pierre de lave & à la potence, produits de la mer — face à la Méditerranée." />
+  <meta property="og:image" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg" />
+  <meta property="og:url" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brasserie Phoenix · Torrevieja" />
+  <meta name="twitter:description" content="Grillades sur pierre de lave & à la potence, produits de la mer — face à la Méditerranée." />
+  <meta name="twitter:image" content="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg" />
+  <meta property="og:site_name" content="Brasserie Phoenix" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="es_ES" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="nl_NL" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+  <meta property="og:image:alt" content="La façade de la Brasserie Phoenix au coucher de soleil, face à la mer." />
+
+  <!-- Référencement -->
+  <link rel="canonical" href="https://schoenaersb-crypto.github.io/brasserie-phoenix-site/" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="author" content="Brasserie Phoenix" />
+  <meta name="geo.region" content="ES-A" />
+  <meta name="geo.placename" content="Torrevieja" />
+
+  <!-- Favicon & PWA (le logo phénix) -->
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+  <link rel="manifest" href="preview-manifest.webmanifest" />
+
+  <!-- Préchargement de l'image du hero (visible immédiatement) -->
+  <link rel="preload" as="image" href="../assets/img/hero/hero-facade-coucher-soleil.jpg" fetchpriority="high" />
+
+  <!-- Polices de la charte : Cormorant Garamond (titres) + Jost (texte).
+       Chargées SANS bloquer le rendu (media=print puis bascule onload) :
+       la page s'affiche tout de suite même si Google Fonts est lent. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" />
+  </noscript>
+
+  
+  <!-- Preview only: resolve "assets/..." and "data/..." fetches made by the shared JS files
+       (menu.js, sections.js, i18n.js, ui.js) up one directory, since this page lives in
+       /preview-app/ but reuses the site's existing assets/data without duplicating them. -->
+  <script>
+    (function () {
+      var origFetch = window.fetch;
+      window.fetch = function (input, init) {
+        if (typeof input === "string" && (input.indexOf("assets/") === 0 || input.indexOf("data/") === 0)) {
+          input = "../" + input;
+        }
+        return origFetch(input, init);
+      };
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <!-- Données structurées Schema.org (SEO : résultats enrichis Google, horaires, note) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/#restaurant",
+    "name": "Brasserie Phoenix",
+    "url": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/",
+    "image": "https://schoenaersb-crypto.github.io/brasserie-phoenix-site/assets/img/hero/hero-facade-coucher-soleil.jpg",
+    "description": "Grillades sur pierre de lave & à la potence, pâtes fraîches et produits de la mer, face à la Méditerranée. Torrevieja, Espagne.",
+    "servesCuisine": ["Méditerranéenne", "Grillades", "Fruits de mer", "Brasserie"],
+    "priceRange": "€€",
+    "telephone": "+34 744 62 29 75",
+    "email": "brasseriephoenixrestaurant@gmail.com",
+    "acceptsReservations": "True",
+    "currenciesAccepted": "EUR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Desiderio Rodríguez, 37, local 10",
+      "addressLocality": "Torrevieja",
+      "addressRegion": "Alicante",
+      "postalCode": "03185",
+      "addressCountry": "ES"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 37.9772, "longitude": -0.6785 },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Brasserie+Phoenix+Av.+Desiderio+Rodr%C3%ADguez+37+Torrevieja",
+    "sameAs": [
+      "https://www.instagram.com/brasseriephoenix",
+      "https://www.facebook.com/197488840124875",
+      "https://www.tiktok.com/@restaurantphoenix"
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday", "Monday"], "opens": "11:00", "closes": "23:59" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "9",
+      "bestRating": "10",
+      "worstRating": "1",
+      "ratingCount": "226"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Lien d'évitement (accessibilité clavier) -->
+  <a href="#accueil" class="skip-link" data-ui="a11y.aller_contenu">Aller au contenu</a>
+
+  <!-- Barre de progression de lecture -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Curseur personnalisé (desktop, activé par experience.js) -->
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ===== Bandeau annonces (rempli depuis data/annonces.json, masqué si inactif) ===== -->
+  <div id="annonces" class="annonces" hidden></div>
+
+  <!-- ===== En-tête / navigation ===== -->
+  <header class="site-header" id="site-header">
+    <a href="#accueil" class="brand" aria-label="Brasserie Phoenix — accueil">
+      <img src="../assets/img/phoenix-logo.png" alt="" class="brand-logo" />
+      <span class="brand-name">Brasserie Phoenix</span>
+    </a>
+
+    <!-- Bouton hamburger (mobile) -->
+    <button type="button" class="nav-toggle" id="nav-toggle"
+            aria-expanded="false" aria-controls="main-nav" data-ui-label="a11y.ouvrir_menu"
+            aria-label="Ouvrir le menu">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <a href="#accueil" data-nav="accueil">Accueil</a>
+      <a href="#esprit" data-nav="esprit">Le récit</a>
+      <a href="#carte" data-nav="carte">La carte</a>
+      <a href="#degustation" data-nav="degustation">Menu Dégustation</a>
+      <a href="#galerie" data-nav="galerie">Galerie</a>
+      <a href="#avis" data-nav="avis">Avis</a>
+      <a href="#reserver" data-nav="reserver">Réserver</a>
+      <a href="#infos" data-nav="infos">Infos</a>
+    </nav>
+
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Choix de la langue">
+      <!-- boutons de langue injectés par i18n.js -->
+    </div>
+  </header>
+
+  <!-- Voile qui assombrit la page quand le menu mobile est ouvert -->
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+
+  <main>
+
+    <!-- ===== Hero cinématique (image de fond + effet Ken Burns) ===== -->
+    <section id="accueil" class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto"
+               poster="../assets/img/hero/hero-facade-coucher-soleil.jpg">
+          <source src="../assets/video/hero-loop.webm" type="video/webm" />
+          <source src="../assets/video/hero-loop.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-kenburns" style="background-image: url('../assets/img/hero/hero-facade-coucher-soleil.jpg');"></div>
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="hero-embers" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <img src="../assets/img/phoenix-logo.png" alt="Logo phénix de la Brasserie Phoenix" class="hero-logo" />
+        <h1 class="hero-title">Brasserie Phoenix</h1>
+        <p class="hero-slogan" data-ui="hero.slogan"></p>
+        <p class="hero-accroche" data-ui="hero.accroche"></p>
+        <p class="hero-lieu" data-ui="hero.lieu"></p>
+        <div class="hero-cta">
+          <a href="#carte" class="btn btn-primary magnetic" data-ui="hero.cta_carte"></a>
+          <a href="#reserver" class="btn btn-ghost magnetic" data-ui="hero.cta_reserver"></a>
+        </div>
+      </div>
+      <!-- Indicateur de défilement -->
+      <a href="#esprit" class="hero-scroll" aria-label="Découvrir">
+        <span class="hero-scroll-txt" data-ui="a11y.defiler">Découvrir</span>
+        <span class="hero-scroll-arrow" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ===== Bandeau défilant (marquee) ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Grillades sur pierre de lave</span><span class="marquee__sep">✦</span>
+        <span>Fruits de mer</span><span class="marquee__sep">✦</span>
+        <span>Pâtes fraîches</span><span class="marquee__sep">✦</span>
+        <span>Cocktails au coucher du soleil</span><span class="marquee__sep">✦</span>
+        <span>Face à la Méditerranée</span><span class="marquee__sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ===== Bande de chiffres animés ===== -->
+    <section class="stats reveal" aria-label="En quelques chiffres">
+      <div class="stat">
+        <span class="stat-num"><span data-count="9">9</span><span class="stat-suffix">/10</span></span>
+        <span class="stat-label">Note globale</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num"><span data-count="226">226</span></span>
+        <span class="stat-label">Avis clients</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num stat-num--txt">Torrevieja</span>
+        <span class="stat-label">Bord de mer</span>
+      </div>
+    </section>
+
+    <!-- ===== L'esprit Phoenix (récit) — rempli depuis data/esprit.json ===== -->
+    <section id="esprit" class="section section-esprit reveal" hidden>
+      <div class="esprit-grid">
+        <figure class="esprit-media">
+          <img id="esprit-image" src="" alt="" loading="lazy" />
+        </figure>
+        <div class="esprit-texte">
+          <p class="sur-titre" id="esprit-surtitre"></p>
+          <h2 id="esprit-titre"></h2>
+          <div id="esprit-paragraphes"></div>
+          <ul class="esprit-reperes" id="esprit-reperes"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Plats signature — rempli depuis data/signature.json ===== -->
+    <section id="signature" class="section section-alt section-signature reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.signature_titre"></h2>
+        <p class="section-intro" data-ui="sections.signature_intro"></p>
+      </div>
+      <div id="signature-contenu" class="signature-grid"></div>
+      <div class="section-cta">
+        <a href="#carte" class="btn btn-ghost" data-ui="sections.signature_cta"></a>
+      </div>
+    </section>
+
+    <!-- ===== La carte ===== -->
+    <section id="carte" class="section reveal">
+      <div class="section-head">
+        <h2 data-ui="sections.carte_titre"></h2>
+        <p class="section-intro" data-ui="sections.carte_intro"></p>
+      </div>
+      <div id="carte-contenu" class="carte"></div>
+    </section>
+
+    <!-- ===== Menu Dégustation (5 temps) ===== -->
+    <section id="degustation" class="section section-alt reveal" hidden>
+      <div class="section-head">
+        <h2 id="degustation-titre"></h2>
+        <p class="section-intro" id="degustation-soustitre"></p>
+      </div>
+      <div id="degustation-contenu" class="degust"></div>
+    </section>
+
+    <!-- ===== Galerie (ouvre une visionneuse) — rempli depuis data/galerie.json ===== -->
+    <section id="galerie" class="section section-galerie reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.galerie_titre"></h2>
+        <p class="section-intro" data-ui="sections.galerie_intro"></p>
+      </div>
+      <div id="galerie-contenu" class="galerie-grid"></div>
+    </section>
+
+    <!-- ===== Avis clients — rempli depuis data/avis.json ===== -->
+    <section id="avis" class="section section-alt section-avis reveal" hidden>
+      <div class="section-head">
+        <h2 data-ui="sections.avis_titre"></h2>
+        <p class="section-intro" data-ui="sections.avis_intro"></p>
+      </div>
+      <div id="avis-macaron" class="avis-macaron"></div>
+      <div id="avis-contenu" class="avis-grid"></div>
+    </section>
+
+    <!-- ===== Réservation ===== -->
+    <section id="reserver" class="section reveal">
+      <div class="section-head">
+        <h2 data-ui="sections.reserver_titre"></h2>
+        <p class="section-intro" data-ui="sections.reserver_intro"></p>
+      </div>
+
+      <form id="reservation-form" class="reservation" novalidate>
+        <div class="field">
+          <label for="r-date" data-ui="form.date"></label>
+          <input type="date" id="r-date" name="date" required />
+          <span class="field-note" data-ui="form.note_jours"></span>
+        </div>
+        <div class="field">
+          <label for="r-service" data-ui="form.service"></label>
+          <select id="r-service" name="service" required>
+            <!-- options injectées par reservation.js (déjeuner / dîner) -->
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-creneau" data-ui="form.creneau"></label>
+          <select id="r-creneau" name="creneau" required>
+            <!-- créneaux injectés selon le service (horaires de cuisine) -->
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-personnes" data-ui="form.personnes"></label>
+          <input type="number" id="r-personnes" name="personnes" min="1" max="30" value="2" required />
+        </div>
+        <div class="field">
+          <label for="r-nom" data-ui="form.nom"></label>
+          <input type="text" id="r-nom" name="nom" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="r-tel" data-ui="form.telephone"></label>
+          <input type="tel" id="r-tel" name="telephone" autocomplete="tel" />
+        </div>
+
+        <p id="form-erreur" class="form-erreur" role="alert" hidden></p>
+
+        <!-- Boutons de réservation : cible branchée sur WhatsApp / email (voir reservation.js). -->
+        <div class="reservation-actions">
+          <button type="button" id="btn-wa" class="btn btn-primary" data-ui="form.envoyer_wa"></button>
+          <button type="button" id="btn-email" class="btn btn-ghost" data-ui="form.envoyer_email"></button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===== Infos pratiques ===== -->
+    <section id="infos" class="section section-alt reveal">
+      <div class="section-head">
+        <h2 data-ui="sections.infos_titre"></h2>
+      </div>
+      <div id="infos-contenu" class="infos"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <img src="../assets/img/phoenix-logo.png" alt="" class="footer-logo" />
+    <p class="footer-name">Brasserie Phoenix · Torrevieja</p>
+    <div class="footer-social" id="footer-social"></div>
+    <p class="footer-legal">© <span id="year"></span> Brasserie Phoenix S.L. — <span data-ui="footer.droits"></span></p>
+  </footer>
+
+  <!-- ===== Visionneuse (lightbox) de la galerie ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer" data-ui-label="a11y.fermer">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Image précédente" data-ui-label="a11y.image_precedente">‹</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Image suivante" data-ui-label="a11y.image_suivante">›</button>
+  </div>
+
+  <!-- Scripts : en defer pour ne pas bloquer l'affichage, sans dépendance externe -->
+  <script defer src="../assets/js/i18n.js"></script>
+  <script defer src="../assets/js/menu.js"></script>
+  <script defer src="../assets/js/sections.js"></script>
+  <script defer src="../assets/js/ui.js"></script>
+  <script defer src="../assets/js/reservation.js"></script>
+  <script defer src="../assets/js/motion.js"></script>
+  <script defer src="../assets/js/experience.js"></script>
+
+  <!-- Enregistrement du service worker (mode hors-ligne + chargement instantané) -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function (err) {
+          console.warn("Service worker non enregistré :", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
