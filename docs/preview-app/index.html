@@ -54,9 +54,11 @@
   </noscript>
 
   
-  <!-- Preview only: resolve "assets/..." and "data/..." fetches made by the shared JS files
+  <!-- Preview only: resolve "assets/..." and "data/..." references made by the shared JS files
        (menu.js, sections.js, i18n.js, ui.js) up one directory, since this page lives in
-       /preview-app/ but reuses the site's existing assets/data without duplicating them. -->
+       /preview-app/ but reuses the site's existing assets/data without duplicating them.
+       Covers both fetch() calls (JSON data) and img.src assignments (lazy-loaded photos,
+       set as plain "assets/img/..." by ui.js's IntersectionObserver). -->
   <script>
     (function () {
       var origFetch = window.fetch;
@@ -66,10 +68,24 @@
         }
         return origFetch(input, init);
       };
+
+      var desc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
+      if (desc && desc.set) {
+        Object.defineProperty(HTMLImageElement.prototype, "src", {
+          configurable: true,
+          get: desc.get,
+          set: function (value) {
+            if (typeof value === "string" && (value.indexOf("assets/") === 0 || value.indexOf("data/") === 0)) {
+              value = "../" + value;
+            }
+            desc.set.call(this, value);
+          }
+        });
+      }
     })();
   </script>
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 
   <!-- Données structurées Schema.org (SEO : résultats enrichis Google, horaires, note) -->
   <script type="application/ld+json">
@@ -170,10 +186,12 @@
     <!-- ===== Hero cinématique (image de fond + effet Ken Burns) ===== -->
     <section id="accueil" class="hero">
       <div class="hero-media" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto"
+        <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="none"
                poster="../assets/img/hero/hero-facade-coucher-soleil.jpg">
-          <source src="../assets/video/hero-loop.webm" type="video/webm" />
-          <source src="../assets/video/hero-loop.mp4" type="video/mp4" />
+          <!-- Sources injectées après le premier affichage (voir script en bas de page) :
+               la photo du hero (déjà préchargée) remplit l'écran instantanément, la vidéo
+               de 4 Mo au total ne vient pas concurrencer le CSS/les polices/le premier
+               contenu au chargement. -->
         </video>
         <div class="hero-kenburns" style="background-image: url('../assets/img/hero/hero-facade-coucher-soleil.jpg');"></div>
         <div class="hero-scrim"></div>
@@ -261,7 +279,7 @@
     </section>
 
     <!-- ===== Menu Dégustation (5 temps) ===== -->
-    <section id="degustation" class="section section-alt reveal" hidden>
+    <section id="degustation" class="section section-alt section-degustation reveal" hidden>
       <div class="section-head">
         <h2 id="degustation-titre"></h2>
         <p class="section-intro" id="degustation-soustitre"></p>
@@ -373,6 +391,25 @@
   <script defer src="../assets/js/reservation.js"></script>
   <script defer src="../assets/js/motion.js"></script>
   <script defer src="../assets/js/experience.js"></script>
+
+  <!-- Chargement différé de la vidéo du hero : la photo (déjà affichée) tient
+       l'écran pendant que CSS/polices/JS/premier contenu se chargent en priorité ;
+       la vidéo (~4 Mo à elle deux sources) n'arrive qu'une fois la page prête. -->
+  <script>
+    window.addEventListener("load", function () {
+      var v = document.getElementById("hero-video");
+      if (!v) return;
+      var lancer = function () {
+        v.innerHTML =
+          '<source src="../assets/video/hero-loop.webm" type="video/webm">' +
+          '<source src="../assets/video/hero-loop.mp4" type="video/mp4">';
+        v.load();
+        v.play().catch(function () {});
+      };
+      if ("requestIdleCallback" in window) requestIdleCallback(lancer, { timeout: 2000 });
+      else setTimeout(lancer, 300);
+    });
+  </script>
 
   <!-- Enregistrement du service worker (mode hors-ligne + chargement instantané) -->
   <script>
