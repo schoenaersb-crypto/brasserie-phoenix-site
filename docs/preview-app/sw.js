@@ -18,13 +18,13 @@
    anciens caches sont supprimés automatiquement à l'activation.
    ============================================================ */
 
-var CACHE_VERSION = "phoenix-test-v1";
+var CACHE_VERSION = "phoenix-test-v2";
 
 var COQUILLE = [
   "./",
   "./index.html",
   "./preview-manifest.webmanifest",
-  "../assets/css/styles.css",
+  "./styles.css",
   "../assets/js/i18n.js",
   "../assets/js/menu.js",
   "../assets/js/sections.js",
