@@ -12,13 +12,14 @@
     "tiktok": "https://www.tiktok.com/@restaurantphoenix"
   },
   "horaires": {
-    "note": { "fr": "Salle : jeudi à lundi · Chiringuito : 7j/7", "nl": "Zaal: donderdag t/m maandag · Chiringuito: 7/7", "es": "Sala: de jueves a lunes · Chiringuito: todos los días", "en": "Dining room: Thursday to Monday · Chiringuito: 7 days a week" },
+    "note": { "fr": "Salle : jeudi à mardi (soirée spéciale DJ Kavari le mardi) · Chiringuito : 7j/7", "nl": "Zaal: donderdag t/m dinsdag (speciale avond met DJ Kavari op dinsdag) · Chiringuito: 7/7", "es": "Sala: de jueves a martes (velada especial con DJ Kavari los martes) · Chiringuito: todos los días", "en": "Dining room: Thursday to Tuesday (special DJ Kavari night on Tuesdays) · Chiringuito: 7 days a week" },
     "blocs": [
       {
         "titre": { "fr": "Brasserie (bar & salle)", "nl": "Brasserie (bar & zaal)", "es": "Brasserie (bar y sala)", "en": "Brasserie (bar & dining room)" },
         "lignes": [
           { "jours": { "fr": "Jeudi – Lundi", "nl": "Donderdag – Maandag", "es": "Jueves – Lunes", "en": "Thursday – Monday" }, "heures": "11:00 – 00:00" },
-          { "jours": { "fr": "Mardi & Mercredi", "nl": "Dinsdag & Woensdag", "es": "Martes y Miércoles", "en": "Tuesday & Wednesday" }, "heures": { "fr": "Fermé", "nl": "Gesloten", "es": "Cerrado", "en": "Closed" } }
+          { "jours": { "fr": "Mardi soir · spécial DJ Kavari", "nl": "Dinsdagavond · special met DJ Kavari", "es": "Martes noche · especial con DJ Kavari", "en": "Tuesday evening · special with DJ Kavari" }, "heures": "18:00 – 00:00" },
+          { "jours": { "fr": "Mercredi", "nl": "Woensdag", "es": "Miércoles", "en": "Wednesday" }, "heures": { "fr": "Fermé", "nl": "Gesloten", "es": "Cerrado", "en": "Closed" } }
         ]
       },
       {
