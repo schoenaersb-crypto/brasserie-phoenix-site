@@ -28,15 +28,19 @@
   /* ============================================================
      HORAIRES DE CUISINE — créneaux de réservation
      ------------------------------------------------------------
-     La salle est ouverte du jeudi au lundi ; la CUISINE sert
+     La salle est ouverte du jeudi au mardi ; la CUISINE sert
      déjeuner 12h00–15h00 et dîner 18h00–22h00. On propose donc des
      créneaux (dernière prise de commande ~30 min avant la fermeture
-     de la cuisine), et on bloque mardi et mercredi (fermeture salle).
+     de la cuisine), et on bloque seulement le mercredi (fermeture salle).
+     Le mardi soir est une soirée spéciale avec DJ Kavari : carte et
+     menus classiques restent disponibles, service en soirée uniquement
+     (pas de déjeuner), avec des créneaux étendus jusqu'à minuit.
      ============================================================ */
-  var JOURS_FERMES = [2, 3]; // 0=dimanche … 2=mardi, 3=mercredi
+  var JOURS_FERMES = [3]; // 0=dimanche … 3=mercredi
   var SERVICES = {
     dejeuner: ["12:00", "12:30", "13:00", "13:30", "14:00", "14:30"],
-    diner:    ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"]
+    diner:    ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30"],
+    diner_mardi: ["18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"]
   };
 
   var infos = null;
@@ -84,19 +88,24 @@
     else { box.hidden = true; }
   }
 
-  /* Remplit le sélecteur de service (déjeuner / dîner) */
+  /* Remplit le sélecteur de service (déjeuner / dîner, ou soirée spéciale le mardi) */
   function remplirServices() {
     var sel = document.getElementById("r-service");
     if (!sel) return;
     var courant = sel.value;
+    var dateInput = document.getElementById("r-date");
+    var estMardi = dateInput && dateInput.value && jourSemaine(dateInput.value) === 2;
     sel.innerHTML = "";
-    [["dejeuner", "form.service_dejeuner"], ["diner", "form.service_diner"]].forEach(function (s) {
+    var options = estMardi
+      ? [["diner_mardi", "form.service_diner_mardi"]]
+      : [["dejeuner", "form.service_dejeuner"], ["diner", "form.service_diner"]];
+    options.forEach(function (s) {
       var o = document.createElement("option");
       o.value = s[0];
       o.textContent = t(s[1]) || s[0];
       sel.appendChild(o);
     });
-    if (courant) sel.value = courant;
+    if (courant && options.some(function (s) { return s[0] === courant; })) sel.value = courant;
     remplirCreneaux();
   }
 
@@ -174,10 +183,12 @@
         String(d.getMonth() + 1).padStart(2, "0") + "-" +
         String(d.getDate()).padStart(2, "0");
       dateInput.min = iso;
-      // avertir immédiatement si l'utilisateur choisit un jour de fermeture
+      // avertir immédiatement si l'utilisateur choisit un jour de fermeture,
+      // et basculer le service sur la soirée spéciale DJ Kavari si mardi
       dateInput.addEventListener("change", function () {
         if (estJourFerme(dateInput.value)) afficherErreur(true, "form.ferme_jour");
         else afficherErreur(false);
+        remplirServices();
       });
     }
 
