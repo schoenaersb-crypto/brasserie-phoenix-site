@@ -1,7 +1,11 @@
 {
   "_commentaire": "Annonces ponctuelles (événement, fermeture, promo). Mettre 'actif': false pour masquer le bandeau. Chaque annonce a un 'ton' : info (cuivre), fete (feu), alerte (marine).",
-  "actif": false,
+  "actif": true,
   "annonces": [
+    {
+      "ton": "fete",
+      "texte": { "fr": "Tous les mardis soir : soirée spéciale avec DJ Kavari — carte et menus classiques disponibles 🎶", "nl": "Elke dinsdagavond: speciale avond met DJ Kavari — volledige kaart en menu's beschikbaar 🎶", "es": "Todos los martes por la noche: velada especial con DJ Kavari — carta y menús clásicos disponibles 🎶", "en": "Every Tuesday evening: special night with DJ Kavari — full menu and classic dishes available 🎶" }
+    },
     {
       "ton": "fete",
       "texte": { "fr": "Terrasse chiringuito ouverte tout l'été, face à la mer 🌅", "nl": "Chiringuito-terras de hele zomer open, met zicht op zee 🌅", "es": "Terraza chiringuito abierta todo el verano, frente al mar 🌅", "en": "Chiringuito terrace open all summer, facing the sea 🌅" }
