@@ -137,6 +137,18 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .carte { display: grid; gap: 40px; }
 .cat-titre { font-size: 1.9rem; color: var(--marine); display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .cat-titre::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cuivre); flex: none; }
+/* icone de categorie — un trait fin par famille de plats (repli : petit point si categorie inconnue) */
+.cat-bloc[data-cat] .cat-titre::before {
+  width: 26px; height: 26px; border-radius: 0;
+  background: var(--cat-icone, url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%225%22%20fill%3D%22%23B98D55%22/%3E%3C/svg%3E")) center / contain no-repeat;
+}
+.cat-bloc[data-cat="entrees"]  { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M20%204C10%204%204%2010%204%2020c9%200%2015-6%2015-16%200%200-8%201-11%208%22/%3E%3Cpath%20d%3D%22M9%2019c2-3%204-6%2010-14%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="salades"]  { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3.5%2011a8.5%206%200%200017%200z%22/%3E%3Cpath%20d%3D%22M2%2011h20%22/%3E%3Cpath%20d%3D%22M9%208.5l1%202M13%207.8l-.5%202.2M16%208.8l-1.2%201.8%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="plats"]    { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%203v6M11%203v6M14%203v6M8%209c0%202.6%201.3%203.6%203%203.6s3-1%203-3.6M11%2012.6V21%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="viandes"]  { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.5%202.3c.6%202-1.6%203.3-1.9%205.4-.2%201.6.8%202.6%202%202.6%201.5%200%202.2-1.2%202-2.4%201.6%201.3%202.4%203%202.1%205-.4%202.7-2.7%204.6-5.2%204.4-2.8-.2-5-2.5-4.9-5.4.1-3.7%203.3-6%205.9-9.6z%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="pates"]    { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%208c2-2%204-2%206%200s4%202%206%200%204-2%206%200%22/%3E%3Cpath%20d%3D%22M3%2014c2-2%204-2%206%200s4%202%206%200%204-2%206%200%22/%3E%3Cpath%20d%3D%22M3%2020c2-2%204-2%206%200s4%202%206%200%204-2%206%200%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="enfants"]  { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12.00%2C2.50%20L14.29%2C8.84%20L21.04%2C9.06%20L15.71%2C13.21%20L17.58%2C19.69%20L12.00%2C15.90%20L6.42%2C19.69%20L8.29%2C13.21%20L2.96%2C9.06%20L9.71%2C8.84%20Z%22/%3E%3C/svg%3E"); }
+.cat-bloc[data-cat="desserts"] { --cat-icone: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23B98D55%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2020L12%204l8%2016z%22/%3E%3Cpath%20d%3D%22M8%2012h8%22/%3E%3Cpath%20d%3D%22M6%2016h12%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%222.3%22%20r%3D%221.1%22%20fill%3D%22%23B98D55%22%20stroke%3D%22none%22/%3E%3C/svg%3E"); }
 .cat-note { color: var(--texte-doux); font-style: italic; font-size: 0.92rem; margin-bottom: 18px; }
 
 /* squelette de catégorie (pendant le chargement à la demande) */
@@ -698,4 +710,53 @@ body.has-cursor, body.has-cursor a, body.has-cursor .btn, body.has-cursor .gal-i
   .stats { grid-template-columns: 1fr; gap: 34px; }
   .stat + .stat::before { display: none; }
 }
+
+/* ============================================================
+   ===============  PLATS SIGNATURE — MOMENT SOMBRE  ===========
+   Rupture immersive dans le défilement crème du site : le même
+   dégradé nuit que le hero, pour un instant "bar chic" au milieu
+   de la page — cartes translucides, filet or, sans toucher au
+   reste de la charte (crème/marine/cuivre) ailleurs sur le site.
+   ============================================================ */
+.section-signature {
+  background:
+    radial-gradient(120% 60% at 50% 0%, #1d4a63 0%, transparent 60%),
+    linear-gradient(160deg, #16364A 0%, #0f2634 55%, #0b1d28 100%);
+  color: var(--creme);
+  position: relative;
+  overflow: hidden;
+}
+/* même braise discrète que le hero, très atténuée */
+.section-signature::before {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 35%;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(226,112,58,0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+.section-signature .section-head h2,
+.section-signature .sur-titre { color: var(--creme); }
+.section-signature .section-head h2::after { background: var(--or); }
+.section-signature .section-intro { color: #c7d2d9; }
+
+.section-signature .sig-card {
+  background: rgba(246, 240, 228, 0.05);
+  border: 1px solid rgba(212, 168, 67, 0.28);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+}
+.section-signature .sig-card:hover {
+  border-color: rgba(212, 168, 67, 0.55);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+.section-signature .sig-nom { color: var(--creme); }
+.section-signature .sig-prix { color: var(--or); }
+.section-signature .sig-prix.sig-prix-jour { color: var(--cuivre-clair); }
+.section-signature .sig-desc { color: #b9c4cb; }
+
+.section-signature .btn-ghost { color: var(--creme); border-color: rgba(246, 240, 228, 0.55); }
+.section-signature .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-signature::before { animation: none; }
+}
+
 
