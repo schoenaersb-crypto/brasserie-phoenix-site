@@ -33,8 +33,8 @@
      créneaux (dernière prise de commande ~30 min avant la fermeture
      de la cuisine), et on bloque seulement le mercredi (fermeture salle).
      Le mardi soir est une soirée spéciale avec DJ Kavari : carte et
-     menus classiques restent disponibles, service en soirée uniquement
-     (pas de déjeuner), avec des créneaux étendus jusqu'à minuit.
+     menus classiques restent disponibles, déjeuner et dîner servis
+     comme les autres jours, avec des créneaux du soir étendus jusqu'à minuit.
      ============================================================ */
   var JOURS_FERMES = [3]; // 0=dimanche … 3=mercredi
   var SERVICES = {
@@ -97,7 +97,7 @@
     var estMardi = dateInput && dateInput.value && jourSemaine(dateInput.value) === 2;
     sel.innerHTML = "";
     var options = estMardi
-      ? [["diner_mardi", "form.service_diner_mardi"]]
+      ? [["dejeuner", "form.service_dejeuner"], ["diner_mardi", "form.service_diner_mardi"]]
       : [["dejeuner", "form.service_dejeuner"], ["diner", "form.service_diner"]];
     options.forEach(function (s) {
       var o = document.createElement("option");
