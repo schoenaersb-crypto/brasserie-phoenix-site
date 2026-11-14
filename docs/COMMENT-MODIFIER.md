@@ -121,3 +121,16 @@ Après chaque modification poussée sur `main`, le site en ligne se met à jour 
 ## Une remarque de sécurité
 Ce site n'a **aucun serveur** et **ne stocke aucune donnée client**. Les réservations
 ouvrent simplement WhatsApp ou l'email avec un message déjà écrit — rien n'est enregistré.
+
+---
+
+## Référencement Google et IA (pages statiques)
+Le site principal s'affiche en JavaScript : Google s'en sort, mais beaucoup de robots d'IA
+(ChatGPT, Claude, Perplexity…) ne lisent que le HTML. Des pages complètes en HTML pur existent
+donc par langue : **`docs/fr/`, `docs/es/`, `docs/en/`, `docs/nl/`**, plus **`docs/llms.txt`**
+(résumé pour les IA) et **`docs/sitemap.xml`**.
+
+Après chaque modification de `docs/data/*.json`, relancer :
+```
+python3 scripts/build_seo.py
+```
