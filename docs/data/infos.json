@@ -5,36 +5,110 @@
   "telephone_affiche": "+34 744 62 29 75",
   "telephone_wa": "34744622975",
   "email": "brasseriephoenixrestaurant@gmail.com",
-  "maps": "https://www.google.com/maps/search/?api=1&query=Brasserie+Phoenix+Av.+Desiderio+Rodr%C3%ADguez+37+Torrevieja",
+  "maps": "https://maps.google.com/maps?cid=755898565959158954",
   "reseaux": {
     "instagram": "https://www.instagram.com/brasseriephoenix",
     "facebook": "https://www.facebook.com/197488840124875",
     "tiktok": "https://www.tiktok.com/@restaurantphoenix"
   },
   "horaires": {
-    "note": { "fr": "Salle : jeudi à mardi, midi et soir (soirée spéciale DJ Kavari le mardi) · Chiringuito : 7j/7", "nl": "Zaal: donderdag t/m dinsdag, 's middags en 's avonds (speciale avond met DJ Kavari op dinsdag) · Chiringuito: 7/7", "es": "Sala: de jueves a martes, mediodía y noche (velada especial con DJ Kavari los martes) · Chiringuito: todos los días", "en": "Dining room: Thursday to Tuesday, lunch and dinner (special DJ Kavari night on Tuesdays) · Chiringuito: 7 days a week" },
+    "note": {
+      "fr": "Salle : jeudi à mardi, midi et soir (soirée spéciale DJ Kavari le mardi) · Chiringuito : 7j/7",
+      "nl": "Zaal: donderdag t/m dinsdag, 's middags en 's avonds (speciale avond met DJ Kavari op dinsdag) · Chiringuito: 7/7",
+      "es": "Sala: de jueves a martes, mediodía y noche (velada especial con DJ Kavari los martes) · Chiringuito: todos los días",
+      "en": "Dining room: Thursday to Tuesday, lunch and dinner (special DJ Kavari night on Tuesdays) · Chiringuito: 7 days a week"
+    },
     "blocs": [
       {
-        "titre": { "fr": "Brasserie (bar & salle)", "nl": "Brasserie (bar & zaal)", "es": "Brasserie (bar y sala)", "en": "Brasserie (bar & dining room)" },
+        "titre": {
+          "fr": "Brasserie (bar & salle)",
+          "nl": "Brasserie (bar & zaal)",
+          "es": "Brasserie (bar y sala)",
+          "en": "Brasserie (bar & dining room)"
+        },
         "lignes": [
-          { "jours": { "fr": "Jeudi – Mardi", "nl": "Donderdag – Dinsdag", "es": "Jueves – Martes", "en": "Thursday – Tuesday" }, "heures": "11:00 – 00:00" },
-          { "jours": { "fr": "Mardi soir · spécial DJ Kavari", "nl": "Dinsdagavond · special met DJ Kavari", "es": "Martes noche · especial con DJ Kavari", "en": "Tuesday evening · special with DJ Kavari" }, "heures": "18:00 – 00:00" },
-          { "jours": { "fr": "Mercredi", "nl": "Woensdag", "es": "Miércoles", "en": "Wednesday" }, "heures": { "fr": "Fermé", "nl": "Gesloten", "es": "Cerrado", "en": "Closed" } }
+          {
+            "jours": {
+              "fr": "Jeudi – Mardi",
+              "nl": "Donderdag – Dinsdag",
+              "es": "Jueves – Martes",
+              "en": "Thursday – Tuesday"
+            },
+            "heures": "11:00 – 00:00"
+          },
+          {
+            "jours": {
+              "fr": "Mardi soir · spécial DJ Kavari",
+              "nl": "Dinsdagavond · special met DJ Kavari",
+              "es": "Martes noche · especial con DJ Kavari",
+              "en": "Tuesday evening · special with DJ Kavari"
+            },
+            "heures": "18:00 – 00:00"
+          },
+          {
+            "jours": {
+              "fr": "Mercredi",
+              "nl": "Woensdag",
+              "es": "Miércoles",
+              "en": "Wednesday"
+            },
+            "heures": {
+              "fr": "Fermé",
+              "nl": "Gesloten",
+              "es": "Cerrado",
+              "en": "Closed"
+            }
+          }
         ]
       },
       {
-        "titre": { "fr": "Cuisine (service des plats)", "nl": "Keuken (gerechten)", "es": "Cocina (servicio de platos)", "en": "Kitchen (food service)" },
+        "titre": {
+          "fr": "Cuisine (service des plats)",
+          "nl": "Keuken (gerechten)",
+          "es": "Cocina (servicio de platos)",
+          "en": "Kitchen (food service)"
+        },
         "lignes": [
-          { "jours": { "fr": "Déjeuner", "nl": "Lunch", "es": "Almuerzo", "en": "Lunch" }, "heures": "12:00 – 15:00" },
-          { "jours": { "fr": "Dîner", "nl": "Diner", "es": "Cena", "en": "Dinner" }, "heures": "18:00 – 22:00" }
+          {
+            "jours": {
+              "fr": "Déjeuner",
+              "nl": "Lunch",
+              "es": "Almuerzo",
+              "en": "Lunch"
+            },
+            "heures": "12:00 – 15:00"
+          },
+          {
+            "jours": {
+              "fr": "Dîner",
+              "nl": "Diner",
+              "es": "Cena",
+              "en": "Dinner"
+            },
+            "heures": "18:00 – 22:00"
+          }
         ]
       },
       {
-        "titre": { "fr": "Chiringuito / terrasse", "nl": "Chiringuito / terras", "es": "Chiringuito / terraza", "en": "Chiringuito / terrace" },
+        "titre": {
+          "fr": "Chiringuito / terrasse",
+          "nl": "Chiringuito / terras",
+          "es": "Chiringuito / terraza",
+          "en": "Chiringuito / terrace"
+        },
         "lignes": [
-          { "jours": { "fr": "7j/7", "nl": "7/7", "es": "Todos los días", "en": "Every day" }, "heures": "11:00 – 01:00" }
+          {
+            "jours": {
+              "fr": "7j/7",
+              "nl": "7/7",
+              "es": "Todos los días",
+              "en": "Every day"
+            },
+            "heures": "11:00 – 01:00"
+          }
         ]
       }
     ]
-  }
+  },
+  "avis_google": "https://search.google.com/local/writereview?placeid=ChIJA21-CjwHYw0Rqgw5pr19fQo"
 }

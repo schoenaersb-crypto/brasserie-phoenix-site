@@ -119,7 +119,7 @@ def jsonld(lg):
         'hasMap': infos['maps'],
         'areaServed': ['Torrevieja', 'Orihuela Costa', 'La Mata', 'Guardamar del Segura', 'Costa Blanca'],
         'amenityFeature': [{'@type': 'LocationFeatureSpecification', 'name': n, 'value': True} for n in ('Sea view', 'Terrace', 'Glass-walled terrace')],
-        'sameAs': list(infos['reseaux'].values()),
+        'sameAs': list(infos['reseaux'].values()) + [infos['maps']],
         'openingHoursSpecification': [
             {'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday'], 'opens': '12:00', 'closes': '15:00'},
             {'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday'], 'opens': '18:00', 'closes': '22:00'}],
@@ -196,6 +196,7 @@ def llms():
         for it in c['items']:
             out.append(f'- {L(it["nom"], "en")} — {it.get("prix") or L(it.get("prix_texte"), "en")}' + (f' — {L(it.get("desc"), "en")}' if L(it.get('desc'), 'en') else ''))
         out.append('')
+    out += ['## Links', '', '- Google Maps: ' + infos['maps'], '- Write a Google review: ' + infos.get('avis_google', '')] + ['- ' + k.capitalize() + ': ' + v for k, v in infos['reseaux'].items()] + ['']
     out += ['## Good to know', ''] + [f'- {q} {a}' for q, a in FAQ['en']] + ['', f'Updated: {datetime.date.today().isoformat()}']
     return '\n'.join(out) + '\n'
 
